@@ -14,6 +14,7 @@ import {
   PaddingTop15,
   OKELink,
   toArray,
+  mediaQuery,
 } from "oolib";
 
 import { firstPageId, formConfig } from "./config";
@@ -23,6 +24,27 @@ import { ProgressBar } from "./comps/ProgressBar";
 import { FrontBackNav } from "./comps/FrontBackNav";
 import { TextDisplayComp } from "./generatedComps/TextDisplayComp";
 import { CourtPage } from "./generatedComps/CourtPage";
+import styled from "styled-components";
+
+const StyledContainer = styled(Container)`
+  background-color: ${colors.white} ;
+  height: 100vh;
+  ${mediaQuery('md')}{
+    background-color: ${colors.greyColor5} ;
+  }
+`
+
+const StyledPageContentsWrapper = styled.div`
+  padding: 4rem 0rem 2rem 0rem; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  width: 100%;
+
+  ${mediaQuery('md')}{
+    padding: 6rem 10rem 16rem 10rem;   
+  }
+`
 
 export const Form = () => {
   const [pageMemory, setPageMemory] = useState({
@@ -70,9 +92,9 @@ export const Form = () => {
   };
 
   return (
-    <Container style={{ backgroundColor: colors.greyColor5, height: "100vh" }}>
+    <StyledContainer>
       <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex' }}>
-        <div style={{ padding: "6rem 10rem 16rem 10rem", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%' }}>
+        <StyledPageContentsWrapper>
           <div>
             <ProgressBar />
             <PaddingBottom30 />
@@ -95,8 +117,8 @@ export const Form = () => {
               pageType: formConfig[pageMemory.activePageId].pageType,
             }}
           />
-        </div>
+        </StyledPageContentsWrapper>
       </Wrapper800>
-    </Container>
+    </StyledContainer>
   );
 };
