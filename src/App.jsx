@@ -1,25 +1,24 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { GlobalStyles, TypoClassesProvider } from "oolib";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyles, RadioList, TypoClassesProvider } from "oolib";
+import "./App.css";
+import { About } from "./pages/About";
+import { Home } from "./pages/Home";
+import { Form } from "./pages/Form";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
       <ThemeProvider theme={{}}>
         <TypoClassesProvider>
           <GlobalStyles />
-          <RadioList
-            label={"Test Radio Button"}
-            options={[
-              { display: "Option 1", value: "option1" },
-              { display: "Option 2", value: "option2" },
-            ]}
-          />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/form" element={<Form />} />
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </BrowserRouter>
         </TypoClassesProvider>
       </ThemeProvider>
     </div>
