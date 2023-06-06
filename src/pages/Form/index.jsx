@@ -15,6 +15,7 @@ import {
   OKELink,
   toArray,
   mediaQuery,
+  Wrapper700,
 } from "oolib";
 
 import { firstPageId, formConfig } from "./config";
@@ -93,7 +94,7 @@ export const Form = () => {
 
   return (
     <StyledContainer>
-      <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex' }}>
+      <Wrapper1000 style={{ backgroundColor: colors.white, height: "100%", display: 'flex' }}  align="unset">
         <StyledPageContentsWrapper>
           <div>
             <ProgressBar />
@@ -118,7 +119,7 @@ export const Form = () => {
             }}
           />
         </StyledPageContentsWrapper>
-      </Wrapper800>
+      </Wrapper1000>
     </StyledContainer>
   );
 };
