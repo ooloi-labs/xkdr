@@ -5,7 +5,8 @@ const { greyColor40, invertRed, lightRed } = colors;
 
 export const StyledHeader = styled.div`
     width: 90%;
-    height: 8rem;
+    max-width: 32rem;
+    height: 10rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 1px solid ${ invertRed };
@@ -16,6 +17,7 @@ export const StyledHeader = styled.div`
 `
 export const StyledInfoBlock = styled.div`
     width: 90%;
+    max-width: 32rem;
     height: 15rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
