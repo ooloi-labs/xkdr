@@ -10,6 +10,10 @@ import {
   OKELink,
   toArray,
   mediaQuery,
+  SANS_7_8,
+  TextInput,
+  ButtonPrimary,
+  Wrapper800
 } from "oolib";
 
 import { firstPageId, formConfig } from "./config";
@@ -22,7 +26,8 @@ import styled from "styled-components";
 
 const StyledContainer = styled(Container)`
   background-color: ${colors.white} ;
-  height: 100vh;
+  min-height: 100vh;
+
   ${mediaQuery('md')}{
     background-color: ${colors.greyColor5} ;
   }
@@ -34,7 +39,7 @@ const StyledPageContentsWrapper = styled.div`
   flex-direction: column; 
   justify-content: space-between; 
   width: 100%;
-
+  min-height: 100vh;
   ${mediaQuery('md')}{
     padding: 6rem 10rem 16rem 10rem;   
   }
@@ -86,9 +91,11 @@ export const Form = () => {
   };
 
   return (
-    <StyledContainer>
-      <Wrapper1000 style={{ backgroundColor: colors.white, height: "100%", display: 'flex' }}  align="unset">
+    <StyledContainer style={{position: 'relative'}}>
+      <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex', position: 'relative' }}>
         <StyledPageContentsWrapper>
+          <div style={{}}>
+          
           <div>
             <ProgressBar />
             <PaddingBottom30 />
@@ -111,8 +118,23 @@ export const Form = () => {
               pageType: formConfig[pageMemory.activePageId].pageType,
             }}
           />
+          </div>
         </StyledPageContentsWrapper>
-      </Wrapper1000>
+      </Wrapper800>
+        {/* <Wrapper1000 style={{backgroundColor: colors.white, position: 'absolute', bottom: '-30rem', alignSelf: 'center'}}>
+          <StyledPageContentsWrapper>
+                    <div style={{marginTop: '10rem'}}>
+                        <form style={{lineHeight: '10rem'}}>
+                            <SANS_7_8>Tell us more about yourself and what you’ve got on your mind</SANS_7_8>
+                            <SANS_3>If you’re interested in learning more please fill out this form</SANS_3>
+                            <TextInput label='Name' placeholder="Your full name here"></TextInput>
+                            <TextInput label='Contact Number' placeholder="Your Mobile number here"></TextInput>
+                            <TextInput label='Your Message here' placeholder="Your message here" ></TextInput>
+                            <ButtonPrimary>Submit</ButtonPrimary>
+                        </form> 
+                    </div>
+            </StyledPageContentsWrapper>      
+        </Wrapper1000> */}
     </StyledContainer>
   );
 };

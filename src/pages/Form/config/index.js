@@ -15,7 +15,7 @@ export const formConfig = {
           linkTo: "thisWebsiteIrrelevantPage",
           linkToProps: {
             showContactForm: true,
-            text: "This website is currently a prototype with data and support for debt recovery related benches and courts in Mumbai and not other jurisdictions. if you’re interested in learning more please fill out this form",
+            text: "This website is currently a prototype with data and support for debt recovery related benches and courts in Mumbai and not other jurisdictions.",
           },
         },
       ],
@@ -53,13 +53,17 @@ export const formConfig = {
           display: "Lower or other Civil Courts",
           value: "lowerOrCivilCourts",
           linkTo: "thisWebsiteIrrelevantPage",
-          linkToProps: { text: "No data available on Lower or other civil courts" },
+          linkToProps: { 
+            header: "Oh No ...",
+            text: "This website is currently a prototype with data and support for debt recovery related benches and courts in Mumbai and not other jurisdictions. " },
         },
         {
           display: "Criminal Court",
           value: "criminalCourt",
           linkTo: "thisWebsiteIrrelevantPage",
-          linkToProps: { text: "No data available on criminal courts" },
+          linkToProps: { 
+            header: "Oh No ...",
+            text: "This website is currently a prototype with data and support for debt recovery related benches and courts in Mumbai and not other jurisdictions. " },
         },
         {
           display: "NCLT",
@@ -123,7 +127,8 @@ export const formConfig = {
           linkTo: "thisWebsiteIrrelevantPage",
           linkToProps: { 
             showContactForm: true,
-            text: "Then what are you doing this website? Please fill out this form so we can understand your query" 
+            header: "what are you doing on this website?",
+            text: "Please fill out this form so we can understand your query" 
             },
         },
       ],
@@ -141,7 +146,12 @@ export const formConfig = {
           display: "Less than 20 L",
           value: "lessThan20L",
           linkTo: "thisWebsiteIrrelevantPage",
-          linkToProps: { text: "for disputes/matters that pertain to amounts less than 20L you can approach lower civil courts. For more information you can see this link: 'project nyaaya'"}
+          linkToProps: { 
+            header: 'Amount owed is below 20 Laks',
+            text: "for disputes/matters that pertain to amounts less than 20L you can approach lower civil courts.'",
+            bottomText: "for more information you can see this link: ",
+            link: {linkText: 'Project Nyayya', url: ''}
+          }
         },
         { display: "Above 20 L", value: "above20L", linkTo: "bankNBFCOrOther" },
       ],
@@ -184,7 +194,8 @@ export const formConfig = {
                     }
                 }
             },
-        ]
+        ],
+      listType: "vertical",  
     }
   },
   natureOfDebtor: {

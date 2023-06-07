@@ -71,7 +71,7 @@ export const courtTypesConfig = {
         content: {
             basedData:{
                 subHeading: 'between 2018 to 2022',
-                heading: 'NCLT : 10,800 cases ',
+                heading: '10,800 cases ',
             },
             averageDisposal: {
                 subHeading: '',
