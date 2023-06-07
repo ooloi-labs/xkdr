@@ -18,6 +18,7 @@ export const TextDisplayComp = ({text, header, showContactForm, bottomText, link
 
     const handleSubmit = () => {
         console.log({formData: formData});
+        setFormData({})
     };
     
     return (
