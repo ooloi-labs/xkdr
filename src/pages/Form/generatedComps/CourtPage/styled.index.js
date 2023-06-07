@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { SANS_2, SANS_3, colors } from 'oolib'
+import { SANS_2, colors } from 'oolib'
 
 const { greyColor40, invertRed, lightRed, greyColor80 } = colors;
 
@@ -20,7 +20,7 @@ export const StyledHeader = styled.div`
 `
 export const StyledInfoBlock = styled.div`
     width: 95%;
-    max-width: 320px;
+    max-width: 32rem;
     height: 15rem;
     margin-top: 1rem;
     margin-bottom: 1rem;

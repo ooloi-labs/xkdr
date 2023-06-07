@@ -5,7 +5,7 @@ import { BlockHeading, StyledHeader, StyledInfoBlock} from "./styled.index"
 export const CourtPage = ({courtType, answers}) => {
 
     const numOfContainers = Math.min(toArray(courtType).length, 3);
-
+    const TitleComp = numOfContainers > 2 ? SERIF_4_5 : SERIF_5_6
     return (
         <>
             <div style={{paddingTop: '2rem'}}>
@@ -16,7 +16,7 @@ export const CourtPage = ({courtType, answers}) => {
                     {toArray(courtType).map((ct, i) => (         
                         <div key={i} style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '1rem'}}>
                             <StyledHeader key={i}>
-                                <SERIF_4_5 semibold>{courtTypesConfig[ct].courtTitle}</SERIF_4_5 >
+                                <TitleComp semibold>{courtTypesConfig[ct].courtTitle}</TitleComp >
                             </StyledHeader>
                         </div>
                     ))}
@@ -30,9 +30,9 @@ export const CourtPage = ({courtType, answers}) => {
                         <div style={{display: "grid", gridTemplateColumns: `repeat(${numOfContainers}, 1fr)`}}>         
                             {toArray(courtType).map((ct, i) => (    
                                 <div key={i} style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '1rem'}}>
-                                    <StyledInfoBlock numOfContainers={numOfContainers}>
+                                    <StyledInfoBlock numOfContainers={numOfContainers} key={i}>
                                         <BlockHeading uppercase semibold>{courtTypesConfig[ct].shortTitle}</BlockHeading>
-                                        <SERIF_5_6 semibold>{courtTypesConfig[ct].content[headerKey]?.heading}</SERIF_5_6>
+                                        <TitleComp semibold>{courtTypesConfig[ct].content[headerKey]?.heading}</TitleComp>
                                         <SANS_3 color={colors.greyColor70}>{courtTypesConfig[ct].content[headerKey]?.subHeading}</SANS_3>
                                     </StyledInfoBlock>
                                 </div>

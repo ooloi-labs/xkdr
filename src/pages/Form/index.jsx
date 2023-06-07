@@ -3,16 +3,12 @@ import {
   RadioList,
   Container,
   colors,
-  Wrapper1000,
   SANS_5_6,
   PaddingBottom30,
   PaddingTop15,
   OKELink,
   toArray,
   mediaQuery,
-  SANS_7_8,
-  TextInput,
-  ButtonPrimary,
   Wrapper800
 } from "oolib";
 
@@ -37,11 +33,11 @@ const StyledPageContentsWrapper = styled.div`
   padding: 4rem 0rem 2rem 0rem; 
   display: flex; 
   flex-direction: column; 
-  justify-content: space-between; 
+  justify-content: space-between;
   width: 100%;
   min-height: 100vh;
   ${mediaQuery('md')}{
-    padding: 6rem 6rem 16rem 6rem;   
+    padding: 6rem 6rem 40rem 6rem;   
   }
 `
 
@@ -65,8 +61,8 @@ export const Form = () => {
     return (
       <div>
         <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-        {toArray(props.label).map(text => (
-            <SANS_5_6 semibold>{text}</SANS_5_6>
+        {toArray(props.label).map((text, index) => (
+            <SANS_5_6 semibold key={index}>{text}</SANS_5_6>
         ))}
         </div>
         <PaddingTop15 />
@@ -94,14 +90,13 @@ export const Form = () => {
     <StyledContainer style={{position: 'relative'}}>
       <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex', position: 'relative' }}>
         <StyledPageContentsWrapper>
-          <div style={{}}>
-          
           <div>
             <ProgressBar />
             <PaddingBottom30 />
             {
                 formConfig[pageMemory.activePageId].pageType === 'endPage'
-                && <>
+                && 
+                <>
                 <SANS_3 semibold><OKELink invertUnderline to='/' icon='CaretLeft'>
                     Back to Homepage
                     </OKELink></SANS_3>
@@ -118,23 +113,8 @@ export const Form = () => {
               pageType: formConfig[pageMemory.activePageId].pageType,
             }}
           />
-          </div>
         </StyledPageContentsWrapper>
       </Wrapper800>
-        {/* <Wrapper1000 style={{backgroundColor: colors.white, position: 'absolute', bottom: '-30rem', alignSelf: 'center'}}>
-          <StyledPageContentsWrapper>
-                    <div style={{marginTop: '10rem'}}>
-                        <form style={{lineHeight: '10rem'}}>
-                            <SANS_7_8>Tell us more about yourself and what you’ve got on your mind</SANS_7_8>
-                            <SANS_3>If you’re interested in learning more please fill out this form</SANS_3>
-                            <TextInput label='Name' placeholder="Your full name here"></TextInput>
-                            <TextInput label='Contact Number' placeholder="Your Mobile number here"></TextInput>
-                            <TextInput label='Your Message here' placeholder="Your message here" ></TextInput>
-                            <ButtonPrimary>Submit</ButtonPrimary>
-                        </form> 
-                    </div>
-            </StyledPageContentsWrapper>      
-        </Wrapper1000> */}
     </StyledContainer>
   );
 };
