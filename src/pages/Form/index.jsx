@@ -41,7 +41,7 @@ const StyledPageContentsWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   ${mediaQuery('md')}{
-    padding: 6rem 10rem 16rem 10rem;   
+    padding: 6rem 6rem 16rem 6rem;   
   }
 `
 

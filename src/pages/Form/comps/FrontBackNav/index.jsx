@@ -1,4 +1,4 @@
-import { ButtonPrimary, ButtonSecondary, colors } from "oolib"
+import { ButtonPrimary, ButtonSecondary, SANS_2 } from "oolib"
 import styled from "styled-components";
 import { firstPageId } from "../../config";
 
@@ -74,6 +74,7 @@ export const FrontBackNav = ({
               Back
             </ButtonSecondary>
           ) : <div/>}
+        <SANS_2 style={{justifyContent: 'center'}}>lorem ipsum</SANS_2>
         {nextButtonExists && (
             <ButtonPrimary 
                 disabled={!answers[activePageId]}

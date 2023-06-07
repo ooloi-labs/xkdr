@@ -27,14 +27,11 @@ export const StyledInfoBlock = styled.div`
     border: 1px solid ${ greyColor40 };
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     flex-direction: column;
     position: relative;
-    /* text-align: left; */
     border-radius: 1rem;
-    /* padding-top: 4rem; */
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'};
+    padding-right: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'};
     max-height: max-content;
 `
 
