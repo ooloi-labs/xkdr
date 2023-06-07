@@ -8,8 +8,11 @@ const StyledNavContainer = styled.section`
     justify-content: space-between;
     align-items: center;
     margin-top: 5rem;
-`
 
+    
+`
+const StyledPageNumberText = styled(SANS_2)`
+`
 
 export const FrontBackNav = ({
     setPageMemory,
@@ -74,7 +77,9 @@ export const FrontBackNav = ({
               Back
             </ButtonSecondary>
           ) : <div/>}
-        <SANS_2 style={{justifyContent: 'center'}}>lorem ipsum</SANS_2>
+        
+        <StyledPageNumberText style={{alignSelf: 'center'}}>lorem ipsum</StyledPageNumberText> {/* Page number logic */}
+        {!nextButtonExists && <div style={{width: '100px'}}></div>} {/* Hack to keep pagenumber text in center */}
         {nextButtonExists && (
             <ButtonPrimary 
                 disabled={!answers[activePageId]}
