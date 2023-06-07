@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { SANS_2, colors } from 'oolib'
+import { SANS_2, SANS_3, colors } from 'oolib'
 
 const { greyColor40, invertRed, lightRed, greyColor80 } = colors;
 
@@ -7,8 +7,7 @@ export const StyledHeader = styled.div`
     width: 95%;
     max-width: 32rem;
     height: 10rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0rem;
     border: 1px solid ${ invertRed };
     background: ${ lightRed };
     display: flex;
@@ -22,8 +21,8 @@ export const StyledInfoBlock = styled.div`
     width: 95%;
     max-width: 32rem;
     height: 15rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    max-height: max-content;
+    margin: 1rem 0rem;
     border: 1px solid ${ greyColor40 };
     display: flex;
     justify-content: center;
@@ -32,7 +31,6 @@ export const StyledInfoBlock = styled.div`
     border-radius: 1rem;
     padding-left: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'};
     padding-right: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'};
-    max-height: max-content;
 `
 
 export const BlockHeading = styled(SANS_2)`
@@ -43,4 +41,14 @@ export const BlockHeading = styled(SANS_2)`
     padding-right: 2rem;
     background-color: white;
     color: ${greyColor80};
+`
+
+export const StyledContentWrapper = styled.div`
+    display: flex; 
+    justify-content: flex-start; 
+    margin-bottom: 1rem;
+`
+export const StyledInfoTitle = styled(SANS_3)`
+    margin-top: 1rem; 
+    margin-bottom: .5rem;   
 `

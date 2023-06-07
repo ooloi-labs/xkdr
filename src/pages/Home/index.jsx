@@ -2,11 +2,8 @@
 import {
   ButtonPrimary,
   Container,
-  PaddingBottom10,
   PaddingBottom20,
-  RadioList,
   SERIF_6_7,
-  Wrapper1000,
   Wrapper650,
 } from "oolib";
 import { useNavigate } from "react-router-dom";

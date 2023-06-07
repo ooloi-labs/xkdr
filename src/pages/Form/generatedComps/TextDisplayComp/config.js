@@ -1,5 +1,5 @@
 export const formConfig = [
-    {
+    {   
         name: 'name',
         label: 'Name',
         placeholder: 'Your full name here',

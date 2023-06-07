@@ -1,6 +1,6 @@
 import {  SANS_3, SERIF_4_5, SERIF_5_6, colors, toArray } from "oolib"
 import { chequeBounceInfo, courtTypesConfig, courtInfoHeadersConfig } from "./config"
-import { BlockHeading, StyledHeader, StyledInfoBlock} from "./styled.index"
+import { BlockHeading, StyledHeader, StyledInfoBlock, StyledContentWrapper, StyledInfoTitle} from "./styled.index"
 
 export const CourtPage = ({courtType, answers}) => {
 
@@ -14,11 +14,11 @@ export const CourtPage = ({courtType, answers}) => {
             </SANS_3>
                 <div style={{display: "grid", gridTemplateColumns: `repeat(${numOfContainers}, 1fr)`}}>
                     {toArray(courtType).map((ct, i) => (         
-                        <div key={i} style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '1rem'}}>
+                        <StyledContentWrapper key={i}>
                             <StyledHeader key={i}>
                                 <TitleComp semibold>{courtTypesConfig[ct].courtTitle}</TitleComp >
                             </StyledHeader>
-                        </div>
+                        </StyledContentWrapper>
                     ))}
                 </div>
             {
@@ -26,16 +26,16 @@ export const CourtPage = ({courtType, answers}) => {
                     let headerKey = key;
                     return (
                     <>
-                        <SANS_3 key={key} style={{marginTop: '1rem', marginBottom: '.5rem'}}>{value}</SANS_3>
+                        <StyledInfoTitle key={key}>  { value } </StyledInfoTitle>
                         <div style={{display: "grid", gridTemplateColumns: `repeat(${numOfContainers}, 1fr)`}}>         
                             {toArray(courtType).map((ct, i) => (    
-                                <div key={i} style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '1rem'}}>
+                                <StyledContentWrapper key={i}>
                                     <StyledInfoBlock numOfContainers={numOfContainers} key={i}>
                                         <BlockHeading uppercase semibold>{courtTypesConfig[ct].shortTitle}</BlockHeading>
                                         <TitleComp semibold>{courtTypesConfig[ct].content[headerKey]?.heading}</TitleComp>
                                         <SANS_3 color={colors.greyColor70}>{courtTypesConfig[ct].content[headerKey]?.subHeading}</SANS_3>
                                     </StyledInfoBlock>
-                                </div>
+                                </StyledContentWrapper>
                             ))}
                         </div>
                     </>

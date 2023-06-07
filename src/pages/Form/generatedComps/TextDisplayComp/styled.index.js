@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { SANS_3, SANS_4, SANS_5_6, SANS_7_8, SERIF_6_7, colors } from 'oolib'
+import { SANS_4,  SERIF_6_7, colors } from 'oolib'
 
-const { red, lightRed, invertRed,  } = colors
+const { red, lightRed, greyColor40} = colors
 
 export const StyledTextWrapper = styled.div`
     box-sizing: border-box;
@@ -21,4 +21,10 @@ export const StyledHeader = styled(SERIF_6_7)`
 
 export const StyledInfo = styled(SANS_4)`
     color: ${red};
+`
+
+export const StyledFormBlock = styled.div`
+    margin-top: 10rem;
+    border: 1px solid ${greyColor40};
+    padding: 5rem;
 `
