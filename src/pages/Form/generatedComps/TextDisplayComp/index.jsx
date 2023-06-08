@@ -30,7 +30,7 @@ export const TextDisplayComp = ({text, header, showContactForm, bottomText, link
                 </div>
                 <div>
                 <StyledInfo>{bottomText}</StyledInfo>
-                <SANS_3 semibold><OKELink invertUnderline to={`${link?.url}`} color={'red'}>
+                <SANS_3 semibold><OKELink invertUnderline to={`${link?.url}`} color={'greyColor100'}>
                     {link?.linkText}
                     </OKELink></SANS_3>
                 </div>

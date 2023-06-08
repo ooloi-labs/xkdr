@@ -69,19 +69,19 @@ export const formConfig = {
           display: "NCLT",
           value: "NCLT",
           linkTo: "courtPage",
-          linkToProps: { courtType: "NCLT" },
+          linkToProps: { courtType: ["NCLT"] },
         },
         {
           display: "DRT",
           value: "DRT",
           linkTo: "courtPage",
-          linkToProps: { courtType: "DRT" },
+          linkToProps: { courtType: ["DRT"] },
         },
         {
           display: "Bombay High Court",
           value: "bombayHC",
           linkTo: "courtPage",
-          linkToProps: { courtType: "bombayHC" },
+          linkToProps: { courtType: ["bombayHC"] },
         },
       ],
       listType: "vertical",
@@ -148,9 +148,9 @@ export const formConfig = {
           linkTo: "thisWebsiteIrrelevantPage",
           linkToProps: { 
             header: 'Amount owed is below 20 Lakhs',
-            text: "for disputes/matters that pertain to amounts less than 20L you can approach lower civil courts.'",
+            text: "for disputes/matters that pertain to amounts less than 20L you can approach lower civil courts.",
             bottomText: "for more information you can see this link: ",
-            link: {linkText: 'Project Nyayya', url: ''}
+            link: {linkText: 'Project Nyayya', url: 'https://nyaaya.org/'}
           }
         },
         { display: "Above 20 L", value: "above20L", linkTo: "bankNBFCOrOther" },
@@ -189,7 +189,7 @@ export const formConfig = {
                 $decide: {
                     decisionKey: 'bankNBFCOrOther',
                     answersToResultsMap: {
-                        bankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: 'DRT' }},
+                        bankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['DRT'] }},
                         other: { linkTo: 'thisWebsiteIrrelevantPage', linkToProps: { text: 'You can approach the Mumbai bench of the City Civil Court' }}
                     }
                 }
