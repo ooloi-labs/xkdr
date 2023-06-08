@@ -3,11 +3,11 @@
 export const chequeBounceInfo = 'Info about what to do if cheque bounce case'
 
 export const courtInfoHeadersConfig = {
-    basedData: "This is on the basis of the following data",
-    averageDisposal: "Average time for disposal from filing date",
-    fiftyPercent: "50% of the cases take upto",
-    averageHearing: "Average number of hearings until disposal",
-    averageFirstHering: "Average number of days until first hearing from the date of filing"    
+    basedData: "1. This is on the basis of the following data",
+    averageDisposal: "2. Average time for disposal from filing date",
+    fiftyPercent: "3. 50% of the cases take upto",
+    averageHearing: "4. Average number of hearings until disposal",
+    averageFirstHering: "5. Average number of days until first hearing from the date of filing"    
 }
 
 

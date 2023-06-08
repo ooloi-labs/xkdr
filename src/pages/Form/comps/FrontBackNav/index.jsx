@@ -1,4 +1,4 @@
-import { ButtonPrimary, ButtonSecondary, SANS_2 } from "oolib"
+import { ButtonPrimary, ButtonSecondary, SANS_2, colors } from "oolib"
 import styled from "styled-components";
 import { firstPageId } from "../../config";
 
@@ -12,6 +12,7 @@ const StyledNavContainer = styled.section`
     
 `
 const StyledPageNumberText = styled(SANS_2)`
+    color: ${colors.greyColor40}
 `
 
 export const FrontBackNav = ({
@@ -78,7 +79,7 @@ export const FrontBackNav = ({
             </ButtonSecondary>
           ) : <div/>}
         
-        <StyledPageNumberText style={{alignSelf: 'center'}}>lorem ipsum</StyledPageNumberText> {/* Page number logic */}
+        <StyledPageNumberText>lorem ipsum</StyledPageNumberText> {/* Page number logic */}
         {!nextButtonExists && <div style={{width: '100px'}}></div>} {/* Hack to keep pagenumber text in center */}
         {nextButtonExists && (
             <ButtonPrimary 
