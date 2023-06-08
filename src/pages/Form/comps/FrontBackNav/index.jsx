@@ -79,8 +79,6 @@ export const FrontBackNav = ({
             </ButtonSecondary>
           ) : <div/>}
         
-        <StyledPageNumberText>lorem ipsum</StyledPageNumberText> {/* Page number logic */}
-        {!nextButtonExists && <div style={{width: '100px'}}></div>} {/* Hack to keep pagenumber text in center */}
         {nextButtonExists && (
             <ButtonPrimary 
                 disabled={!answers[activePageId]}

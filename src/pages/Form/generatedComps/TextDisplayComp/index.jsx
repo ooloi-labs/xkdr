@@ -25,7 +25,7 @@ export const TextDisplayComp = ({text, header, showContactForm, bottomText, link
         <div>
             <StyledTextWrapper>
                 <div>
-                <StyledHeader bold>{header}</StyledHeader>
+                <StyledHeader semibold>{header}</StyledHeader>
                 <StyledInfo>{text}</StyledInfo>
                 </div>
                 <div>
