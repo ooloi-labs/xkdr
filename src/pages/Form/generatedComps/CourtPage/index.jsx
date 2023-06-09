@@ -1,6 +1,6 @@
 import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SERIF_4_5, SERIF_5_6, colors, toArray } from "oolib"
 import { chequeBounceInfo, courtInfoHeadersConfig, courtTypesConfig, courtTypesConfig2 } from "./config"
-import { getCourtSentence, renderCellData } from "./rednerCellData";
+import { getCourtSentence, renderCellData } from "./utils";
 import { StyledHeader, StyledInfoBlock, StyledContentWrapper} from "./styled.index"
 
     export const CourtPage = ({courtType, answers}) => {
