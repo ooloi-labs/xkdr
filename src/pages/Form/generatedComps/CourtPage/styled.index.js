@@ -33,3 +33,25 @@ export const StyledContentWrapper = styled.div`
     display: flex; 
     justify-content: flex-start; 
 `
+
+
+// Table Commps
+export const StyledTable = styled.table`
+    border-collapse: collapse;
+`
+
+export const StyledTableHead = styled.th`
+    border: 1px solid #FBB7AD;
+    position: sticky;
+    top: 0;
+    padding: 2rem;
+    background: #FEF6F5;
+    height: 10rem;
+`
+
+export const StyledTableData = styled.td`
+    border: 1px solid ${greyColor40};
+    padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'};
+    max-width: 32rem;
+    height: 15rem;
+`
