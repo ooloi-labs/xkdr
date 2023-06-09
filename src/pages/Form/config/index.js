@@ -212,7 +212,7 @@ export const formConfig = {
                     decisionKey: 'bankNBFCOrOther',
                     answersToResultsMap: {
                         bankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['DRT', 'bombayHC'] }},
-                        other: { linkTo: 'courtPage', linkToProps: { courtType: 'bombayHC' }}
+                        other: { linkTo: 'courtPage', linkToProps: { courtType: ['bombayHC'] }}
                     }
                 }
             },

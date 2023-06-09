@@ -1,6 +1,6 @@
 
 
-export const chequeBounceInfo = 'Info about what to do if cheque bounce case'
+export const chequeBounceInfo = 'If Cheque Bounce was "Yes", then additional information that the matter could be pursued in criminal courts and so we provide more info with a link'
 
 export const courtInfoHeadersConfig = {
     basedData: "1. This is on the basis of the following data",
@@ -51,7 +51,7 @@ export const courtTypesConfig2 = {
 
 export const courtTypesConfig = {
     bombayHC: {
-        courtTitle: 'The Bombay HC',
+        courtTitle: 'Bombay HC',
         shortTitle: 'Bombay HC',
         content: {
             basedData:{
