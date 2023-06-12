@@ -1,9 +1,19 @@
-import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SERIF_4_5, SERIF_5_6, colors, toArray } from "oolib"
-import { chequeBounceInfo, courtInfoHeadersConfig, courtTypesConfig, courtTypesConfig2 } from "./config"
+import {  PaddingBottom20, SANS_3,SANS_2, SANS_3_4, SANS_4_5, SERIF_4_5, SERIF_5_6, colors, toArray, TabBarStyle2, OKELink, Accordion } from "oolib"
+import { cardsTitle, chequeBounceInfo, courtInfoHeadersConfig, courtTypesConfig, courtTypesConfig2 } from "./config"
 import { getCourtSentence, renderCellData } from "./utils";
 import { StyledHeader, StyledInfoBlock, StyledContentWrapper} from "./styled.index"
-import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index" 
+import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
+import { useState } from "react";
+import InfoCard from "../../comps/InfoCard/InfoCard";
+
+const tabOptions = [
+    { display: "Summary", value: "summary" },
+    { display: "Data", value: "data" },
+  ];
+
 export const CourtPage = ({courtType, answers}) => {
+
+    const [ activeTab, setActiveTab] = useState("summary")
 
     const numOfContainers = Math.min(toArray(courtType).length, 3);
     const TitleComp = numOfContainers > 2 ? SANS_3 : SANS_4_5
@@ -16,7 +26,7 @@ export const CourtPage = ({courtType, answers}) => {
         }
         return [];
     };
-    
+
     return (
         <>
             <div >
@@ -26,6 +36,14 @@ export const CourtPage = ({courtType, answers}) => {
             <PaddingBottom20 />
             { answers.bouncedCheque?.value === true && <SANS_3_4>{renderCellData(chequeBounceInfo)}</SANS_3_4> }
             <PaddingBottom20/>
+            <TabBarStyle2
+                S
+                value={activeTab}
+                options={tabOptions}
+                onChange={(k, v) => setActiveTab(v)}
+                saveValueAsString
+            />
+            {activeTab === 'data' ?
             <StyledTable>
                 <thead>
                     <tr>
@@ -51,8 +69,17 @@ export const CourtPage = ({courtType, answers}) => {
                         </tr>
                     ))}
                 </tbody>
-            </StyledTable>    
-            </div>
+            </StyledTable>
+            : 
+            <>
+            {Object.keys(cardsTitle).map((key) => (
+                <InfoCard key={key} heading={cardsTitle[key]} info="National Company Law Tribunal is the quickest to dispose cases, averaging at 1 year 8 months. DRT takes the longest.">
+                    <SANS_3_4>Hello</SANS_3_4>
+                </InfoCard> 
+            ))}
+            </>
+            }  
+        </div>
         </>
 )
 }

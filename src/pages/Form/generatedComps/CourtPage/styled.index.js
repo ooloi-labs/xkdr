@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors } from 'oolib'
 
-const { greyColor40, invertRed, lightRed } = colors;
+const { greyColor40, invertRed, lightRed, greyColor15 } = colors;
 
 export const StyledHeader = styled.div`
     width: 100%;

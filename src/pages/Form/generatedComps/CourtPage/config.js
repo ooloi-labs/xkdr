@@ -2,6 +2,14 @@
 
 export const chequeBounceInfo = 'If Cheque Bounce was "Yes", then additional information that the matter could be pursued in criminal courts and so we provide more info with a link'
 
+export const cardsTitle = {
+    averageDisposalTime: "Average time for disposal from filing date",
+    timeTaken: "50% of the cases take between",
+    numOfHearings: "Average Number of hearings until disposal:",
+    freqOfHearings: "Frequency of hearings until disposal:",
+    avgFirstHearing: "Average number of days until first hearing from the date of filing",
+}
+
 export const courtInfoHeadersConfig = {
     basedData: "1. This is on the basis of the following data",
     averageDisposal: "2. Average time for disposal from filing date",
@@ -10,6 +18,43 @@ export const courtInfoHeadersConfig = {
     averageFirstHering: "5. Average number of days until first hearing from the date of filing"    
 }
 
+
+export const courtTypesConfig3 = {
+    bombayHC: {
+        shortTitle: 'Bombay HC',
+        courtTitle: 'The Bombay HC',
+        data: {
+            averageDisposalTime: '"4,800 cases filed" before the Bombay HC between 2018 and 2022',
+            timeTaken: 'Average time for disposal from filing date of Bombay Hight court : "2 years 2 months"',
+            numOfHearings: '50% of the cases take upto "1 year 11 months"',
+            freqOfHearings: 'Average Number of hearings until disposal: "3 with 1 hearing every 6 months"',
+            avgFirstHearing: 'Average number of days until first hearing from the date of filing: "9 months"'
+            },
+        },
+    DRT: {
+        shortTitle: 'DRT',
+        courtTitle: 'Debts Recovery Tribunal',
+        data: {
+            averageDisposalTime: '"4,800 cases filed" before the Bombay HC between 2018 and 2022',
+            timeTaken: 'Average time for disposal from filing date of Bombay Hight court : "2 years 2 months"',
+            numOfHearings: '50% of the cases take upto "1 year 11 months"',
+            freqOfHearings: 'Average Number of hearings until disposal: "3 with 1 hearing every 6 months"',
+            avgFirstHearing: 'Average number of days until first hearing from the date of filing: "9 months"'
+            }
+        },
+    NCLT: {
+        shortTitle: 'NCLT',
+        courtTitle: 'National Company Law Tribunal',
+        data: {
+            averageDisposalTime: '"4,800 cases filed" before the Bombay HC between 2018 and 2022',
+            timeTaken: 'Average time for disposal from filing date of Bombay Hight court : "2 years 2 months"',
+            numOfHearings: '50% of the cases take upto "1 year 11 months"',
+            freqOfHearings: 'Average Number of hearings until disposal: "3 with 1 hearing every 6 months"',
+            avgFirstHearing: 'Average number of days until first hearing from the date of filing: "9 months"'
+            }
+        },
+    }
+   
 
 export const courtTypesConfig2 = {
     bombayHC: {
