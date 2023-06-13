@@ -4,11 +4,11 @@ import { StyledSurveyTableHead, StyledTable, StyledTableData, StyledTableHead } 
 
 export const SurveyTable = () => {
   return (
-    <div style={{width: 'inherit', overflowX: 'scroll'}}>
+    <div style={{ overflowX: 'scroll'}}>
             <StyledTable style={{borderCollapse: 'collapse'}}>
                 <StyledSurveyTableHead>
                     <tr>
-                    <StyledTableHead>
+                    <StyledTableHead style={{position: 'sticky', left: 0, zIndex: 10}}>
 
                     </StyledTableHead>
                     {Object.keys(surveyConfigHeaders).map((header) => (
@@ -23,7 +23,7 @@ export const SurveyTable = () => {
                 <tbody>
                     {Object.keys(surveyConfig).map((key) => (
                     <tr key={key}>
-                        <StyledTableHead>
+                        <StyledTableHead style={{position: 'sticky', left: 0}}>
                             <SANS_3 bold>{key}</SANS_3>
                         </StyledTableHead>
                         {Object.keys(surveyConfigHeaders).map((header) => (

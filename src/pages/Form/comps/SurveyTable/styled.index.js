@@ -14,6 +14,9 @@ export const StyledTableHead = styled.th`
     border: 1px solid ${greyColor15};
     padding: 2rem 1rem;
     text-align: start;
+    background: white;
+    position: sticky;
+    top: 0;
 `
 export const StyledTableData = styled.td`
     border: 1px solid ${greyColor15};
