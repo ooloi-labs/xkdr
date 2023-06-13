@@ -65,11 +65,11 @@ export const courtTypesConfig2 = {
         courtTitle: 'The Bombay HC',
         data: {
                 // basedData: '"4,800 cases filed"',
-                averageDisposal: '"2 years 2 months"',
-                fiftyPercent: '"1 year 11 months"',
-                averageHearing: '"3 hearings"',
-                freqOfHearings: '"1 hearing every 6 months"',
-                averageFirstHering: '"9 months"'
+                averageDisposal: '2 years 2 months',
+                fiftyPercent: '1 year 11 months',
+                averageHearing: '3 hearings',
+                freqOfHearings: '1 hearing every 6 months',
+                averageFirstHering: '9 months'
             },
         },
     DRT: {
@@ -77,11 +77,11 @@ export const courtTypesConfig2 = {
         courtTitle: 'Debts Recovery Tribunal',
         data: {
                 // basedData: '"4,800 cases filed"',
-                averageDisposal:'"2 years 8 months"',
-                fiftyPercent: '"1 year 3 months"',
-                averageHearing: '"3 hearings"',
-                freqOfHearings: '"1 hearing every 6 months"',
-                averageFirstHering: '"1 year 6 months"'
+                averageDisposal:'2 years 8 months',
+                fiftyPercent: '1 year 3 months',
+                averageHearing: '3 hearings',
+                freqOfHearings: '1 hearing every 6 months',
+                averageFirstHering: '1 year 6 months'
             }
         },
     NCLT: {
@@ -89,11 +89,11 @@ export const courtTypesConfig2 = {
         courtTitle: 'National Company Law Tribunal',
         data: {
                 // basedData: '"10,800 cases filed"',
-                averageDisposal: '"1 year 8 months"',
-                fiftyPercent: '"1 year 6 months"',
-                averageHearing:  '"7 hearings"',
-                freqOfHearings: '"1 hearing every 1.5 months"',
-                averageFirstHering:'"1 year 12 days"'
+                averageDisposal: '1 year 8 months',
+                fiftyPercent: '1 year 6 months',
+                averageHearing:  '7 hearings',
+                freqOfHearings: '1 hearing every 1.5 months',
+                averageFirstHering:'1 year 12 days'
             }
         },
     }

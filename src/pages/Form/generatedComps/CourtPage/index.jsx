@@ -1,7 +1,7 @@
-import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, colors, toArray, TabBarStyle2 } from "oolib"
-import { cardsTitle, chequeBounceInfo, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig} from "./config"
+import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, colors, toArray, TabBarStyle2, Tooltip } from "oolib"
+import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig} from "./config"
 import { getCourtSentence, renderCellData } from "./utils";
-import { StyledHeader, StyledInfoBlock, StyledContentWrapper} from "./styled.index"
+import { StyledHeader, StyledInfoBlock, StyledContentWrapper, StyledNCLTBlock, StyledTabbarWrapper} from "./styled.index"
 import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
@@ -53,9 +53,23 @@ export const CourtPage = ({courtType, answers}) => {
                 {getCourtSentence(courtType)} 
             </SANS_3>
             <PaddingBottom20 />
-            { answers.bouncedCheque?.value === true && <SANS_3_4>{renderCellData(chequeBounceInfo)}</SANS_3_4> }
-            <PaddingBottom20/>
-            {toArray(courtType).length > 1 &&  
+            { answers.bouncedCheque?.value === true && 
+                <>
+                <SANS_3_4>If Cheque Bounce was <span style={{fontWeight: 'bold'}}>Yes</span>, then additional information that the matter could be pursued in criminal courts and so we provide more info with a link</SANS_3_4> 
+                <PaddingBottom20/>
+                </>
+            }
+            {toArray(courtType).includes('NCLT') &&
+                <>
+                <StyledNCLTBlock>
+                    <Tooltip presetTarget={"infoIcon"} text={"Add New Article"} position="left"/>
+                    <SANS_3 italic>In case you choose to approach the <span style={{fontWeight: 'bold'}}>NCLT</span>, the proceeding is in the nature of a bankruptcy petition. If your petition is admitted, it will be converted into a collective resolution process.</SANS_3>
+                </StyledNCLTBlock>
+                <PaddingBottom20/>  
+                </>
+            }
+            {toArray(courtType).length > 1 && 
+                <StyledTabbarWrapper> 
                 <TabBarStyle2
                     S
                     value={activeTab}
@@ -63,6 +77,7 @@ export const CourtPage = ({courtType, answers}) => {
                     onChange={(k, v) => setActiveTab(v)}
                     saveValueAsString
                 />
+                </StyledTabbarWrapper>
             }
             {activeTab === 'data' ?
             <StyledTable>
@@ -73,27 +88,27 @@ export const CourtPage = ({courtType, answers}) => {
                                     Metrics
                                 </TitleComp>
                             </StyledTableHead>
-                        {toArray(courtType).map((court) => (
-                            <StyledTableHead key={court}>
-                                <TitleComp color={'#F54C31'} bold>
-                                    {courtTypesConfig2[court].courtTitle}
-                                </TitleComp>
-                            </StyledTableHead>
-                        ))}
+                            {toArray(courtType).map((court) => (
+                                <StyledTableHead key={court}>
+                                    <TitleComp color={'#F54C31'} bold>
+                                        {courtTypesConfig2[court].courtTitle}
+                                    </TitleComp>
+                                </StyledTableHead>
+                            ))}
                     </tr>
                 </thead>
                 <tbody>
                     {Array.from(Array(Math.max(toArray(...courtType).map((court) => getCourtData(court).length)))).map((_, index) => (
                         <tr key={index}>
-                                <StyledTableData>
-                                    <TitleComp color={colors.greyColor80}>
+                                <StyledTableData numOfContainers={numOfContainers}>
+                                    <TitleComp>
                                         {Object.values(courtInfoHeadersConfig)[index]}
                                     </TitleComp>
                                 </StyledTableData>
                             {toArray(courtType).map((court) => (
                                 <StyledTableData key={court} numOfContainers={numOfContainers}>
-                                    <TitleComp color={colors.greyColor80}>
-                                        {renderCellData(getCourtData(court)[index])}
+                                    <TitleComp color={colors.greyColor80} bold>
+                                        {getCourtData(court)[index]}
                                     </TitleComp>
                                 </StyledTableData>
                             ))}

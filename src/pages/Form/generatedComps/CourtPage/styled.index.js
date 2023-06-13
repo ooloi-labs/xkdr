@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { colors } from 'oolib'
 
-const { greyColor40, invertRed, lightRed } = colors;
+const { greyColor40, invertRed, lightRed, greyColor5 } = colors;
 
 export const StyledHeader = styled.div`
     width: 100%;
@@ -55,4 +55,18 @@ export const StyledTableData = styled.td`
     padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'};
     max-width: 32rem;
     height: 15rem;
+`
+//
+export const StyledNCLTBlock = styled.div`
+    display: flex;
+    gap: 1rem;
+    background-color: #FFFAE6;
+    padding: 1rem;
+    align-items: center;
+`
+
+export const StyledTabbarWrapper = styled.div`
+    padding: 0.5rem;
+    background: ${greyColor5};
+    width: max-content;
 `
