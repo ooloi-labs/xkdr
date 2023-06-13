@@ -6,6 +6,15 @@ import { About } from "./pages/About";
 import { Home } from "./pages/Home";
 import { Form } from "./pages/Form";
 
+const theme = {
+  colors: {
+    primaryColor100: "#F54C31",
+    primaryColor40: "#addbff",
+    primaryColor10: "#ebf6ff",
+    primaryColorText: "#F54C31"
+  }
+}
+
 function App() {
   return (
     <div>
