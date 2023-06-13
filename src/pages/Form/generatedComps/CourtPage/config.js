@@ -31,7 +31,7 @@ export const cardInfoConfig = {
         timeTaken:23,
         numOfHearings:3,
         freqOfHearings: {hearing: 1, inMonths: 6},
-        avgFirstHearing:{year: 0, months: 9, days: 0, stringRep: '1 year, 9 months', totalValue: 9 },
+        avgFirstHearing:{year: 0, months: 9, days: 0, stringRep: '9 months', totalValue: 9 },
     },
     DRT: {
         averageDisposalTime:32,
