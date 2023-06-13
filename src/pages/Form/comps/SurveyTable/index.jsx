@@ -4,7 +4,7 @@ import { StyledSurveyTableHead, StyledTable, StyledTableData, StyledTableHead } 
 
 export const SurveyTable = () => {
   return (
-    <>
+    <div style={{width: 'inherit', overflowX: 'scroll'}}>
             <StyledTable style={{borderCollapse: 'collapse'}}>
                 <StyledSurveyTableHead>
                     <tr>
@@ -40,6 +40,6 @@ export const SurveyTable = () => {
                     ))}
                 </tbody>
             </StyledTable>
-    </>
+    </div>
   )
 }
