@@ -64,7 +64,7 @@ export const courtInfoHeadersConfig = {
 export const courtTypesConfig2 = {
     bombayHC: {
         shortTitle: 'Bombay HC',
-        courtTitle: 'The Bombay HC',
+        courtTitle: 'Bombay HC',
         data: {
                 // basedData: '"4,800 cases filed"',
                 averageDisposal: '2 years 2 months',
