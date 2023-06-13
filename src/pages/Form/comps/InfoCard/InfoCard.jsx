@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { HourglassHigh } from '@phosphor-icons/react'
 import { SANS_3, Accordion, OKELink, SANS_3_4} from 'oolib';
-import { StyledCardBodyWrapper, StyledCardContainer, StyledCardHeaderWrapper, StyledCardfFooterWrapper, StyledExpandedCardSection, StyledGhostContainer } from './styled.index'
+import { StyledCardBodyWrapper, StyledCardContainer, StyledCardHeaderWrapper, StyledCardfFooterWrapper, StyledExpandedCardSection } from './styled.index'
 import { generateSentences } from './utils';
 
 const InfoCard = ({heading, info, children}) => {
