@@ -34,16 +34,16 @@ export const cardInfoConfig = {
         avgFirstHearing:{year: 0, months: 9, days: 0},
     },
     DRT: {
-        averageDisposalTime:20,
-        timeTaken:18,
-        numOfHearings:7,
+        averageDisposalTime:32,
+        timeTaken:15,
+        numOfHearings:3,
         freqOfHearings:{hearing: 1, inMonths: 1.5},
         avgFirstHearing: {year: 1, months: 0, days: 12},
     },
     NCLT: {
-        averageDisposalTime:32,
-        timeTaken:15,
-        numOfHearings:3,
+        averageDisposalTime:20,
+        timeTaken:18,
+        numOfHearings:7,
         freqOfHearings:{hearing: 1, inMonths: 6},
         avgFirstHearing:{year: 1, months: 0, days: 0,},
     }

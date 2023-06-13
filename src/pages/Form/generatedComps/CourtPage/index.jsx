@@ -1,4 +1,4 @@
-import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, colors, toArray, TabBarStyle2, Tooltip } from "oolib"
+import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip } from "oolib"
 import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig} from "./config"
 import { getCourtSentence, renderCellData } from "./utils";
 import { StyledHeader, StyledInfoBlock, StyledContentWrapper, StyledNCLTBlock, StyledTabbarWrapper} from "./styled.index"
@@ -49,9 +49,9 @@ export const CourtPage = ({courtType, answers}) => {
     return (
         <>
             <div >
-            <SANS_3 bold>
-                {getCourtSentence(courtType)} 
-            </SANS_3>
+            <SANS_5_6>
+                You can approach the Mumbai bench of <span style={{fontWeight: 'bold'}}>{getCourtSentence(courtType)}</span> 
+            </SANS_5_6>
             <PaddingBottom20 />
             { answers.bouncedCheque?.value === true && 
                 <>
