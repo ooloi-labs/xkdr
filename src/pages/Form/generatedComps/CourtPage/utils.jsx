@@ -24,17 +24,7 @@ export const renderCellData = (text) => {
     result.forEach((part, index) => {
       const partString = part.toString(); // Convert part to a string
       const colonMatch = partString.match(colonRegex);
-      if (colonMatch) {
-        const colonIndex = partString.indexOf(':');
-        const nonHighlightedText = partString.slice(0, colonIndex);
-        const nextLineText = colonMatch[1];
-  
-        finalResult.push(<span key={index}>{nonHighlightedText} : </span>);
-        finalResult.push(<br key={`${index}-br`} />);
-        finalResult.push(<span key={`${index}-nextLineText`}>{nextLineText}</span>);
-      } else {
         finalResult.push(part);
-      }
     });
   
     return finalResult;

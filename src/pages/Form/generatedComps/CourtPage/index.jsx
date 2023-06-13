@@ -1,5 +1,5 @@
-import {  PaddingBottom20, SANS_3,SANS_2, SANS_3_4, SANS_4_5, SERIF_4_5, SERIF_5_6, colors, toArray, TabBarStyle2, OKELink, Accordion } from "oolib"
-import { cardsTitle, chequeBounceInfo, courtInfoHeadersConfig, courtTypesConfig, courtTypesConfig2 } from "./config"
+import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, colors, toArray, TabBarStyle2 } from "oolib"
+import { cardsTitle, chequeBounceInfo, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig} from "./config"
 import { getCourtSentence, renderCellData } from "./utils";
 import { StyledHeader, StyledInfoBlock, StyledContentWrapper} from "./styled.index"
 import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
@@ -27,6 +27,25 @@ export const CourtPage = ({courtType, answers}) => {
         return [];
     };
 
+    const getCourtInfo = () => {
+
+        return Object.keys(cardsTitle).reduce((info, key) => {
+          let aggregatedValue = toArray(courtType).map((court) => {
+            let courtInfo = cardInfoConfig[court];
+            let value = courtInfo[key];
+    
+            return {
+              courtName: court,
+              value,
+            };
+          });
+    
+          return { ...info, [key]: aggregatedValue };
+        }, {});
+    };
+
+    const courtInfo = getCourtInfo();
+
     return (
         <>
             <div >
@@ -36,17 +55,24 @@ export const CourtPage = ({courtType, answers}) => {
             <PaddingBottom20 />
             { answers.bouncedCheque?.value === true && <SANS_3_4>{renderCellData(chequeBounceInfo)}</SANS_3_4> }
             <PaddingBottom20/>
-            <TabBarStyle2
-                S
-                value={activeTab}
-                options={tabOptions}
-                onChange={(k, v) => setActiveTab(v)}
-                saveValueAsString
-            />
+            {toArray(courtType).length > 1 &&  
+                <TabBarStyle2
+                    S
+                    value={activeTab}
+                    options={tabOptions}
+                    onChange={(k, v) => setActiveTab(v)}
+                    saveValueAsString
+                />
+            }
             {activeTab === 'data' ?
             <StyledTable>
                 <thead>
                     <tr>
+                            <StyledTableHead>
+                                <TitleComp color={'#F54C31'} bold>
+                                    Metrics
+                                </TitleComp>
+                            </StyledTableHead>
                         {toArray(courtType).map((court) => (
                             <StyledTableHead key={court}>
                                 <TitleComp color={'#F54C31'} bold>
@@ -59,6 +85,11 @@ export const CourtPage = ({courtType, answers}) => {
                 <tbody>
                     {Array.from(Array(Math.max(toArray(...courtType).map((court) => getCourtData(court).length)))).map((_, index) => (
                         <tr key={index}>
+                                <StyledTableData>
+                                    <TitleComp color={colors.greyColor80}>
+                                        {Object.values(courtInfoHeadersConfig)[index]}
+                                    </TitleComp>
+                                </StyledTableData>
                             {toArray(courtType).map((court) => (
                                 <StyledTableData key={court} numOfContainers={numOfContainers}>
                                     <TitleComp color={colors.greyColor80}>
@@ -73,9 +104,9 @@ export const CourtPage = ({courtType, answers}) => {
             : 
             <>
             {Object.keys(cardsTitle).map((key) => (
-                <InfoCard key={key} heading={cardsTitle[key]} info="National Company Law Tribunal is the quickest to dispose cases, averaging at 1 year 8 months. DRT takes the longest.">
+                <InfoCard key={key} heading={{title:cardsTitle[key].text, key:key}} info={courtInfo[key]}>
                     <SANS_3_4>Hello</SANS_3_4>
-                </InfoCard> 
+                </InfoCard>
             ))}
             </>
             }  

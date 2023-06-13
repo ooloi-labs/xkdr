@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { colors } from 'oolib'
 
-const { greyColor40, invertRed, lightRed, greyColor15 } = colors;
+const { greyColor40, invertRed, lightRed } = colors;
 
 export const StyledHeader = styled.div`
     width: 100%;
@@ -37,6 +37,7 @@ export const StyledContentWrapper = styled.div`
 
 // Table Commps
 export const StyledTable = styled.table`
+    margin-top: 2rem;
     border-collapse: collapse;
 `
 
