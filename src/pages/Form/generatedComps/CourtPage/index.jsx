@@ -53,12 +53,12 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 You can approach the Mumbai bench of <span style={{fontWeight: 'bold'}}>{getCourtSentence(courtType)}</span> 
             </SANS_5_6>
             <PaddingBottom20 />
-            { answers.bouncedCheque?.value === true && 
+            {/* { answers.bouncedCheque?.value === true &&  */}
                 <>
                 <SANS_3_4>If Cheque Bounce was <span style={{fontWeight: 'bold'}}>Yes</span>, then additional information that the matter could be pursued in criminal courts and so we provide more info with a link</SANS_3_4> 
                 <PaddingBottom20/>
                 </>
-            }
+            {/* } */}
             {toArray(courtType).includes('NCLT') &&
                 <>
                 <StyledNCLTBlock>
