@@ -1,4 +1,4 @@
-import { ButtonPrimary, ButtonSecondary, colors } from "oolib"
+import { ButtonPrimary, ButtonSecondary, SANS_2, colors } from "oolib"
 import styled from "styled-components";
 import { firstPageId } from "../../config";
 
@@ -7,8 +7,13 @@ const StyledNavContainer = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
-`
+    margin-top: 5rem;
 
+    
+`
+const StyledPageNumberText = styled(SANS_2)`
+    color: ${colors.greyColor40}
+`
 
 export const FrontBackNav = ({
     setPageMemory,
@@ -73,6 +78,7 @@ export const FrontBackNav = ({
               Back
             </ButtonSecondary>
           ) : <div/>}
+        
         {nextButtonExists && (
             <ButtonPrimary 
                 disabled={!answers[activePageId]}

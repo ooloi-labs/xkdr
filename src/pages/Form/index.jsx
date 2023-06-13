@@ -1,25 +1,19 @@
 import {
   SANS_3,
   RadioList,
-  ButtonPrimary,
   Container,
   colors,
-  Wrapper1000,
-  Wrapper800,
   SANS_5_6,
-  PaddingTop10,
-  PaddingBottom20,
   PaddingBottom30,
-  PaddingTop20,
   PaddingTop15,
   OKELink,
   toArray,
   mediaQuery,
+  Wrapper800
 } from "oolib";
 
 import { firstPageId, formConfig } from "./config";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { ProgressBar } from "./comps/ProgressBar";
 import { FrontBackNav } from "./comps/FrontBackNav";
 import { TextDisplayComp } from "./generatedComps/TextDisplayComp";
@@ -28,7 +22,8 @@ import styled from "styled-components";
 
 const StyledContainer = styled(Container)`
   background-color: ${colors.white} ;
-  height: 100vh;
+  min-height: 100vh;
+
   ${mediaQuery('md')}{
     background-color: ${colors.greyColor5} ;
   }
@@ -38,11 +33,11 @@ const StyledPageContentsWrapper = styled.div`
   padding: 4rem 0rem 2rem 0rem; 
   display: flex; 
   flex-direction: column; 
-  justify-content: space-between; 
+  justify-content: space-between;
   width: 100%;
-
+  min-height: 100vh;
   ${mediaQuery('md')}{
-    padding: 6rem 10rem 16rem 10rem;   
+    padding: 6rem 6rem 40rem 6rem;   
   }
 `
 
@@ -66,8 +61,8 @@ export const Form = () => {
     return (
       <div>
         <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-        {toArray(props.label).map(text => (
-            <SANS_5_6 semibold>{text}</SANS_5_6>
+        {toArray(props.label).map((text, index) => (
+            <SANS_5_6 semibold key={index}>{text}</SANS_5_6>
         ))}
         </div>
         <PaddingTop15 />
@@ -92,15 +87,16 @@ export const Form = () => {
   };
 
   return (
-    <StyledContainer>
-      <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex' }}>
+    <StyledContainer style={{position: 'relative'}}>
+      <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex', position: 'relative' }}>
         <StyledPageContentsWrapper>
           <div>
             <ProgressBar />
             <PaddingBottom30 />
             {
                 formConfig[pageMemory.activePageId].pageType === 'endPage'
-                && <>
+                && 
+                <>
                 <SANS_3 semibold><OKELink invertUnderline to='/' icon='CaretLeft'>
                     Back to Homepage
                     </OKELink></SANS_3>

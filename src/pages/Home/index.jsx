@@ -2,9 +2,7 @@
 import {
   ButtonPrimary,
   Container,
-  PaddingBottom10,
   PaddingBottom20,
-  RadioList,
   SERIF_6_7,
   Wrapper650,
 } from "oolib";

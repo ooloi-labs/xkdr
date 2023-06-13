@@ -15,7 +15,7 @@ export const formConfig = {
           linkTo: "thisWebsiteIrrelevantPage",
           linkToProps: {
             showContactForm: true,
-            text: "This website is currently a prototype with data and support for debt recovery related benches and courts in Mumbai and not other jurisdictions. if you’re interested in learning more please fill out this form",
+            text: "This website is currently a prototype with data and support for debt recovery related benches and courts in Mumbai and not other jurisdictions.",
           },
         },
       ],
@@ -53,31 +53,35 @@ export const formConfig = {
           display: "Lower or other Civil Courts",
           value: "lowerOrCivilCourts",
           linkTo: "thisWebsiteIrrelevantPage",
-          linkToProps: { text: "No data available on Lower or other civil courts" },
+          linkToProps: { 
+            header: "Oh No ...",
+            text: "This website is currently a prototype with data and support for debt recovery related benches and courts in Mumbai and not other jurisdictions. " },
         },
         {
           display: "Criminal Court",
           value: "criminalCourt",
           linkTo: "thisWebsiteIrrelevantPage",
-          linkToProps: { text: "No data available on criminal courts" },
+          linkToProps: { 
+            header: "Oh No ...",
+            text: "This website is currently a prototype with data and support for debt recovery related benches and courts in Mumbai and not other jurisdictions. " },
         },
         {
           display: "NCLT",
           value: "NCLT",
           linkTo: "courtPage",
-          linkToProps: { courtType: "NCLT" },
+          linkToProps: { courtType: ["NCLT"] },
         },
         {
           display: "DRT",
           value: "DRT",
           linkTo: "courtPage",
-          linkToProps: { courtType: "DRT" },
+          linkToProps: { courtType: ["DRT"] },
         },
         {
           display: "Bombay High Court",
           value: "bombayHC",
           linkTo: "courtPage",
-          linkToProps: { courtType: "bombayHC" },
+          linkToProps: { courtType: ["bombayHC"] },
         },
       ],
       listType: "vertical",
@@ -123,7 +127,8 @@ export const formConfig = {
           linkTo: "thisWebsiteIrrelevantPage",
           linkToProps: { 
             showContactForm: true,
-            text: "Then what are you doing this website? Please fill out this form so we can understand your query" 
+            header: "what are you doing on this website?",
+            text: "Please fill out this form so we can understand your query" 
             },
         },
       ],
@@ -141,7 +146,12 @@ export const formConfig = {
           display: "Less than 20 L",
           value: "lessThan20L",
           linkTo: "thisWebsiteIrrelevantPage",
-          linkToProps: { text: "for disputes/matters that pertain to amounts less than 20L you can approach lower civil courts. For more information you can see this link: 'project nyaaya'"}
+          linkToProps: { 
+            header: 'Amount owed is below 20 Lakhs',
+            text: "for disputes/matters that pertain to amounts less than 20L you can approach lower civil courts.",
+            bottomText: "for more information you can see this link: ",
+            link: {linkText: 'Project Nyayya', url: 'https://nyaaya.org/'}
+          }
         },
         { display: "Above 20 L", value: "above20L", linkTo: "bankNBFCOrOther" },
       ],
@@ -179,12 +189,13 @@ export const formConfig = {
                 $decide: {
                     decisionKey: 'bankNBFCOrOther',
                     answersToResultsMap: {
-                        bankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: 'DRT' }},
+                        bankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['DRT'] }},
                         other: { linkTo: 'thisWebsiteIrrelevantPage', linkToProps: { text: 'You can approach the Mumbai bench of the City Civil Court' }}
                     }
                 }
             },
-        ]
+        ],
+      listType: "vertical",  
     }
   },
   natureOfDebtor: {
@@ -201,7 +212,7 @@ export const formConfig = {
                     decisionKey: 'bankNBFCOrOther',
                     answersToResultsMap: {
                         bankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['DRT', 'bombayHC'] }},
-                        other: { linkTo: 'courtPage', linkToProps: { courtType: 'bombayHC' }}
+                        other: { linkTo: 'courtPage', linkToProps: { courtType: ['bombayHC'] }}
                     }
                 }
             },
