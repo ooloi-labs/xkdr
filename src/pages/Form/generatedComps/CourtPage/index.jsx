@@ -119,7 +119,8 @@ export const CourtPage = ({courtType, answers = {}}) => {
             : 
             <>
             {Object.keys(cardsTitle).map((key) => (
-                <InfoCard key={key} heading={{title:cardsTitle[key].text, key:key}} info={courtInfo[key]}>
+
+                <InfoCard key={key} heading={{title:cardsTitle[key].text, key:key}} info={courtInfo[key]} courtType={courtType}>
                     <BarChart
                         id={key}
                         className={key}

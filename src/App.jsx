@@ -7,6 +7,15 @@ import { Home } from "./pages/Home";
 import { Form } from "./pages/Form";
 import { CourtPage } from "./pages/Form/generatedComps/CourtPage";
 
+const theme = {
+  colors: {
+    primaryColor100: "#F54C31",
+    primaryColor40: "#addbff",
+    primaryColor10: "#ebf6ff",
+    primaryColorText: "#F54C31"
+  }
+}
+
 function App() {
   return (
     <div>

@@ -37,15 +37,17 @@ export const cardInfoConfig = {
         averageDisposalTime:32,
         timeTaken:15,
         numOfHearings:3,
-        freqOfHearings:{hearing: 1, inMonths: 1.5},
-        avgFirstHearing: {year: 1, months: 0, days: 12, stringRep: '1 year, 12 days', totalValue: 12.12},
+        freqOfHearings:{hearing: 1, inMonths: 6},
+        avgFirstHearing: {year: 1, months: 6, days: 0, stringRep: '1 year, 6 months', totalValue: 18},
+
     },
     NCLT: {
         averageDisposalTime:20,
         timeTaken:18,
         numOfHearings:7,
-        freqOfHearings:{hearing: 1, inMonths: 6},
+        freqOfHearings:{hearing: 1, inMonths: 1.5},
         avgFirstHearing:{year: 1, months: 0, days: 0, stringRep: '1 year', totalValue: 12},
+
     }
 }
 

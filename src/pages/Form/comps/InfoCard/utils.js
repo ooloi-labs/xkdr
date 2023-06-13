@@ -114,9 +114,10 @@ export const generateSentences = (heading, info) => {
           summarySentence = `${courtNames[fastestFirstHearingCourt]} has the fastest average of ${fastestFirstHearingYear} year and ${fastestFirstHearingDays} days until the first hearing from the date of filing.`;
         } else if (avgFirstHearingSortedInfo.length === 1) {
           const court = avgFirstHearingSortedInfo[0].courtName;
-          const firstHearing = avgFirstHearingSortedInfo[0].value;
-  
-          summarySentence = `On average, the ${courtNames[court]} takes ${firstHearing} months until the first hearing from the date of filing.`;
+          const firstHearingYear = avgFirstHearingSortedInfo[0].value.year;
+          const firstHearingMonths = avgFirstHearingSortedInfo[0].value.months;
+          
+          summarySentence = `On average, the ${courtNames[court]} takes ${firstHearingYear ? firstHearingYear : ''} ${firstHearingYear ? `year` : ''} ${firstHearingMonths ? firstHearingMonths : ''} ${firstHearingMonths ? 'months' : ''} until the first hearing from the date of filing.`;
         }
         break;
   
