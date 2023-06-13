@@ -31,21 +31,23 @@ export const cardInfoConfig = {
         timeTaken:23,
         numOfHearings:3,
         freqOfHearings: {hearing: 1, inMonths: 6},
-        avgFirstHearing:{year: 0, months: 9, days: 0},
+        avgFirstHearing:{year: 0, months: 9, days: 0, stringRep: '1 year, 9 months', totalValue: 9 },
     },
     DRT: {
         averageDisposalTime:32,
         timeTaken:15,
         numOfHearings:3,
         freqOfHearings:{hearing: 1, inMonths: 6},
-        avgFirstHearing: {year: 1, months: 6, days: 0},
+        avgFirstHearing: {year: 1, months: 6, days: 0, stringRep: '1 year, 6 months', totalValue: 18},
+
     },
     NCLT: {
         averageDisposalTime:20,
         timeTaken:18,
         numOfHearings:7,
         freqOfHearings:{hearing: 1, inMonths: 1.5},
-        avgFirstHearing:{year: 1, months: 0, days: 0,},
+        avgFirstHearing:{year: 1, months: 0, days: 0, stringRep: '1 year', totalValue: 12},
+
     }
 }
 

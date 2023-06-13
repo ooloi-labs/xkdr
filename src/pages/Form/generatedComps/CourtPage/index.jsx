@@ -1,4 +1,4 @@
-import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip } from "oolib"
+import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart } from "oolib"
 import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig} from "./config"
 import { getCourtSentence, renderCellData } from "./utils";
 import { StyledHeader, StyledInfoBlock, StyledContentWrapper, StyledNCLTBlock, StyledTabbarWrapper} from "./styled.index"
@@ -11,7 +11,7 @@ const tabOptions = [
     { display: "Data", value: "data" },
   ];
 
-export const CourtPage = ({courtType, answers}) => {
+export const CourtPage = ({courtType, answers = {}}) => {
 
     const [ activeTab, setActiveTab] = useState("summary")
 
@@ -45,7 +45,7 @@ export const CourtPage = ({courtType, answers}) => {
     };
 
     const courtInfo = getCourtInfo();
-
+    // console.log({courtInfo, courtType})
     return (
         <>
             <div >
@@ -119,8 +119,26 @@ export const CourtPage = ({courtType, answers}) => {
             : 
             <>
             {Object.keys(cardsTitle).map((key) => (
+
                 <InfoCard key={key} heading={{title:cardsTitle[key].text, key:key}} info={courtInfo[key]} courtType={courtType}>
-                    <SANS_3_4>Hello</SANS_3_4>
+                    <BarChart
+                        id={key}
+                        className={key}
+                        data={courtInfo[key]}
+                        numValuePath={
+                            key === 'freqOfHearings' 
+                            ? 'value.inMonths' 
+                            : key === 'avgFirstHearing'
+                                ? 'value.totalValue'
+                                : 'value'
+                        }
+                        categoryValuePath={'courtName'}
+                        numberAxisLabel={cardsTitle[key].text}
+                        highlight={'min'}
+                        numLabelPath={key === 'avgFirstHearing'
+                            ? 'value.stringRep'
+                            : undefined}
+                        />
                 </InfoCard>
             ))}
             </>
@@ -130,6 +148,18 @@ export const CourtPage = ({courtType, answers}) => {
 )
 }
 
+{/* <_BarChart
+id='testbarchart'
+className='testbarchart'
+data={[
+  { court: "DRT", avg: 15 },
+  { court: "NCLT", avg: 18 },
+  { court: "Bombay HC", avg: 23 },
+]}
+  numValuePath={'avg'}
+  categoryValuePath={'court'}
+  numberAxisLabel={'Avg. No. of Hearings'}
+  /> */}
     
 
 
