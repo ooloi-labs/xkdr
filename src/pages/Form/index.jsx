@@ -88,7 +88,7 @@ export const Form = () => {
 
   return (
     <StyledContainer style={{position: 'relative'}}>
-      <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex', position: 'relative' }}>
+      <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex', position: 'relative'}}>
         <StyledPageContentsWrapper>
           <div>
             <ProgressBar />

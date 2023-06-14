@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import xkdrLogo from '../../../public/xkdr-logo.svg'
-import { StyledLi, StyledLogo, StyledNav, StyledUl } from './styled.index'
+import { StyledLi, StyledLogo, StyledNav, StyledNavLink, StyledUl } from './styled.index'
 import {  SANS_4_5 } from 'oolib'
  
 const links = [
@@ -12,16 +12,16 @@ const links = [
 export const HeaderMenu = () => {
   return (
     <StyledNav>
-         <Link to="/" style={{textDecoration: 'none', color: 'inherit'}} >
+         <NavLink to="/" style={{textDecoration: 'none', color: 'inherit'}} >
             <StyledLogo src={xkdrLogo}></StyledLogo>
-        </Link>
+        </NavLink>
         
         <StyledUl>
         {links.map(({ path, value }) => (
             <StyledLi key={value}>
-              <Link to={path} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <StyledNavLink to={path}>
                 <SANS_4_5>{value}</SANS_4_5>
-              </Link>
+              </StyledNavLink>
             </StyledLi>
           ))}
         </StyledUl>
