@@ -4,23 +4,23 @@ export const chequeBounceInfo = 'If Cheque Bounce was "Yes", then additional inf
 
 export const cardsTitle = {
     averageDisposalTime: {
-        icon: "",
+        icon: "HourGlassHigh",
         text:"Average time for disposal from filing date" 
     },
     avgFirstHearing: {
-        icon: "",
+        icon: "CalenderX",
         text:"Average number of days until first hearing from the date of filing"
     },
     numOfHearings:{ 
-        icon: "",
+        icon: "WaveCurve",
         text: "Average Number of hearings until disposal:"
     },
     freqOfHearings: {
-        icon: "",
+        icon: "WaveTriangle",
         text: "Frequency of hearings until disposal:",
     },
     timeTaken: {
-        icon: "",
+        icon: "HourGlassHorizontal",
         text: "50% of the cases take between"
     }
 }

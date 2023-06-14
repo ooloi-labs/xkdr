@@ -125,7 +125,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
             activeTab === "summary" ? 
             <>
             {Object.keys(cardsTitle).map((key) => (
-                <InfoCard key={key} heading={{title:cardsTitle[key].text, key:key}} info={courtInfo[key]} courtType={courtType}>
+                <InfoCard key={key} heading={{title:cardsTitle[key].text, key:key}} info={courtInfo[key]} courtType={courtType} cardsTitle={cardsTitle}>
                     <BarChart
                         id={key}
                         className={key}
