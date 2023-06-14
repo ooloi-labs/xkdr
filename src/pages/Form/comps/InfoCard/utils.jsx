@@ -8,7 +8,6 @@ export const generateSentences = (heading, info) => {
       bombayHC: 'Bombay High Court',
     };
 
-    let summarySentence = '';
     let summaryJSXSentence = null;
 
     switch (heading.key) {  
@@ -104,7 +103,6 @@ export const generateSentences = (heading, info) => {
         case 'freqOfHearings':
         // eslint-disable-next-line
         const freqOfHearingsSortedInfo = info.sort((a, b) => a.value.inMonths - b.value.inMonths);
-
         if (freqOfHearingsSortedInfo.length > 1) {
           const highestFreqCourt = freqOfHearingsSortedInfo[0].courtName;
           const highestFreq = freqOfHearingsSortedInfo[0].value.inMonths;

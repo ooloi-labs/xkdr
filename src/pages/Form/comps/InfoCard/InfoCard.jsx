@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SANS_3, Accordion, OKELink, SANS_3_4, PaddingBottom20, toArray} from 'oolib';
+import { SANS_3, Accordion, OKELink, PaddingBottom20, toArray} from 'oolib';
 import { StyledCardBodyWrapper, StyledCardContainer, StyledCardHeaderWrapper, StyledCardfFooterWrapper, StyledExpandedCardSection } from './styled.index'
 import { generateSentences } from './utils';
 import { CalenderX, HourGlassHigh, HourGlassHorizontal, WaveCurve, WaveTriangle } from '../../../../assets/icons/CustomIcons'
