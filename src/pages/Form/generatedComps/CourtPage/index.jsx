@@ -1,7 +1,7 @@
 import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart, OKELink } from "oolib"
 import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig, } from "./config"
-import { getCourtSentence, renderCellData } from "./utils";
-import { StyledHeader, StyledInfoBlock, StyledContentWrapper, StyledNCLTBlock, StyledTabbarWrapper} from "./styled.index"
+import { getCourtSentence } from "./utils";
+import {  StyledNCLTBlock} from "./styled.index"
 import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
@@ -13,8 +13,8 @@ const tabOptions = [
     { display: "People's Experience", value: "survey" },
   ];
 
-export const CourtPage = ({courtType, answers = {}, summary}) => {
-    console.log({summary: summary})
+export const CourtPage = ({courtType, answers = {}}) => {
+
     const [ activeTab, setActiveTab] = useState("summary")
 
     const numOfContainers = Math.min(toArray(courtType).length, 3);
