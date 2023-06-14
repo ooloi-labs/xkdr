@@ -1,14 +1,16 @@
 import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart } from "oolib"
-import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig} from "./config"
+import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig, } from "./config"
 import { getCourtSentence, renderCellData } from "./utils";
 import { StyledHeader, StyledInfoBlock, StyledContentWrapper, StyledNCLTBlock, StyledTabbarWrapper} from "./styled.index"
 import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
+import { SurveyTable } from "../../comps/SurveyTable";
 
 const tabOptions = [
     { display: "Summary", value: "summary" },
     { display: "Data", value: "data" },
+    { display: "People's Experience", value: "survey" },
   ];
 
 export const CourtPage = ({courtType, answers = {}}) => {
@@ -69,7 +71,6 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 </>
             }
             {toArray(courtType).length > 1 && 
-                <StyledTabbarWrapper> 
                 <TabBarStyle2
                     S
                     value={activeTab}
@@ -77,24 +78,23 @@ export const CourtPage = ({courtType, answers = {}}) => {
                     onChange={(k, v) => setActiveTab(v)}
                     saveValueAsString
                 />
-                </StyledTabbarWrapper>
             }
-            {activeTab === 'data' ?
-            <StyledTable>
+            {activeTab === "data" ?
+                <StyledTable>
                 <thead>
                     <tr>
-                            <StyledTableHead>
+                        <StyledTableHead>
+                            <TitleComp color={'#F54C31'} bold>
+                                Metrics
+                            </TitleComp>
+                        </StyledTableHead>
+                        {toArray(courtType).map((court) => (
+                            <StyledTableHead key={court}>
                                 <TitleComp color={'#F54C31'} bold>
-                                    Metrics
+                                    {courtTypesConfig2[court].courtTitle}
                                 </TitleComp>
                             </StyledTableHead>
-                            {toArray(courtType).map((court) => (
-                                <StyledTableHead key={court}>
-                                    <TitleComp color={'#F54C31'} bold>
-                                        {courtTypesConfig2[court].courtTitle}
-                                    </TitleComp>
-                                </StyledTableHead>
-                            ))}
+                        ))}
                     </tr>
                 </thead>
                 <tbody>
@@ -117,9 +117,9 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 </tbody>
             </StyledTable>
             : 
+            activeTab === "summary" ? 
             <>
             {Object.keys(cardsTitle).map((key) => (
-
                 <InfoCard key={key} heading={{title:cardsTitle[key].text, key:key}} info={courtInfo[key]} courtType={courtType}>
                     <BarChart
                         id={key}
@@ -142,6 +142,9 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 </InfoCard>
             ))}
             </>
+            : activeTab === "survey" ?
+                <SurveyTable />
+            : null
             }  
         </div>
         </>

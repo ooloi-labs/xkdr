@@ -30,7 +30,7 @@ function App() {
               <Route path="/previewCourtPage" element={
                 <Container>
                   <Wrapper800>
-                    <div style={{padding: "4rem 0rem 2rem 0rem" }}>
+                    <div style={{padding: "6rem 6rem 40rem 6rem" }}>
                     <CourtPage courtType={['bombayHC', 'DRT', 'NCLT']} />
                   </div>
                 </Wrapper800>
