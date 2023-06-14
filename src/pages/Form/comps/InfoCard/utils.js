@@ -70,13 +70,13 @@ export const generateSentences = (heading, info) => {
 
       case 'numOfHearings':
         // eslint-disable-next-line
-        const numOfHearingsSortedInfo = info.sort((a, b) => b.value - a.value);
+        const numOfHearingsSortedInfo = info.sort((a, b) =>  a.value - b.value);
   
         if (numOfHearingsSortedInfo.length > 1) {
           const highestHearingsCourt = numOfHearingsSortedInfo[0].courtName;
           const highestHearings = numOfHearingsSortedInfo[0].value;
   
-          summarySentence = `${courtNames[highestHearingsCourt]} has the highest average of hearings with ${highestHearings} hearings.`;
+          summarySentence = `${courtNames[highestHearingsCourt]} has the lowest average of hearings with ${highestHearings} hearings.`;
         } else if (numOfHearingsSortedInfo.length === 1) {
           const court = numOfHearingsSortedInfo[0].courtName;
           const hearings = numOfHearingsSortedInfo[0].value;
@@ -110,8 +110,9 @@ export const generateSentences = (heading, info) => {
           const fastestFirstHearingCourt = avgFirstHearingSortedInfo[0].courtName;
           const fastestFirstHearingYear = avgFirstHearingSortedInfo[0].value.year
           const fastestFirstHearingDays = avgFirstHearingSortedInfo[0].value.days
+          const fastestFirstHearingMonths = avgFirstHearingSortedInfo[0].value.months
   
-          summarySentence = `${courtNames[fastestFirstHearingCourt]} has the fastest average of ${fastestFirstHearingYear} year and ${fastestFirstHearingDays} days until the first hearing from the date of filing.`;
+          summarySentence = `${courtNames[fastestFirstHearingCourt]} has the fastest average of ${fastestFirstHearingYear ? fastestFirstHearingYear : ''} ${fastestFirstHearingYear ? `year` : ''} ${fastestFirstHearingMonths} ${fastestFirstHearingMonths ? 'months' : ''} ${ (fastestFirstHearingMonths && fastestFirstHearingDays || fastestFirstHearingYear && fastestFirstHearingDays) ? 'and' : ''} ${fastestFirstHearingDays ? fastestFirstHearingDays : ''} ${fastestFirstHearingDays ? 'days' : ''} until the first hearing from the date of filing.`;
         } else if (avgFirstHearingSortedInfo.length === 1) {
           const court = avgFirstHearingSortedInfo[0].courtName;
           const firstHearingYear = avgFirstHearingSortedInfo[0].value.year;

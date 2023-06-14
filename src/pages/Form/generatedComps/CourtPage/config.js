@@ -7,22 +7,22 @@ export const cardsTitle = {
         icon: "",
         text:"Average time for disposal from filing date" 
     },
-    timeTaken: {
+    avgFirstHearing: {
         icon: "",
-        text: "50% of the cases take between"
+        text:"Average number of days until first hearing from the date of filing"
     },
     numOfHearings:{ 
         icon: "",
         text: "Average Number of hearings until disposal:"
     },
+    timeTaken: {
+        icon: "",
+        text: "50% of the cases take between"
+    },
     freqOfHearings: {
         icon: "",
         text: "Frequency of hearings until disposal:",
-    },
-    avgFirstHearing: {
-        icon: "",
-        text:"Average number of days until first hearing from the date of filing"
-    },
+    }
 }
 
 export const cardInfoConfig = {
@@ -39,7 +39,6 @@ export const cardInfoConfig = {
         numOfHearings:3,
         freqOfHearings:{hearing: 1, inMonths: 6},
         avgFirstHearing: {year: 1, months: 6, days: 0, stringRep: '1 year, 6 months', totalValue: 18},
-
     },
     NCLT: {
         averageDisposalTime:20,

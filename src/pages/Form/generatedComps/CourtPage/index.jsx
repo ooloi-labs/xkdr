@@ -1,4 +1,4 @@
-import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart } from "oolib"
+import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart, OKELink } from "oolib"
 import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig, } from "./config"
 import { getCourtSentence, renderCellData } from "./utils";
 import { StyledHeader, StyledInfoBlock, StyledContentWrapper, StyledNCLTBlock, StyledTabbarWrapper} from "./styled.index"
@@ -57,7 +57,12 @@ export const CourtPage = ({courtType, answers = {}}) => {
             <PaddingBottom20 />
             { answers.bouncedCheque?.value === true && 
                 <>
-                <SANS_3_4>The matter could be pursued in criminal courts and so we provide more info with a link</SANS_3_4> 
+                <SANS_3_4>The matter could be pursued in criminal courts and so we provide more info with a link:</SANS_3_4>
+                <SANS_3 semibold>
+                    <OKELink invertUnderline to={``}>
+                        Click here for more info
+                    </OKELink>
+                </SANS_3> 
                 <PaddingBottom20/>
                 </>
             }
