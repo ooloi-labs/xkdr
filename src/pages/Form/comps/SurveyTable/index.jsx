@@ -26,14 +26,13 @@ export const SurveyTable = () => {
                         <StyledTableHead style={{position: 'sticky', left: 0}}>
                             <SANS_3 bold>{key}</SANS_3>
                         </StyledTableHead>
-                        {Object.keys(surveyConfigHeaders).map((header) => (
-                            key === "total" ? 
+                        {Object.keys(surveyConfigHeaders).map((header) => ( 
                             <StyledTableData key={header}>
-                                <SANS_3>{surveyConfig[key][header]}</SANS_3>
-                            </StyledTableData>
-                            :
-                            <StyledTableData key={header}>
+                                {header === "total" ?
                                 <SANS_3>{surveyConfig[key][header]}%</SANS_3>
+                                :
+                                <SANS_3>{surveyConfig[key][header]}</SANS_3>
+                                }
                             </StyledTableData>
                         ))}
                     </tr>
