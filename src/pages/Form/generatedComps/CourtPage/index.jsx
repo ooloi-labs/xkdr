@@ -57,7 +57,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
             <PaddingBottom20 />
             { answers.bouncedCheque?.value === true && 
                 <>
-                <SANS_3_4>If Cheque Bounce was <span style={{fontWeight: 'bold'}}>Yes</span>, then additional information that the matter could be pursued in criminal courts and so we provide more info with a link</SANS_3_4> 
+                <SANS_3_4>The matter could be pursued in criminal courts and so we provide more info with a link</SANS_3_4> 
                 <PaddingBottom20/>
                 </>
             }
