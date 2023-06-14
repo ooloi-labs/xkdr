@@ -2,14 +2,16 @@ import styled from "styled-components";
 import { colors } from 'oolib'
 import { NavLink } from "react-router-dom";
 
-const { greyColor10, greyColor15} = colors;
+const { greyColor5, greyColor10} = colors;
 
 export const StyledLogo = styled.img`
     height: 4rem;
 `
 
 export const StyledNav = styled.div`
+    height: 6rem;
     display: flex;
+    align-items: center;
     padding: 0rem 10rem;
     justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -28,13 +30,13 @@ export const StyledLi = styled.li`
 
 export const StyledNavLink = styled(NavLink)`
     height: 100%;
-    padding: 1rem 2rem;
+    padding: 2rem;
     text-decoration: none;
     color: inherit;
     &:hover{
-        background: ${greyColor10};
+        background: ${greyColor5};
     }
     &:active{
-        background-color: ${greyColor15};
+        background-color: ${greyColor10};
     }
 `

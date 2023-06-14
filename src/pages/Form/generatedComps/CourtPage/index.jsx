@@ -13,8 +13,8 @@ const tabOptions = [
     { display: "People's Experience", value: "survey" },
   ];
 
-export const CourtPage = ({courtType, answers = {}}) => {
-
+export const CourtPage = ({courtType, answers = {}, summary}) => {
+    console.log({summary: summary})
     const [ activeTab, setActiveTab] = useState("summary")
 
     const numOfContainers = Math.min(toArray(courtType).length, 3);
