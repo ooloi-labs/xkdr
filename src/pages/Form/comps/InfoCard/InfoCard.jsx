@@ -1,22 +1,24 @@
 import { useState } from 'react';
-import { HourglassHigh } from '@phosphor-icons/react'
-
-import { SANS_3, Accordion, OKELink, SANS_3_4, PaddingBottom20, toArray} from 'oolib';
-
+import { SANS_3, Accordion, OKELink, PaddingBottom20, toArray} from 'oolib';
 import { StyledCardBodyWrapper, StyledCardContainer, StyledCardHeaderWrapper, StyledCardfFooterWrapper, StyledExpandedCardSection } from './styled.index'
 import { generateSentences } from './utils';
+import { CalenderX, HourGlassHigh, HourGlassHorizontal, WaveCurve, WaveTriangle } from '../../../../assets/icons/CustomIcons'
 
-const InfoCard = ({heading, info, children, courtType}) => {
+const InfoCard = ({heading, info, children, courtType, cardsTitle}) => {
 
+  const icons = { CalenderX, HourGlassHigh, HourGlassHorizontal, WaveCurve, WaveTriangle}
+  const Icon = icons[cardsTitle[heading.key].icon];
+  
   const [expandCard, setExapndCard] = useState(false)
   return (
     <>
         <StyledCardContainer expandCard={expandCard}>
                     <StyledCardHeaderWrapper>
-                                    <HourglassHigh size={20}/><SANS_3 semibold>{heading.title}</SANS_3>
+                                    <Icon/>
+                                    <SANS_3 semibold>{heading.title}</SANS_3>
                     </StyledCardHeaderWrapper>
                     <StyledCardBodyWrapper>
-                                    <SANS_3_4 semibold>{generateSentences(heading, info)}</SANS_3_4>
+                                      {generateSentences(heading, info)}
                     </StyledCardBodyWrapper>
                     <Accordion
                         expand={expandCard}
