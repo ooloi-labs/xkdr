@@ -15,13 +15,13 @@ export const cardsTitle = {
         icon: "",
         text: "Average Number of hearings until disposal:"
     },
-    timeTaken: {
-        icon: "",
-        text: "50% of the cases take between"
-    },
     freqOfHearings: {
         icon: "",
         text: "Frequency of hearings until disposal:",
+    },
+    timeTaken: {
+        icon: "",
+        text: "50% of the cases take between"
     }
 }
 
