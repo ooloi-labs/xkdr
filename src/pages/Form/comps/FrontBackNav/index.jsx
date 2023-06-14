@@ -49,10 +49,22 @@ export const FrontBackNav = ({
         if(answers[activePageId].$decide){
             const { decisionKey, answersToResultsMap }= answers[activePageId].$decide
             const ansAgainstDecisionKey = answers[decisionKey];
-            const {linkTo, linkToProps} = answersToResultsMap[ansAgainstDecisionKey.value]
-            return ({
-                activePageId: linkTo, activePageProps: linkToProps
-            })
+            
+            const drilldown = (answersToResultsMapData, answers) => {
+                const {linkTo, linkToProps, $decide} = answersToResultsMapData;
+                if($decide){
+                    const {answersToResultsMap, decisionKey} = $decide;
+                    const ansAgainstDecisionKey = answers[decisionKey];
+                    return drilldown(answersToResultsMap[ansAgainstDecisionKey.value], answers)
+                }else{
+                    return ({
+                        activePageId: linkTo, activePageProps: linkToProps
+                    })
+                }    
+            }
+
+            return drilldown(answersToResultsMap[ansAgainstDecisionKey.value], answers)
+            
         }else{
             return ({
                 activePageId: answers[activePageId].linkTo, activePageProps: answers[activePageId].linkToProps

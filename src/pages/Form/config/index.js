@@ -1,27 +1,7 @@
-export const firstPageId = "jurisForDispute";
+export const firstPageId = "creditorOrDebtor";
 
 export const formConfig = {
-  jurisForDispute: {
-    id: "jurisForDispute",
-    pageType: "questionPage",
-    comp: "RadioList",
-    props: {
-      label: "1. Is Mumbai the jurisdiction for your dispute?",
-      options: [
-        { display: "Yes", value: true, linkTo: "creditorOrDebtor" },
-        {
-          display: "No",
-          value: false,
-          linkTo: "thisWebsiteIrrelevantPage",
-          linkToProps: {
-            showContactForm: true,
-            text: "This website is currently a prototype with data and support for debt recovery related benches and courts in Mumbai and not other jurisdictions.",
-          },
-        },
-      ],
-      listType: "vertical",
-    },
-  },
+  
   creditorOrDebtor: {
     id: "creditorOrDebtor",
     pageType: "questionPage",
@@ -30,9 +10,14 @@ export const formConfig = {
       label: "Are you the creditor or debtor",
       options: [
         {
-          display: "Creditor",
-          value: "creditor",
-          linkTo: "helpRecoveringDebt",
+          display: "Creditor (Bank/NBFC)",
+          value: "creditorBankNBFC",
+          linkTo: "amountThreshold",
+        },
+        {
+          display: "Creditor (Other)",
+          value: "creditorOther",
+          linkTo: "amountThreshold",
         },
         { display: "Debtor", value: "debtor", linkTo: "whichForum" },
       ],
@@ -87,60 +72,12 @@ export const formConfig = {
       listType: "vertical",
     },
   },
-  helpRecoveringDebt: {
-    id: "helpRecoveringDebt",
+  amountThreshold: {
+    id: "amountThreshold",
     pageType: "questionPage",
     comp: "RadioList",
     props: {
-      label: "Do you need help recovering a debt?",
-      options: [
-        { display: "Yes", value: true, linkTo: "bouncedCheque" },
-        { display: "No", value: false, linkTo: "suedBySomeone" },
-      ],
-      listType: "vertical",
-    },
-  },
-  bouncedCheque: {
-    id: "bouncedCheque",
-    pageType: "questionPage",
-    comp: "RadioList",
-    props: {
-      label: "Does the default involve a bounced cheque??",
-      options: [
-        { display: "Yes", value: true, linkTo: "amountThreshold20L" },
-        { display: "No", value: false, linkTo: "amountThreshold20L" },
-      ],
-      listType: "vertical",
-    },
-  },
-  suedBySomeone: {
-    id: "suedBySomeone",
-    pageType: "questionPage",
-    comp: "RadioList",
-    props: {
-      label: "Have you been sued by someone who you owe money?",
-      options: [
-        { display: "Yes", value: true, linkTo: "whichForum" },
-        {
-          display: "No",
-          value: false,
-          linkTo: "thisWebsiteIrrelevantPage",
-          linkToProps: { 
-            showContactForm: true,
-            header: "what are you doing on this website?",
-            text: "Please fill out this form so we can understand your query" 
-            },
-        },
-      ],
-      listType: "vertical",
-    },
-  },
-  amountThreshold20L: {
-    id: "amountThreshold20L",
-    pageType: "questionPage",
-    comp: "RadioList",
-    props: {
-      label: "Is the amount owed to you above or below 20L?",
+      label: "Assuming that you need help recovering a debt, please select the amount that is owed to you?",
       options: [
         {
           display: "Less than 20 L",
@@ -153,50 +90,21 @@ export const formConfig = {
             link: {linkText: 'Project Nyayya', url: 'https://nyaaya.org/'}
           }
         },
-        { display: "Above 20 L", value: "above20L", linkTo: "bankNBFCOrOther" },
+        { 
+          display: "Between 20 L and 1 Cr", 
+          value: "TwLToOneCr", 
+          $decide: {
+            decisionKey: 'creditorOrDebtor',
+            answersToResultsMap: {
+                creditorBankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['DRT'] }},
+                creditorOther: { linkTo: 'thisWebsiteIrrelevantPage', linkToProps: { text: 'You can approach the Mumbai bench of the City Civil Court' }}
+            }
+          } 
+        },
+        { display: "Above 1 Cr", value: "above1Cr", linkTo: "natureOfDebtor" },
       ],
       listType: "vertical",
     },
-  },
-  bankNBFCOrOther: {
-    id: "bankNBFCOrOther",
-    pageType: "questionPage",
-    comp: "RadioList",
-    props: {
-      label: "Are you a Bank/NBFC or Other",
-      options: [
-        {
-          display: "Bank/NBFC",
-          value: "bankNBFC",
-          linkTo: "amountThreshold1Cr",
-        },
-        { display: "Other", value: "other", linkTo: "amountThreshold1Cr" },
-      ],
-      listType: "vertical",
-    }
-  },
-  amountThreshold1Cr: {
-    id: 'amountThreshold1Cr',
-    pageType: 'questionPage',
-    comp: 'RadioList',
-    props: {
-        label: 'Is the debt amount above 1 Cr',
-        options: [
-            {display: 'Yes', value: true, linkTo: 'natureOfDebtor'},
-            {
-                display: 'No', 
-                value: false, 
-                $decide: {
-                    decisionKey: 'bankNBFCOrOther',
-                    answersToResultsMap: {
-                        bankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['DRT'] }},
-                        other: { linkTo: 'thisWebsiteIrrelevantPage', linkToProps: { text: 'You can approach the Mumbai bench of the City Civil Court' }}
-                    }
-                }
-            },
-        ],
-      listType: "vertical",  
-    }
   },
   natureOfDebtor: {
     id: 'natureOfDebtor',
@@ -209,10 +117,10 @@ export const formConfig = {
                 display: 'Individual/Other', 
                 value: 'individual', 
                 $decide: {
-                    decisionKey: 'bankNBFCOrOther',
+                    decisionKey: 'creditorOrDebtor',
                     answersToResultsMap: {
-                        bankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['DRT', 'bombayHC'] }},
-                        other: { linkTo: 'courtPage', linkToProps: { courtType: ['bombayHC'] }}
+                        creditorBankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['bombayHC', 'DRT'] }}, 
+                        creditorOther: { linkTo: 'courtPage', linkToProps: { courtType: ['bombayHC'] } }
                     }
                 }
             },
@@ -220,10 +128,10 @@ export const formConfig = {
                 display: 'Incorporated Company/LLP', 
                 value: 'incCompany', 
                 $decide: {
-                    decisionKey: 'bankNBFCOrOther',
+                    decisionKey: 'creditorOrDebtor',
                     answersToResultsMap: {
-                        bankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['DRT', 'NCLT', 'bombayHC'] }},
-                        other: { linkTo: 'courtPage', linkToProps: { courtType: ['NCLT', 'bombayHC'] }}
+                      creditorBankNBFC: { linkTo: 'courtPage', linkToProps: { courtType: ['bombayHC', 'DRT', 'NCLT'] }}, 
+                      creditorOther: { linkTo: 'courtPage', linkToProps: { courtType: ['bombayHC', 'NCLT'] } }
                     }
                 }
             },
