@@ -18,7 +18,7 @@ const InfoCard = ({heading, info, children, courtType, cardsTitle}) => {
                                     <SANS_3 semibold>{heading.title}</SANS_3>
                     </StyledCardHeaderWrapper>
                     <StyledCardBodyWrapper>
-                                    <SANS_3_4 semibold>{generateSentences(heading, info)}</SANS_3_4>
+                                      {generateSentences(heading, info)}
                     </StyledCardBodyWrapper>
                     <Accordion
                         expand={expandCard}

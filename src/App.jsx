@@ -1,4 +1,4 @@
-import { Container, GlobalStyles, TypoClassesProvider, Wrapper800 } from "oolib";
+import { Container, GlobalStyles, TypoClassesProvider, Wrapper800,colors  } from "oolib";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import "./App.css";
@@ -30,7 +30,7 @@ function App() {
               <Route path="/form" element={<Form />} />
               <Route path="/about" element={<About />} />
               <Route path="/previewCourtPage" element={
-                <Container style={{background: 'lightgrey'}}>
+                <Container style={{background: colors.greyColor5}}>
                   <Wrapper800>
                     <div style={{padding: "6rem 6rem 40rem 6rem", background: 'white' }}>
                     <CourtPage courtType={['bombayHC', 'DRT', 'NCLT']} />

@@ -41,3 +41,7 @@ export const StyledExpandedCardSection = styled.div`
     height: 30rem;
     padding-left: 3rem;
 `
+
+export const StyledBoldSpan = styled.span`
+    font-weight: bold;
+`
