@@ -7,6 +7,7 @@ import { Home } from "./pages/Home";
 import { Form } from "./pages/Form";
 import { CourtPage } from "./pages/Form/generatedComps/CourtPage";
 import { HeaderMenu } from "./Comps/HeaderMenu";
+import { DataInsights } from "./pages/DataInsights";
 
 const theme = {
   colors: {
@@ -29,6 +30,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/form" element={<Form />} />
               <Route path="/about" element={<About />} />
+              <Route path="/dataInsights" element={<DataInsights />} />
               <Route path="/previewCourtPage" element={
                 <Container style={{background: colors.greyColor5}}>
                   <Wrapper800>

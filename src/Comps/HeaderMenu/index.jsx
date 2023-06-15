@@ -6,7 +6,7 @@ import { SANS_2 } from 'oolib'
 const links = [
   { path: '/about', value: 'About' },
   { path: '/previewCourtPage', value: 'Dashboard' },
-  { path: '/', value: 'How this data was computed' },
+  { path: '/dataInsights', value: 'How this data was computed' },
 ];
 
 export const HeaderMenu = () => {
