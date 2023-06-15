@@ -1,8 +1,13 @@
 import { Wrapper800, colors, SANS_3_4, SANS_4_5, PaddingBottom20, PaddingBottom40} from "oolib"
-import { StyledContainer, StyledPageContentsWrapper, StyledInfoBlock, StyledBoldSpan, StyleUl} from "./styled.index"
+import { StyledContainer, StyledPageContentsWrapper, StyledInfoBlock, StyledBoldSpan, StyleUl, StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
 import { casesData } from "./config"
 export const DataInsights = () => {
   const years = Object.keys(casesData.BHC)
+
+  const calculateTotal = (data) => {
+    return Object.values(data).reduce((acc, value) => acc + value, 0);
+  };
+
   return (
     <StyledContainer>
       <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex', position: 'relative'}}>
@@ -24,26 +29,34 @@ export const DataInsights = () => {
             
             <StyledInfoBlock>
               <SANS_3_4 bold style={{justifySelf: 'center'}}>No. of cases used for the analysis</SANS_3_4>
-              <table>
-      <thead>
-        <tr>
-          <th></th> {/* Empty cell for the top-left corner */}
-          {Object.keys(casesData).map((key) => (
-            <th key={key}>{key}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {years.map((year) => (
-          <tr key={year}>
-            <th>{year}</th>
-            {Object.keys(casesData).map((key) => (
-              <td key={key}>{casesData[key][year]}</td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+              <StyledTable>
+                    <thead>
+                      <tr>
+                        <StyledTableHead><SANS_3_4 bold>Filing year</SANS_3_4></StyledTableHead> {/* Empty cell for the top-left corner */}
+                        {Object.keys(casesData).map((key) => (
+                          <StyledTableHead key={key}><SANS_3_4 bold>{key}</SANS_3_4></StyledTableHead>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {years.map((year) => (
+                        <tr key={year}>
+                          <StyledTableData><SANS_3_4>{year}</SANS_3_4></StyledTableData>
+                          {Object.keys(casesData).map((key) => (
+                            <StyledTableData key={key}><SANS_3_4>{casesData[key][year]}</SANS_3_4></StyledTableData>
+                          ))}
+                        </tr>
+                      ))}
+                      <tr>
+                        <StyledTableData><SANS_3_4 bold>Total</SANS_3_4></StyledTableData>
+                        {Object.keys(casesData).map((key) => (
+                          <StyledTableData key={key}>
+                            <SANS_3_4 bold>{calculateTotal(Object.values(casesData[key]))}</SANS_3_4>
+                          </StyledTableData>
+                        ))}
+                      </tr>
+                    </tbody>
+              </StyledTable>
               <SANS_3_4 underline>
                   For each of these cases, we obtain information on - 
               </SANS_3_4>

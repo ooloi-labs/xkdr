@@ -1,7 +1,7 @@
 import { Container, colors, mediaQuery} from 'oolib'
 import styled from 'styled-components'
 
-const { primaryColor100 } = colors
+const { primaryColor100, greyColor5, greyColor40} = colors
 export const StyledContainer = styled(Container)`
   background-color: ${colors.white} ;
   min-height: 100vh;
@@ -50,4 +50,35 @@ export const StyleUl = styled.ul`
     }
   }
 
+`
+
+
+
+// Table Commps
+export const StyledTable = styled.table`
+    margin-top: 2rem;
+    border-collapse: collapse;
+`
+ 
+export const StyledTableHead = styled.th`
+    border: 1px solid #FBB7AD;
+    position: sticky;
+    top: 6rem;
+    padding: 2rem;
+    background: #FEF6F5;
+    /* height: 10rem; */
+`
+
+export const StyledTableRow = styled.tr`
+  
+  &:nth-child(even) {
+    background-color: ${greyColor5};
+  }
+
+`
+
+export const StyledTableData = styled.td`
+    border: 1px solid ${greyColor40};
+    padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'};
+    max-width: 32rem;
 `
