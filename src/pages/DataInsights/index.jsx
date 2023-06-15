@@ -92,7 +92,7 @@ export const DataInsights = () => {
                       <tr>
                         <StyledTableHead><SANS_3_4 bold>Status</SANS_3_4></StyledTableHead> 
                         {Object.keys(caseStatus).map((key) => (
-                          <StyledTableHead key={key}><SANS_3_4 bold>{key}</SANS_3_4></StyledTableHead>
+                          <StyledTableHead key={key}><SANS_3_4 semibold>{key}</SANS_3_4></StyledTableHead>
                         ))}
                       </tr>
                     </thead>

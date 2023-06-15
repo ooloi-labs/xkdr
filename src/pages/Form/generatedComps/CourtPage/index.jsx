@@ -1,7 +1,7 @@
 import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart, OKELink } from "oolib"
 import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig, } from "./config"
 import { getCourtSentence } from "./utils";
-import {  StyledNCLTBlock} from "./styled.index"
+import {  StyledNCLTBlock, StyledTableRow} from "./styled.index"
 import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
@@ -104,7 +104,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 </thead>
                 <tbody>
                     {Array.from(Array(Math.max(toArray(...courtType).map((court) => getCourtData(court).length)))).map((_, index) => (
-                        <tr key={index}>
+                        <StyledTableRow key={index}>
                                 <StyledTableData numOfContainers={numOfContainers}>
                                     <TitleComp>
                                         {Object.values(courtInfoHeadersConfig)[index]}
@@ -117,7 +117,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
                                     </TitleComp>
                                 </StyledTableData>
                             ))}
-                        </tr>
+                        </StyledTableRow>
                     ))}
                 </tbody>
             </StyledTable>

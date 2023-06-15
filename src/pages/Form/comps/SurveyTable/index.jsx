@@ -1,6 +1,6 @@
 import { SANS_3 } from 'oolib'
 import { surveyConfig, surveyConfigHeaders } from './config'
-import { StyledSurveyTableHead, StyledTable, StyledTableData, StyledTableHead } from './styled.index'
+import { StyledSurveyTableHead, StyledTable, StyledTableData, StyledTableHead, StyledTableRow } from './styled.index'
 
 export const SurveyTable = () => {
   return (
@@ -22,7 +22,7 @@ export const SurveyTable = () => {
                 </StyledSurveyTableHead>
                 <tbody>
                     {Object.keys(surveyConfig).map((key) => (
-                    <tr key={key}>
+                    <StyledTableRow key={key}>
                         <StyledTableHead style={{position: 'sticky', left: 0}}>
                             <SANS_3 bold>{key}</SANS_3>
                         </StyledTableHead>
@@ -35,7 +35,7 @@ export const SurveyTable = () => {
                                 }
                             </StyledTableData>
                         ))}
-                    </tr>
+                    </StyledTableRow>
                     ))}
                 </tbody>
             </StyledTable>
