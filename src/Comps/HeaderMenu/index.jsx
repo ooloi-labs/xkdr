@@ -5,7 +5,7 @@ import { SANS_2 } from 'oolib'
  
 const links = [
   { path: '/about', value: 'About' },
-  { path: '/', value: 'Dashboard' },
+  { path: '/previewCourtPage', value: 'Dashboard' },
   { path: '/', value: 'How this data was computed' },
 ];
 
