@@ -3,9 +3,18 @@ import { StyledBoldSpan } from './styled.index';
 
 export const generateSentences = (heading, info) => {
     const courtNames = {
-      DRT: 'Debts Recovery Tribunal',
-      NCLT: 'National Company Law Tribunal',
-      bombayHC: 'Bombay High Court',
+      DRT: {
+        title:'Debts Recovery Tribunal',
+        shortTitle: 'DRT'
+      },
+      NCLT: {
+        title: 'National Company Law Tribunal',
+        shortTitle: 'NCLT'
+      },
+      bombayHC: {
+        title: 'Bombay High Court',
+        shortTitle: 'Bombay HC'
+      }
     };
 
     let summaryJSXSentence = null;
@@ -25,9 +34,9 @@ export const generateSentences = (heading, info) => {
 
         summaryJSXSentence = (
           <SANS_3_4>
-              <StyledBoldSpan>{courtNames[quickestCourt]}</StyledBoldSpan> is the quickest to dispose of cases, averaging at{' '}
+              <StyledBoldSpan>{courtNames[quickestCourt].title}</StyledBoldSpan> is the quickest to dispose of cases, averaging at{' '}
               <StyledBoldSpan>{quickestYears} year{quickestYears > 1 ? 's' : ''} {quickestMonths}{' '}
-              month{quickestMonths > 1 ? 's' : ''}. {courtNames[longestCourt]}</StyledBoldSpan> takes the longest.
+              month{quickestMonths > 1 ? 's' : ''}. {courtNames[longestCourt].shortTitle}</StyledBoldSpan> takes the longest.
           </SANS_3_4>
         );
       } else if (disposalTimeSortedInfo.length === 1) {
@@ -38,7 +47,7 @@ export const generateSentences = (heading, info) => {
         const months = time % 12;
         summaryJSXSentence = (
           <SANS_3_4>
-            <StyledBoldSpan>{courtNames[court]}{" "}</StyledBoldSpan>takes an average of 
+            <StyledBoldSpan>{courtNames[court].title}{" "}</StyledBoldSpan>takes an average of 
               <StyledBoldSpan> {years} year{years > 1 ? 's' : ''} {months}{' '} month{months > 1 ? 's' : ''}{" "} </StyledBoldSpan> for disposal from the date of filing.
           </SANS_3_4>
         );  
@@ -60,7 +69,7 @@ export const generateSentences = (heading, info) => {
 
         summaryJSXSentence = (
           <SANS_3_4>
-            <StyledBoldSpan>{courtNames[quickestCourt]}{' '}</StyledBoldSpan> takes the least amount of time for 50% of cases, averaging at <StyledBoldSpan>{quickestYears} year{quickestYears > 1 ? 's' : ''} {quickestMonths} month{quickestMonths > 1 ? 's' : ''}. {courtNames[longestCourt]}</StyledBoldSpan> takes the longest.
+            <StyledBoldSpan>{courtNames[quickestCourt].title}{' '}</StyledBoldSpan> takes the least amount of time for 50% of cases, averaging at <StyledBoldSpan>{quickestYears} year{quickestYears > 1 ? 's' : ''} {quickestMonths} month{quickestMonths > 1 ? 's' : ''}. {courtNames[longestCourt].shortTitle}</StyledBoldSpan> takes the longest.
           </SANS_3_4>
         )
     } else if (timeTakenSortedInfo.length === 1) {
@@ -71,7 +80,7 @@ export const generateSentences = (heading, info) => {
         const months = time % 12;
         summaryJSXSentence = (
           <SANS_3_4>
-            <StyledBoldSpan>{courtNames[court]}{' '}</StyledBoldSpan> takes an average of <StyledBoldSpan>{years} year{years > 1 ? 's' : ''} {months} month{months > 1 ? 's' : ''} </StyledBoldSpan>for 50% of cases filed.
+            <StyledBoldSpan>{courtNames[court].title}{' '}</StyledBoldSpan> takes an average of <StyledBoldSpan>{years} year{years > 1 ? 's' : ''} {months} month{months > 1 ? 's' : ''} </StyledBoldSpan>for 50% of cases filed.
           </SANS_3_4>
         )
       }
@@ -86,7 +95,7 @@ export const generateSentences = (heading, info) => {
   
           summaryJSXSentence = (
             <SANS_3_4>
-              <StyledBoldSpan>{courtNames[highestHearingsCourt]}{' '}</StyledBoldSpan> has the lowest average of hearings with <StyledBoldSpan>{highestHearings} hearings.</StyledBoldSpan> 
+              <StyledBoldSpan>{courtNames[highestHearingsCourt].title}{' '}</StyledBoldSpan> has the lowest average of hearings with <StyledBoldSpan>{highestHearings} hearings.</StyledBoldSpan> 
             </SANS_3_4>
           )
         } else if (numOfHearingsSortedInfo.length === 1) {
@@ -94,7 +103,7 @@ export const generateSentences = (heading, info) => {
           const hearings = numOfHearingsSortedInfo[0].value;
           summaryJSXSentence = (
             <SANS_3_4>
-              On average, the <StyledBoldSpan>{courtNames[court]}{' '}</StyledBoldSpan> requires <StyledBoldSpan>{hearings} hearings</StyledBoldSpan> to resolve a case.
+              On average, the <StyledBoldSpan>{courtNames[court].title}{' '}</StyledBoldSpan> requires <StyledBoldSpan>{hearings} hearings</StyledBoldSpan> to resolve a case.
             </SANS_3_4>
           )
         }
@@ -108,7 +117,7 @@ export const generateSentences = (heading, info) => {
           const highestFreq = freqOfHearingsSortedInfo[0].value.inMonths;
           summaryJSXSentence = (
             <SANS_3_4>
-              <StyledBoldSpan>{courtNames[highestFreqCourt]}{' '}</StyledBoldSpan> takes the highest average with <StyledBoldSpan>1 hearing every {highestFreq} months.</StyledBoldSpan> 
+              <StyledBoldSpan>{courtNames[highestFreqCourt].title}{' '}</StyledBoldSpan> takes the highest average with <StyledBoldSpan>1 hearing every {highestFreq} months.</StyledBoldSpan> 
             </SANS_3_4>
           )
         } else if (freqOfHearingsSortedInfo.length === 1) {
@@ -116,7 +125,7 @@ export const generateSentences = (heading, info) => {
           const freq = freqOfHearingsSortedInfo[0].value.inMonths;
           summaryJSXSentence = (
             <SANS_3_4>
-              <StyledBoldSpan>{courtNames[court]}{' '}</StyledBoldSpan> takes an average of  <StyledBoldSpan>1 hearing every {freq} months</StyledBoldSpan> for a case to be disposed.
+              <StyledBoldSpan>{courtNames[court].title}{' '}</StyledBoldSpan> takes an average of  <StyledBoldSpan>1 hearing every {freq} months</StyledBoldSpan> for a case to be disposed.
             </SANS_3_4>
           )
         }
@@ -133,7 +142,7 @@ export const generateSentences = (heading, info) => {
           const fastestFirstHearingMonths = avgFirstHearingSortedInfo[0].value.months
           summaryJSXSentence = (
             <SANS_3_4>
-              <StyledBoldSpan>{courtNames[fastestFirstHearingCourt]}{' '}</StyledBoldSpan> has the fastest average of <StyledBoldSpan>{fastestFirstHearingYear ? fastestFirstHearingYear : ''} {fastestFirstHearingYear ? `year` : ''} {fastestFirstHearingMonths} {fastestFirstHearingMonths ? 'months' : ''} { (fastestFirstHearingMonths && fastestFirstHearingDays || fastestFirstHearingYear && fastestFirstHearingDays) ? 'and' : ''} {fastestFirstHearingDays ? fastestFirstHearingDays : ''} {fastestFirstHearingDays ? 'days' : ''}</StyledBoldSpan> until the first hearing from the date of filing.
+              <StyledBoldSpan>{courtNames[fastestFirstHearingCourt].title}{' '}</StyledBoldSpan> has the fastest average of <StyledBoldSpan>{fastestFirstHearingYear ? fastestFirstHearingYear : ''} {fastestFirstHearingYear ? `year` : ''} {fastestFirstHearingMonths} {fastestFirstHearingMonths ? 'months' : ''} { (fastestFirstHearingMonths && fastestFirstHearingDays || fastestFirstHearingYear && fastestFirstHearingDays) ? 'and' : ''} {fastestFirstHearingDays ? fastestFirstHearingDays : ''} {fastestFirstHearingDays ? 'days' : ''}</StyledBoldSpan> until the first hearing from the date of filing.
             </SANS_3_4>
           )
         } else if (avgFirstHearingSortedInfo.length === 1) {
@@ -143,7 +152,7 @@ export const generateSentences = (heading, info) => {
           
           summaryJSXSentence = (
             <SANS_3_4>
-              On average, the <StyledBoldSpan>{courtNames[court]}{' '}</StyledBoldSpan> takes <StyledBoldSpan>{firstHearingYear ? firstHearingYear : ''} {firstHearingYear ? `year` : ''} {firstHearingMonths ? firstHearingMonths : ''} {firstHearingMonths ? 'months' : ''}</StyledBoldSpan> until the first hearing from the date of filing.
+              On average, the <StyledBoldSpan>{courtNames[court].title}{' '}</StyledBoldSpan> takes <StyledBoldSpan>{firstHearingYear ? firstHearingYear : ''} {firstHearingYear ? `year` : ''} {firstHearingMonths ? firstHearingMonths : ''} {firstHearingMonths ? 'months' : ''}</StyledBoldSpan> until the first hearing from the date of filing.
             </SANS_3_4>
           )
         }

@@ -26,15 +26,16 @@ export const Home = () => {
       <Wrapper650>
         <div
           style={{
-            height: "100vh",
+            height: "80vh",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
           }}
         >
           <SERIF_6_7>
-            This website is designed to help you understand court performance as
-            it might relate to cases regarding debt recovery. It should help you
+            {/* This website is designed to help you understand court performance as
+            it might relate to cases regarding debt recovery. It should help you */}
+            If you are involved in a legal dispute regarding debt recovery, this website will help you make choices among the legal remedies that are available.
             _____
           </SERIF_6_7>
           <PaddingBottom20 />

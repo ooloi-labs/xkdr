@@ -7,7 +7,7 @@ export const formConfig = {
     pageType: "questionPage",
     comp: "RadioList",
     props: {
-      label: "Are you the creditor or debtor",
+      label: "Are you a creditor or debtor",
       options: [
         {
           display: "Creditor (Bank/NBFC)",
@@ -77,10 +77,10 @@ export const formConfig = {
     pageType: "questionPage",
     comp: "RadioList",
     props: {
-      label: "Assuming that you need help recovering a debt, please select the amount that is owed to you?",
+      label: "Assuming that you need help recovering a debt, What is the amount owed to you?",
       options: [
         {
-          display: "Less than 20 L",
+          display: "Less than Rupees 20 lac",
           value: "lessThan20L",
           linkTo: "thisWebsiteIrrelevantPage",
           linkToProps: { 
@@ -91,7 +91,7 @@ export const formConfig = {
           }
         },
         { 
-          display: "Between 20 L and 1 Cr", 
+          display: "Between Rupees 20 lac and Rs. 1 crore", 
           value: "TwLToOneCr", 
           $decide: {
             decisionKey: 'creditorOrDebtor',
@@ -101,7 +101,7 @@ export const formConfig = {
             }
           } 
         },
-        { display: "Above 1 Cr", value: "above1Cr", linkTo: "natureOfDebtor" },
+        { display: "Above Rs. 1 crore", value: "above1Cr", linkTo: "natureOfDebtor" },
       ],
       listType: "vertical",
     },

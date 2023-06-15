@@ -1,16 +1,18 @@
-import { colors, toArray } from "oolib";
+import { toArray } from "oolib";
 import { courtTypesConfig2 } from "./config";
 
-  export const getCourtSentence = (courtType) => {
+export const getCourtSentence = (courtType) => {
+    const courtTitles = toArray(courtType).map((court) => courtTypesConfig2[court].courtTitle);
+    const shortTitles = toArray(courtType).map((court) => courtTypesConfig2[court].shortTitle);
+
     const courtCount = toArray(courtType).length;
+    
     if (courtCount === 1) {
       return `${courtTypesConfig2[courtType[0]].courtTitle}`;
     } else if (courtCount === 2) {
-      const courtTitles = toArray(courtType).map((court) => courtTypesConfig2[court].courtTitle);
-      return `${courtTitles.join(' or ')}`;
+      return `the ${courtTitles[0]}, the ${courtTitles[1]} (${shortTitles[1]})`;
     } else if (courtCount === 3) {
-      const courtTitles = toArray(courtType).map((court) => courtTypesConfig2[court].shortTitle);
-      return `${courtTitles.slice(0, -1).join(', ')} or ${courtTitles.slice(-1)}`;
+      return `  the ${courtTitles[0]}, the ${courtTitles[1]} (${shortTitles[1]}) or the ${courtTitles[2]} (${shortTitles[2]})`;
     }
     return '';
 };

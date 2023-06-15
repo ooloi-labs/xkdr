@@ -52,29 +52,29 @@ export const CourtPage = ({courtType, answers = {}}) => {
         <>
             <div >
             <SANS_5_6>
-                You can approach the Mumbai bench of <span style={{fontWeight: 'bold'}}>{getCourtSentence(courtType)}</span> 
+                You can approach some high courts,<span style={{fontWeight: 'bold'}}>{getCourtSentence(courtType)}</span> 
             </SANS_5_6>
             <PaddingBottom20 />
-            {/* { answers.bouncedCheque?.value === true &&  */}
                 <>
-                <SANS_3_4>The matter could be pursued in criminal courts and so we provide more info with a link:</SANS_3_4>
-                <SANS_3 semibold>
+                <SANS_3_4>If your dispute involves bounced cheque(s), then you could also approach the Metropolitan Magistrate courts.</SANS_3_4>
+                {/* <SANS_3 semibold>
                     <OKELink invertUnderline to={``}>
                         Click here for more info
                     </OKELink>
-                </SANS_3> 
+                </SANS_3>  */}
                 <PaddingBottom20/>
                 </>
-            {/* } */}
             {toArray(courtType).includes('NCLT') &&
                 <>
                 <StyledNCLTBlock>
                     <Tooltip presetTarget={"infoIcon"} text={"Add New Article"} position="left"/>
-                    <SANS_3 italic>In case you choose to approach the <span style={{fontWeight: 'bold'}}>NCLT</span>, the proceeding is in the nature of a bankruptcy petition. If your petition is admitted, it will be converted into a collective resolution process.</SANS_3>
+                    <SANS_3 italic>The proceeding before the <span style={{fontWeight: 'bold'}}>NCLT</span> is in the nature of a bankruptcy proceeding. If your petition is admitted by the NCLT, it will be converted into a resolution process with the other creditors of the debtor</SANS_3>
                 </StyledNCLTBlock>
                 <PaddingBottom20/>  
                 </>
             }
+            <SANS_3>We have information on the performance of some of these courts and tribunals in the following locations</SANS_3>
+            <PaddingBottom20/>  
             {toArray(courtType).length > 1 && 
                 <TabBarStyle2
                     S
