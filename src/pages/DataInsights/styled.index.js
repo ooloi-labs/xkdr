@@ -66,6 +66,7 @@ export const StyledTableHead = styled.th`
     top: 6rem;
     padding: 2rem;
     background: #FEF6F5;
+    text-align: left;
     /* height: 10rem; */
 `
 
@@ -79,6 +80,7 @@ export const StyledTableRow = styled.tr`
 
 export const StyledTableData = styled.td`
     border: 1px solid ${greyColor40};
-    padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'};
+    padding: 2rem;
+    /* padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'}; */
     max-width: 32rem;
 `

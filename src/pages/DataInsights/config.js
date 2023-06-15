@@ -1,5 +1,5 @@
 export const reportCofig ={
-    
+
 }
 
 export const casesData = {
@@ -23,5 +23,20 @@ export const casesData = {
         "2020":742,
         "2021":714,
         "2022":582,
+    }
+}
+
+export const caseStatus = {
+    BHC:{
+        "Disposed":1339,
+        "Pending":3546,
+    },
+    NCLT:{
+        "Disposed":4266,
+        "Pending":6550,
+    },
+    DRT:{
+        "Disposed":1034,
+        "Pending":3775,
     }
 }
