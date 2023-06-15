@@ -1,6 +1,6 @@
 import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart, OKELink } from "oolib"
-import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig, } from "./config"
-import { getCourtSentence } from "./utils";
+import { cardsTitle, courtsData, courtDataTableHeadersConfig } from "./config"
+import { generateTableCellText, getCourtSentence } from "./utils";
 import {  StyledNCLTBlock, StyledTableRow} from "./styled.index"
 import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
 import { useState } from "react";
@@ -20,20 +20,11 @@ export const CourtPage = ({courtType, answers = {}}) => {
     const numOfContainers = Math.min(toArray(courtType).length, 3);
     const TitleComp = numOfContainers > 2 ? SANS_3 : SANS_4_5
 
-    const getCourtData = (court) => {
-        const courtConfig = courtTypesConfig2[court];
-        if (courtConfig) {
-            const { data } = courtConfig;
-            return Object.values(data);
-        }
-        return [];
-    };
-
     const getCourtInfo = () => {
 
         return Object.keys(cardsTitle).reduce((info, key) => {
           let aggregatedValue = toArray(courtType).map((court) => {
-            let courtInfo = cardInfoConfig[court];
+            let courtInfo = courtsData[court].data;
             let value = courtInfo[key];
     
             return {
@@ -96,14 +87,14 @@ export const CourtPage = ({courtType, answers = {}}) => {
                         {toArray(courtType).map((court) => (
                             <StyledTableHead key={court}>
                                 <TitleComp color={'#F54C31'} bold>
-                                    {courtTypesConfig2[court].courtTitle}
+                                    {courtsData[court].courtTitle}
                                 </TitleComp>
                             </StyledTableHead>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
-                    {Array.from(Array(Math.max(toArray(...courtType).map((court) => getCourtData(court).length)))).map((_, index) => (
+                    {/* {Array.from(Array(Math.max(toArray(...courtType).map((court) => getCourtData(court).length)))).map((_, index) => (
                         <StyledTableRow key={index}>
                                 <StyledTableData numOfContainers={numOfContainers}>
                                     <TitleComp>
@@ -118,7 +109,26 @@ export const CourtPage = ({courtType, answers = {}}) => {
                                 </StyledTableData>
                             ))}
                         </StyledTableRow>
-                    ))}
+                    ))} */}
+                    {Object.keys(courtDataTableHeadersConfig).map(key => {
+                            let propertyKey = key
+                            return (
+                                <StyledTableRow key={key}>
+                                        <StyledTableData key={key} numOfContainers={numOfContainers}>
+                                            <TitleComp color={colors.greyColor80}>
+                                                {courtDataTableHeadersConfig[key]}
+                                            </TitleComp>
+                                        </StyledTableData>
+                                    {toArray(courtType).map(courtName => (
+                                        <StyledTableData key={key} numOfContainers={numOfContainers}>
+                                            <TitleComp color={colors.greyColor80} bold>
+                                                {generateTableCellText({text: courtsData[courtName].data[key], key:propertyKey})}
+                                            </TitleComp>
+                                        </StyledTableData>
+                                    ))}
+                                </StyledTableRow>
+                                )
+                            })}
                 </tbody>
             </StyledTable>
             : 
