@@ -70,7 +70,18 @@ export const courtsData = {
                 independence:0.76,	
                 accessibility:3.60,
                 total:71.91,
-            },    
+            },
+        caseData: {
+                "2018":1335,
+                "2019":933,
+                "2020":604,
+                "2021":1020,
+                "2022":993,
+        },
+        caseStatus:{
+                "Disposed":1339,
+                "Pending":3546,
+        }        
         },
     DRT: {
         shortTitle: 'DRT',
@@ -98,6 +109,17 @@ export const courtsData = {
                 accessibility:2.64,
                 total:52.90,
             },
+        caseData: {
+                "2018":1411,
+                "2019":1360,
+                "2020":742,
+                "2021":714,
+                "2022":582,
+        },
+        caseStatus:{
+                "Disposed":1034,
+                "Pending":3775,
+        }             
         },
     NCLT: {
         shortTitle: 'NCLT',
@@ -125,6 +147,17 @@ export const courtsData = {
                 accessibility:3.59,
                 total:71.82,
             },
+        caseData: {
+                "2018":919,
+                "2019":1773,
+                "2020":1982,
+                "2021":3138,
+                "2022":2959,
+        },
+        caseStatus:{
+                "Disposed":4266,
+                "Pending":6550,
+        }           
         },
     ADR: {
         shortTitle: '',
@@ -138,7 +171,9 @@ export const courtsData = {
             independence:0.79,	
             accessibility:3.52,
             total:70.39,
-        }    
+        }, 
+        caseData:{ },
+        caseStatus:{ }      
         },
     MM: {
         shortTitle: '',
@@ -152,7 +187,9 @@ export const courtsData = {
             independence:0.54,	
             accessibility:2.71,
             total:54.22,
-        }
+        },
+        caseData: { },
+        caseStatus:{ }   
         }       
     }
    

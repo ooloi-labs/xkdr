@@ -6,6 +6,7 @@ import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
 import { SurveyTable } from "../../comps/SurveyTable";
+import { TableComponent } from "../../../../Comps/TableComponent";
 
 const tabOptions = [
     { display: "Summary", value: "summary" },
@@ -94,22 +95,6 @@ export const CourtPage = ({courtType, answers = {}}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {Array.from(Array(Math.max(toArray(...courtType).map((court) => getCourtData(court).length)))).map((_, index) => (
-                        <StyledTableRow key={index}>
-                                <StyledTableData numOfContainers={numOfContainers}>
-                                    <TitleComp>
-                                        {Object.values(courtInfoHeadersConfig)[index]}
-                                    </TitleComp>
-                                </StyledTableData>
-                            {toArray(courtType).map((court) => (
-                                <StyledTableData key={court} numOfContainers={numOfContainers}>
-                                    <TitleComp color={colors.greyColor80} bold>
-                                        {getCourtData(court)[index]}
-                                    </TitleComp>
-                                </StyledTableData>
-                            ))}
-                        </StyledTableRow>
-                    ))} */}
                     {Object.keys(courtDataTableHeadersConfig).map(key => {
                             let propertyKey = key
                             return (
@@ -160,7 +145,8 @@ export const CourtPage = ({courtType, answers = {}}) => {
             : activeTab === "survey" ?
                 <SurveyTable />
             : null
-            }  
+            } 
+            <TableComponent /> 
         </div>
         </>
 )
