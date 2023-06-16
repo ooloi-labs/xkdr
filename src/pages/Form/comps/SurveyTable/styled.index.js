@@ -36,3 +36,12 @@ export const StyledTableRow = styled.tr`
     background-color: ${greyColor5};
   }
 `
+
+export const StyledTableData2 = styled.td`
+  border: 1px solid ${greyColor40};
+  padding: 2rem;
+  background: white;
+  /* padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'}; */
+  max-width: 32rem;
+  /* height: 15rem; */
+`

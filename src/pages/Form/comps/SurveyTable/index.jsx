@@ -1,6 +1,6 @@
 import { SANS_3 } from 'oolib'
 import { surveyConfig, surveyConfigHeaders } from './config'
-import { StyledSurveyTableHead, StyledTable, StyledTableData, StyledTableHead, StyledTableRow } from './styled.index'
+import { StyledSurveyTableHead, StyledTable, StyledTableData, StyledTableData2, StyledTableHead, StyledTableRow } from './styled.index'
 
 export const SurveyTable = () => {
   return (
@@ -25,9 +25,9 @@ export const SurveyTable = () => {
                 <tbody>
                     {Object.keys(surveyConfig).map((key) => (
                     <StyledTableRow key={key}>
-                        <StyledTableData style={{position: 'sticky', left: 0}}>
+                        <StyledTableData2 style={{position: 'sticky', left: 0}}>
                             <SANS_3 bold>{key}</SANS_3>
-                        </StyledTableData>
+                        </StyledTableData2>
                         {Object.keys(surveyConfigHeaders).map((header) => ( 
                             <StyledTableData key={header}>
                                 {header === "total" ?
