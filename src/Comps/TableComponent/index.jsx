@@ -6,8 +6,8 @@ import { generateTableCellText } from './utils';
 export const TableComponent = ({ data, config, courtType }) => {
     let numOfContainers = "";
     const TitleComp = SANS_3;
-  // eslint-disable-next-line
-    const { veritcalHeaderKeys, horizontalHeaderKeys, cornerLabel } = config;
+    // eslint-disable-next-line
+    const { veritcalHeaderKeys, horizontalHeaderKeys, cornerLabel, total } = config;
   
     // Filter data based on courtType
     const filteredData = Object.keys(data).reduce((filtered, key) => {
@@ -21,7 +21,20 @@ export const TableComponent = ({ data, config, courtType }) => {
     const validHorizontalKeys = Object.keys(horizontalHeaderKeys.keys).filter(
       (courtName) => filteredData[horizontalHeaderKeys.keys[courtName]]
     );
+
+     // Calculate the total for each court
+  const courtTotals = {};
+    if (total) {
+      Object.entries(filteredData).forEach(([courtKey, courtData]) => {
+        const totalValue = Object.values(courtData[total]).reduce(
+          (acc, value) => acc + (typeof value === 'number' ? value : 0),
+          0
+        );
+        courtTotals[courtKey] = totalValue;
+      });
+    }
   
+    console.log({courtTotals: courtTotals})
     return (
       <>
         <StyledTable>
@@ -71,6 +84,26 @@ export const TableComponent = ({ data, config, courtType }) => {
                 </StyledTableRow>
               );
             })}
+
+          {total && (
+            <StyledTableRow>
+              <StyledTableData>
+                <TitleComp color={colors.greyColor80} bold>
+                  Total
+                </TitleComp>
+              </StyledTableData>
+              {validHorizontalKeys.map((courtName) => (
+                <StyledTableData key={courtName}>
+                  <TitleComp color={colors.greyColor80} bold>
+                    {Object.values(filteredData[courtName][total]).reduce(
+                      (acc, value) => acc + (typeof value === "number" ? value : 0),
+                      0
+                    )}
+                  </TitleComp>
+                </StyledTableData>
+              ))}
+            </StyledTableRow>
+          )}
           </tbody>
         </StyledTable>
       </>

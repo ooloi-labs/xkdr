@@ -1,15 +1,10 @@
 import { Wrapper800, colors, SANS_3_4, SANS_4_5, PaddingBottom20, PaddingBottom40} from "oolib"
-import { StyledContainer, StyledPageContentsWrapper, StyledInfoBlock, StyledBoldSpan, StyleUl, StyledTable, StyledTableHead, StyledTableData, StyledTableRow} from "./styled.index"
-import { caseDataTableConfig, caseStatus, casesData, reportsStatusTableConfig } from "./config"
+import { StyledContainer, StyledPageContentsWrapper, StyledInfoBlock, StyledBoldSpan, StyleUl } from "./styled.index"
+import { caseDataTableConfig, reportsStatusTableConfig } from "./config"
 import { TableComponent } from '../../Comps/TableComponent'
 import { courtsData } from '../Form/config'
 
 export const DataInsights = () => {
-  const years = Object.keys(casesData.BHC)
-  const status = Object.keys(caseStatus.BHC)
-  const calculateTotal = (data) => {
-    return Object.values(data).reduce((acc, value) => acc + value, 0);
-  };
 
   return (
     <StyledContainer>
