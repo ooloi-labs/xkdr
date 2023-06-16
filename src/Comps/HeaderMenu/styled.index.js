@@ -40,3 +40,10 @@ export const StyledNavLink = styled(NavLink)`
         background-color: ${greyColor10};
     }
 `
+export const StyledNavLinkCTA = styled(NavLink)`
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    &:active{
+    }
+`
