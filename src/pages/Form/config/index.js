@@ -166,7 +166,7 @@ export const courtsData = {
               timeTaken:23,
               numOfHearings:3,
               freqOfHearings: {hearing: 1, inMonths: 6},
-              avgFirstHearing:{year: 0, months: 9, days: 0, stringRep: '9 months', totalValue: 9 },
+              avgFirstHearing:{year: 0, months: 9, days: 0, stringRep: '9 M', totalValue: 9 },
           },
       surveyData: {
               efficiency:0.65,
@@ -198,7 +198,7 @@ export const courtsData = {
               timeTaken:15,
               numOfHearings:3,
               freqOfHearings:{hearing: 1, inMonths: 6},
-              avgFirstHearing: {year: 1, months: 6, days: 0, stringRep: '1 year, 6 months', totalValue: 18},
+              avgFirstHearing: {year: 1, months: 6, days: 0, stringRep: '1 Y, 6 M', totalValue: 18},
           },
       surveyData: {
               efficiency:0.54,
@@ -230,7 +230,7 @@ export const courtsData = {
               timeTaken:18,
               numOfHearings:7,
               freqOfHearings:{hearing: 1, inMonths: 1.5},
-              avgFirstHearing:{year: 1, months: 0, days: 0, stringRep: '1 year', totalValue: 12},
+              avgFirstHearing:{year: 1, months: 0, days: 0, stringRep: '1 Y', totalValue: 12},
           },
       surveyData :{
               efficiency:0.81,

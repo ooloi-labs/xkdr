@@ -101,6 +101,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
             <>
             {Object.keys(cardsTitle).map((key) => (
                 <InfoCard key={key} heading={{title:cardsTitle[key].text, key:key}} info={courtInfo[key]} courtType={courtType} cardsTitle={cardsTitle}>
+                    <div style={{paddingRight: '3rem'}}>
                     <BarChart
                         id={key}
                         className={key}
@@ -118,7 +119,10 @@ export const CourtPage = ({courtType, answers = {}}) => {
                         numLabelPath={key === 'avgFirstHearing'
                             ? 'value.stringRep'
                             : undefined}
+                        width={450}
+                        height={100}
                         />
+                    </div>
                 </InfoCard>
             ))}
             <InfoCard2 setActiveTab={setActiveTab}/>
