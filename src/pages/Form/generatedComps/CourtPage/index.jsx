@@ -1,11 +1,9 @@
-import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart, OKELink } from "oolib"
-import { cardsTitle, courtsData, courtDataTableHeadersConfig, courtDataTableHeadersConfig2, surveyConfigHeaders2 } from "./config"
+import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_5_6, toArray, TabBarStyle2, Tooltip, BarChart, } from "oolib"
+import { cardsTitle, courtsData, courtDataTableHeadersConfig2, surveyConfigHeaders2 } from "./config"
 import {  getCourtSentence } from "./utils";
-import {  StyledNCLTBlock, StyledTableRow} from "./styled.index"
-import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
+import {  StyledNCLTBlock } from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
-import { SurveyTable } from "../../comps/SurveyTable";
 import { TableComponent } from "../../../../Comps/TableComponent";
 
 const tabOptions = [
@@ -18,8 +16,6 @@ export const CourtPage = ({courtType, answers = {}}) => {
 
     const [ activeTab, setActiveTab] = useState("summary")
 
-    const numOfContainers = Math.min(toArray(courtType).length, 3);
-    const TitleComp = numOfContainers > 2 ? SANS_3 : SANS_4_5
 
     const getCourtInfo = () => {
 

@@ -17,7 +17,7 @@ export const convertMonthsToYearString = (months) => {
   
 
 export const generateTableCellText = ({text, key}) => {
-    console.log({key})
+
     if(key){
       switch(key){
           case 'averageDisposalTime':

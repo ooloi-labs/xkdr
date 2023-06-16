@@ -1,16 +1,17 @@
 import { StyledTable, StyledTableData, StyledTableHead, StyledTableRow } from './styled.index'
-import { colors, SANS_3, SANS_4_5, toArray } from 'oolib';
+import { colors, SANS_3, toArray } from 'oolib';
 import { generateTableCellText } from './utils';
 
 // eslint-disable-next-line
 export const TableComponent = ({ data, config, courtType }) => {
     let numOfContainers = "";
     const TitleComp = SANS_3;
+  // eslint-disable-next-line
     const { veritcalHeaderKeys, horizontalHeaderKeys, cornerLabel } = config;
   
     // Filter data based on courtType
     const filteredData = Object.keys(data).reduce((filtered, key) => {
-      if (courtType.includes(key)) {
+      if (toArray(courtType).includes(key)) {
         filtered[key] = data[key];
       }
       return filtered;
