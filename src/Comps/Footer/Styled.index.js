@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledFooterContainer = styled.div`
-    height: 60vh;
+    /* height: 60vh; */
     background-color: #FEF6F5;
     display: flex;
 `
@@ -10,4 +10,9 @@ export const StyledSection = styled.div`
     padding: 10rem;
     display: flex;
     flex-direction: column;
+`
+
+export const StyledLogo = styled.img`
+    height: 4rem;
+    margin-left: -1rem;
 `
