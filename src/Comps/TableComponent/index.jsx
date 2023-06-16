@@ -60,3 +60,44 @@ export const TableComponent = ({data, config, courtType}) => {
     </>
   )
 }
+
+
+        // <StyledTable>
+        //         <thead>
+        //             <tr>
+        //                 <StyledTableHead>
+        //                     <TitleComp color={'#F54C31'} bold>
+        //                         Metrics
+        //                     </TitleComp>
+        //                 </StyledTableHead>
+        //                 {toArray(courtType).map((court) => (
+        //                     <StyledTableHead key={court}>
+        //                         <TitleComp color={'#F54C31'} bold>
+        //                             {courtsData[court].courtTitle}
+        //                         </TitleComp>
+        //                     </StyledTableHead>
+        //                 ))}
+        //             </tr>
+        //         </thead>
+        //         <tbody>
+        //             {Object.keys(courtDataTableHeadersConfig).map(key => {
+        //                     let propertyKey = key
+        //                     return (
+        //                         <StyledTableRow key={key}>
+        //                                 <StyledTableData key={key} numOfContainers={numOfContainers}>
+        //                                     <TitleComp color={colors.greyColor80}>
+        //                                         {courtDataTableHeadersConfig[key]}
+        //                                     </TitleComp>
+        //                                 </StyledTableData>
+        //                             {toArray(courtType).map(courtName => (
+        //                                 <StyledTableData key={key} numOfContainers={numOfContainers}>
+        //                                     <TitleComp color={colors.greyColor80} bold>
+        //                                         {generateTableCellText({text: courtsData[courtName].data[key], key:propertyKey})}
+        //                                     </TitleComp>
+        //                                 </StyledTableData>
+        //                             ))}
+        //                         </StyledTableRow>
+        //                         )
+        //                     })}
+        //         </tbody>
+        //     </StyledTable>
