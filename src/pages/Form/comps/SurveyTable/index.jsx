@@ -20,7 +20,6 @@ export const SurveyTable = () => {
   const sortedKeys = Object.keys(surveyConfig).sort((a, b) => {
     const columnA = surveyConfig[a][sortColumn];
     const columnB = surveyConfig[b][sortColumn];
-    // Compare the values based on sortOrder ('asc' or 'desc')
     if (sortOrder === 'asc') {
       return columnA - columnB;
     } else {

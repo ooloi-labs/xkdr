@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from 'oolib'
+import { colors, transition } from 'oolib'
 
 const { greyColor40, greyColor5 } = colors;
 
@@ -26,6 +26,7 @@ export const StyledTableHead = styled.th`
       background-color: #FBB7AD;
     }
     /* height: 10rem; */
+    ${transition('background-color')}
 `
 
 export const StyledTableData = styled.td`
