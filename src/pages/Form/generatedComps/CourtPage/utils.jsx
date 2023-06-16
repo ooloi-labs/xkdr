@@ -10,9 +10,9 @@ export const getCourtSentence = (courtType) => {
     if (courtCount === 1) {
       return ` the ${courtsData[courtType[0]].courtTitle}`;
     } else if (courtCount === 2) {
-      return `the ${courtTitles[0]}, the ${courtTitles[1]} (${shortTitles[1]})`;
+      return ` ${courtTitles[0]}, the ${courtTitles[1]} (${shortTitles[1]})`;
     } else if (courtCount === 3) {
-      return `  the ${courtTitles[0]}, the ${courtTitles[1]} (${shortTitles[1]}) or the ${courtTitles[2]} (${shortTitles[2]})`;
+      return ` ${courtTitles[0]}, the ${courtTitles[1]} (${shortTitles[1]}) or the ${courtTitles[2]} (${shortTitles[2]})`;
     }
     return '';
 };

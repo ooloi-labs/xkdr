@@ -41,7 +41,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
         <>
             <div >
             <SANS_5_6>
-                You can approach<span style={{fontWeight: 'bold'}}>{getCourtSentence(courtType)}</span> 
+                You can approach the<span style={{fontWeight: 'bold'}}> {getCourtSentence(courtType)}</span> 
             </SANS_5_6>
             <PaddingBottom20 />
                 <>
