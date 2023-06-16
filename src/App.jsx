@@ -8,6 +8,7 @@ import { Form } from "./pages/Form";
 import { CourtPage } from "./pages/Form/generatedComps/CourtPage";
 import { HeaderMenu } from "./Comps/HeaderMenu";
 import { DataInsights } from "./pages/DataInsights";
+import Footer from "./Comps/Footer";
 
 const theme = {
   colors: {
@@ -21,7 +22,7 @@ const theme = {
 function App() {
   return (
     <div>
-      <ThemeProvider theme={{theme}}>
+      <ThemeProvider theme={{}}>
         <TypoClassesProvider>
           <GlobalStyles />
           <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
               <Route path="/form" element={<Form />} />
               <Route path="/about" element={<About />} />
               <Route path="/dataInsights" element={<DataInsights />} />
+              <Route path="/*" element={<About />} />
               <Route path="/previewCourtPage" element={
                 <Container style={{background: colors.greyColor5}}>
                   <Wrapper800>
@@ -41,6 +43,7 @@ function App() {
                 </Container>
               } />
             </Routes>
+            <Footer />
           </BrowserRouter>
         </TypoClassesProvider>
       </ThemeProvider>

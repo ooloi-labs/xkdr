@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom'
 import xkdrLogo from '../../../public/xkdr-logo.svg'
-import { StyledLi, StyledLogo, StyledNav, StyledNavLink, StyledUl } from './styled.index'
-import { SANS_2 } from 'oolib'
+import { StyledLi, StyledLogo, StyledNav, StyledNavLink, StyledNavLinkCTA, StyledUl } from './styled.index'
+import { SANS_2, ButtonPrimary } from 'oolib'
  
 const links = [
   { path: '/about', value: 'About' },
-  { path: '/previewCourtPage', value: 'Dashboard' },
   { path: '/dataInsights', value: 'How this data was computed' },
+  // { path: '/previewCourtPage', value: 'Dashboard' },
 ];
 
 export const HeaderMenu = () => {
@@ -15,17 +15,24 @@ export const HeaderMenu = () => {
          <NavLink to="/" style={{textDecoration: 'none', color: 'inherit'}} >
             <StyledLogo src={xkdrLogo}></StyledLogo>
         </NavLink>
-        
+        <div style={{display: 'flex', alignItems: 'center'}}>
         <StyledUl>
-        {links.map(({ path, value }) => (
+        {links.map(({ path, value }) => {
+            return (
             <StyledLi key={value}>
               <StyledNavLink to={path}>
                 <SANS_2>{value}</SANS_2>
               </StyledNavLink>
             </StyledLi>
-          ))}
+            )
+        })}
         </StyledUl>
-    
+        <ButtonPrimary>
+          <StyledNavLinkCTA to={'/previewCourtPage'}>
+            All Courts Data
+          </StyledNavLinkCTA>
+        </ButtonPrimary>
+        </div>
     </StyledNav>
   )
 }

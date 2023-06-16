@@ -5,7 +5,7 @@ const { greyColor15 } = colors;
 
 export const StyledCardContainer = styled.div`
     width: 100%;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
     border-bottom:none;
     border-radius: 1rem;
 `
@@ -24,7 +24,7 @@ export const StyledCardHeaderWrapper = styled.div`
 export const StyledCardBodyWrapper = styled.div`
     border-right: 1px solid ${greyColor15};
     border-left: 1px solid ${greyColor15};
-    padding: 2rem 3rem;
+    padding: ${({expandCard}) => expandCard ? '2rem 3rem 0rem 3rem' : '2rem 3rem'};
 `
 
 export const StyledCardfFooterWrapper = styled.div`
@@ -38,8 +38,8 @@ export const StyledCardfFooterWrapper = styled.div`
 export const StyledExpandedCardSection = styled.div`
     border-left: 1px solid ${greyColor15};
     border-right: 1px solid ${greyColor15};
-    height: 30rem;
-    padding-left: 3rem;
+    /* height: 30rem; */
+    /* padding-left: 3rem; */
 `
 
 export const StyledBoldSpan = styled.span`

@@ -1,27 +1,42 @@
-export const reportCofig ={
-    
+export const reportsStatusTableConfig = {
+    veritcalHeaderKeys: {
+        valuePath: 'caseStatus',
+        keys:{
+            "Disposed":"Disposed",
+            "Pending":"Pending",
+        }
+    },
+    horizontalHeaderKeys: {
+        valuePath: 'shortTitle',
+        keys:{
+            bombayHC:'bombayHC',
+            DRT:'DRT',
+            NCLT:'NCLT'
+        }
+    },
+    cornerLabel: 'Filing year',
+    total: 'caseStatus'  
 }
 
-export const casesData = {
-    BHC:{
-        "2018":1335,
-        "2019":933,
-        "2020":604,
-        "2021":1020,
-        "2022":993,
+export const caseDataTableConfig = {
+    veritcalHeaderKeys: {
+        valuePath: 'caseData',
+        keys:{
+            "2018":2018,
+            "2019":2019,
+            "2020":2020,
+            "2021":2021,
+            "2022":2022,
+        }
     },
-    NCLT:{
-        "2018":919,
-        "2019":1773,
-        "2020":1982,
-        "2021":3138,
-        "2022":2959,
+    horizontalHeaderKeys: {
+        valuePath: 'shortTitle',
+        keys:{
+            bombayHC:'bombayHC',
+            DRT:'DRT',
+            NCLT:'NCLT'
+        }
     },
-    DRT:{
-        "2018":1411,
-        "2019":1360,
-        "2020":742,
-        "2021":714,
-        "2022":582,
-    }
+    cornerLabel: 'Filing year',
+    total: 'caseData' 
 }

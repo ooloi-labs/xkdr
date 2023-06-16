@@ -1,31 +1,33 @@
 import { SANS_3 } from 'oolib'
 import { surveyConfig, surveyConfigHeaders } from './config'
-import { StyledSurveyTableHead, StyledTable, StyledTableData, StyledTableHead } from './styled.index'
+import { StyledSurveyTableHead, StyledTable, StyledTableData, StyledTableData2, StyledTableHead, StyledTableRow } from './styled.index'
 
 export const SurveyTable = () => {
   return (
     <div style={{ overflowX: 'scroll'}}>
             <StyledTable style={{borderCollapse: 'collapse'}}>
                 <StyledSurveyTableHead>
-                    <tr>
+                    <StyledTableRow>
                     <StyledTableHead style={{position: 'sticky', left: 0, zIndex: 10}}>
-
+                        <SANS_3 bold color={"#F54C31"}>
+                            Composite scores
+                        </SANS_3>
                     </StyledTableHead>
                     {Object.keys(surveyConfigHeaders).map((header) => (
                         <StyledTableHead key={header}>
-                            <SANS_3 bold>
+                            <SANS_3 bold color={"#F54C31"}>
                                 {surveyConfigHeaders[header]}
                             </SANS_3>
                         </StyledTableHead>
                     ))}
-                    </tr>
+                    </StyledTableRow>
                 </StyledSurveyTableHead>
                 <tbody>
                     {Object.keys(surveyConfig).map((key) => (
-                    <tr key={key}>
-                        <StyledTableHead style={{position: 'sticky', left: 0}}>
+                    <StyledTableRow key={key}>
+                        <StyledTableData2 style={{position: 'sticky', left: 0}}>
                             <SANS_3 bold>{key}</SANS_3>
-                        </StyledTableHead>
+                        </StyledTableData2>
                         {Object.keys(surveyConfigHeaders).map((header) => ( 
                             <StyledTableData key={header}>
                                 {header === "total" ?
@@ -35,7 +37,7 @@ export const SurveyTable = () => {
                                 }
                             </StyledTableData>
                         ))}
-                    </tr>
+                    </StyledTableRow>
                     ))}
                 </tbody>
             </StyledTable>

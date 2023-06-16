@@ -47,14 +47,20 @@ export const StyledTableHead = styled.th`
     top: 0;
     padding: 2rem;
     background: #FEF6F5;
-    height: 10rem;
+    /* height: 10rem; */
 `
 
 export const StyledTableData = styled.td`
     border: 1px solid ${greyColor40};
     padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'};
     max-width: 32rem;
-    height: 15rem;
+    /* height: 15rem; */
+`
+export const StyledTableRow = styled.tr`
+  
+  &:nth-child(even) {
+    background-color: ${greyColor5};
+  }
 `
 //
 export const StyledNCLTBlock = styled.div`
@@ -69,4 +75,30 @@ export const StyledTabbarWrapper = styled.div`
     padding: 0.5rem;
     background: ${greyColor5};
     width: max-content;
+`
+
+export const StyledUl = styled.ul`
+    padding-left: 1px;
+  li {
+    margin-left: 3rem;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+  }
+
+`
+
+export const StyledBoldSpan = styled.span`
+  font-weight: bold;
 `

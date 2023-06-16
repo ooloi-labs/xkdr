@@ -1,11 +1,12 @@
-import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart, OKELink } from "oolib"
-import { cardsTitle, courtTypesConfig2, cardInfoConfig, courtInfoHeadersConfig, } from "./config"
-import { getCourtSentence } from "./utils";
-import {  StyledNCLTBlock} from "./styled.index"
-import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
+import {  PaddingBottom20, PaddingBottom40, SANS_3, SANS_3_4, SANS_5_6, toArray, TabBarStyle2, Tooltip, BarChart, } from "oolib"
+import { cardsTitle, courtDataTableHeadersConfig, surveyConfigHeaders2 } from "./config"
+import { courtsData } from "../../config";
+import {  getCourtSentence } from "./utils";
+import {  StyledNCLTBlock, StyledUl} from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
-import { SurveyTable } from "../../comps/SurveyTable";
+import { TableComponent } from "../../../../Comps/TableComponent";
+import { SurveyTable } from '../../comps/SurveyTable'
 
 const tabOptions = [
     { display: "Summary", value: "summary" },
@@ -16,24 +17,13 @@ const tabOptions = [
 export const CourtPage = ({courtType, answers = {}}) => {
 
     const [ activeTab, setActiveTab] = useState("summary")
-
-    const numOfContainers = Math.min(toArray(courtType).length, 3);
-    const TitleComp = numOfContainers > 2 ? SANS_3 : SANS_4_5
-
-    const getCourtData = (court) => {
-        const courtConfig = courtTypesConfig2[court];
-        if (courtConfig) {
-            const { data } = courtConfig;
-            return Object.values(data);
-        }
-        return [];
-    };
+    const isAnswersEmpty = Object.keys(answers).length === 0
 
     const getCourtInfo = () => {
 
         return Object.keys(cardsTitle).reduce((info, key) => {
           let aggregatedValue = toArray(courtType).map((court) => {
-            let courtInfo = cardInfoConfig[court];
+            let courtInfo = courtsData[court].data;
             let value = courtInfo[key];
     
             return {
@@ -47,80 +37,52 @@ export const CourtPage = ({courtType, answers = {}}) => {
     };
 
     const courtInfo = getCourtInfo();
-    // console.log({courtInfo, courtType})
+
     return (
         <>
             <div >
-            <SANS_5_6>
-                You can approach the Mumbai bench of <span style={{fontWeight: 'bold'}}>{getCourtSentence(courtType)}</span> 
+            <SANS_5_6> 
+            {(isAnswersEmpty || answers?.creditorOrDebtor?.value !== 'debtor')
+                    ? <>
+                        You can approch {getCourtSentence(courtType)}
+                        </>
+                    : <>
+                            {getCourtSentence(courtType)}
+                        </>
+            }
             </SANS_5_6>
             <PaddingBottom20 />
-            {/* { answers.bouncedCheque?.value === true &&  */}
+            {(isAnswersEmpty || answers?.creditorOrDebtor?.value !== 'debtor') &&
                 <>
-                <SANS_3_4>The matter could be pursued in criminal courts and so we provide more info with a link:</SANS_3_4>
-                <SANS_3 semibold>
-                    <OKELink invertUnderline to={``}>
-                        Click here for more info
-                    </OKELink>
-                </SANS_3> 
+                <SANS_3>If your dispute involves bounced cheque(s), then you could also approach the Metropolitan Magistrate courts.</SANS_3>
                 <PaddingBottom20/>
                 </>
-            {/* } */}
+            }
             {toArray(courtType).includes('NCLT') &&
                 <>
                 <StyledNCLTBlock>
                     <Tooltip presetTarget={"infoIcon"} text={"Add New Article"} position="left"/>
-                    <SANS_3 italic>In case you choose to approach the <span style={{fontWeight: 'bold'}}>NCLT</span>, the proceeding is in the nature of a bankruptcy petition. If your petition is admitted, it will be converted into a collective resolution process.</SANS_3>
+                    <SANS_3 italic>The proceeding before the <span style={{fontWeight: 'bold'}}>NCLT</span> is in the nature of a bankruptcy proceeding. If your petition is admitted by the NCLT, it will be converted into a resolution process with the other creditors of the debtor</SANS_3>
                 </StyledNCLTBlock>
                 <PaddingBottom20/>  
                 </>
             }
+            {/* <SANS_3>We have information on the performance of some of these courts and tribunals in the following locations</SANS_3> */}
+            {/* <PaddingBottom20/>   */}
             {toArray(courtType).length > 1 && 
+            <>
                 <TabBarStyle2
                     S
                     value={activeTab}
                     options={tabOptions}
                     onChange={(k, v) => setActiveTab(v)}
                     saveValueAsString
-                />
+                    />
+                <PaddingBottom20/>
+                    </>
             }
             {activeTab === "data" ?
-                <StyledTable>
-                <thead>
-                    <tr>
-                        <StyledTableHead>
-                            <TitleComp color={'#F54C31'} bold>
-                                Metrics
-                            </TitleComp>
-                        </StyledTableHead>
-                        {toArray(courtType).map((court) => (
-                            <StyledTableHead key={court}>
-                                <TitleComp color={'#F54C31'} bold>
-                                    {courtTypesConfig2[court].courtTitle}
-                                </TitleComp>
-                            </StyledTableHead>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {Array.from(Array(Math.max(toArray(...courtType).map((court) => getCourtData(court).length)))).map((_, index) => (
-                        <tr key={index}>
-                                <StyledTableData numOfContainers={numOfContainers}>
-                                    <TitleComp>
-                                        {Object.values(courtInfoHeadersConfig)[index]}
-                                    </TitleComp>
-                                </StyledTableData>
-                            {toArray(courtType).map((court) => (
-                                <StyledTableData key={court} numOfContainers={numOfContainers}>
-                                    <TitleComp color={colors.greyColor80} bold>
-                                        {getCourtData(court)[index]}
-                                    </TitleComp>
-                                </StyledTableData>
-                            ))}
-                        </tr>
-                    ))}
-                </tbody>
-            </StyledTable>
+                <TableComponent data={courtsData} config={courtDataTableHeadersConfig} courtType={courtType}/>
             : 
             activeTab === "summary" ? 
             <>
@@ -148,9 +110,22 @@ export const CourtPage = ({courtType, answers = {}}) => {
             ))}
             </>
             : activeTab === "survey" ?
-                <SurveyTable />
+                <>
+                    <SurveyTable />
+                    {/* <TableComponent config={surveyConfigHeaders2} data={courtsData}  courtType={courtType}/> */}
+                    <PaddingBottom20/>
+                    <SANS_3_4 bold>How to read this Table?</SANS_3_4>
+                    <StyledUl>
+                        <li>
+                        <SANS_3>The maximum score for each metric is 1.<br/> Ex: The users gave a score of 0.81 out of 1 (or 81%) for the NCLT’s efficiency.</SANS_3>
+                        </li> 
+                        <li> 
+                        <SANS_3> The maximum total score for each court is 5. <br/>  Ex: The users gave a composite score of 3.59 out of 5 (or 71.2%)  to the NCLT.</SANS_3>
+                        </li>
+                    </StyledUl>
+                </>        
             : null
-            }  
+            } 
         </div>
         </>
 )

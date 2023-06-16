@@ -14,7 +14,7 @@ export const StyledTextWrapper = styled.div`
     justify-content: space-between;
 `
 export const StyledHeader = styled(SANS_5_6)`
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
 `
 

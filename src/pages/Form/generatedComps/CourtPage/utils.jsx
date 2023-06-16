@@ -1,16 +1,30 @@
-import { colors, toArray } from "oolib";
-import { courtTypesConfig2 } from "./config";
+import { toArray, SANS_5_6} from "oolib";
+import { courtsData } from "../../../Form/config";
+import { StyledBoldSpan } from './styled.index'
 
-  export const getCourtSentence = (courtType) => {
+export const getCourtSentence = (courtType) => {
+    const courtTitles = toArray(courtType).map((court) => courtsData[court].courtTitle);
+    const shortTitles = toArray(courtType).map((court) => courtsData[court].shortTitle);
+
     const courtCount = toArray(courtType).length;
     if (courtCount === 1) {
-      return `${courtTypesConfig2[courtType[0]].courtTitle}`;
+      return (
+        <>
+           the <StyledBoldSpan>{courtsData[courtType[0]].courtTitle}</StyledBoldSpan>
+        </>
+      )
     } else if (courtCount === 2) {
-      const courtTitles = toArray(courtType).map((court) => courtTypesConfig2[court].courtTitle);
-      return `${courtTitles.join(' or ')}`;
+      return (
+        <>
+          the <StyledBoldSpan>{courtTitles[0]}</StyledBoldSpan> or the <StyledBoldSpan>{courtTitles[1]}</StyledBoldSpan> (<StyledBoldSpan>{shortTitles[1]}</StyledBoldSpan>)
+        </>
+      )
     } else if (courtCount === 3) {
-      const courtTitles = toArray(courtType).map((court) => courtTypesConfig2[court].shortTitle);
-      return `${courtTitles.slice(0, -1).join(', ')} or ${courtTitles.slice(-1)}`;
+      return (
+        <>
+          the <StyledBoldSpan>{courtTitles[0]}</StyledBoldSpan>, the <StyledBoldSpan>{courtTitles[1]}</StyledBoldSpan> (<StyledBoldSpan>{shortTitles[1]}</StyledBoldSpan>) or the {<StyledBoldSpan>{courtTitles[2]}</StyledBoldSpan>} (<StyledBoldSpan>{shortTitles[2]}</StyledBoldSpan>)
+        </>
+      ) 
     }
     return '';
 };

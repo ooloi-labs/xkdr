@@ -5,100 +5,73 @@ export const chequeBounceInfo = 'If Cheque Bounce was "Yes", then additional inf
 export const cardsTitle = {
     averageDisposalTime: {
         icon: "HourGlassHigh",
-        text:"Average time for disposal from filing date" 
+        text:"Average duration of a case from filing" 
     },
     avgFirstHearing: {
         icon: "CalenderX",
-        text:"Average number of days until first hearing from the date of filing"
+        text:"Average time from filing to first hearing"
     },
     numOfHearings:{ 
         icon: "WaveCurve",
-        text: "Average Number of hearings until disposal:"
+        text: "Average number of hearings"
     },
     freqOfHearings: {
         icon: "WaveTriangle",
-        text: "Frequency of hearings until disposal:",
+        text: "Frequency of hearings",
     },
     timeTaken: {
         icon: "HourGlassHorizontal",
-        text: "50% of the cases take between"
+        text: "Time taken from filing for 50% of the cases"
     }
 }
 
-export const cardInfoConfig = {
-    bombayHC: {
-        averageDisposalTime:26,
-        timeTaken:23,
-        numOfHearings:3,
-        freqOfHearings: {hearing: 1, inMonths: 6},
-        avgFirstHearing:{year: 0, months: 9, days: 0, stringRep: '9 months', totalValue: 9 },
+export const courtDataTableHeadersConfig = {
+    veritcalHeaderKeys: {
+        valuePath: 'data',
+        keys:{
+            averageDisposalTime: "Average duration of a case from filing",
+            numOfHearings: "Average number of hearings",
+            avgFirstHearing: "Average time from filing to first hearing",    
+            timeTaken: "Time taken from filing for 50% of the cases",
+            freqOfHearings:"Frequency of hearings ",
+        }
     },
-    DRT: {
-        averageDisposalTime:32,
-        timeTaken:15,
-        numOfHearings:3,
-        freqOfHearings:{hearing: 1, inMonths: 6},
-        avgFirstHearing: {year: 1, months: 6, days: 0, stringRep: '1 year, 6 months', totalValue: 18},
+    horizontalHeaderKeys: {
+        valuePath: 'courtTitle',
+        keys:{
+            bombayHC:'bombayHC',
+            DRT:'DRT',
+            NCLT:'NCLT'
+        }
     },
-    NCLT: {
-        averageDisposalTime:20,
-        timeTaken:18,
-        numOfHearings:7,
-        freqOfHearings:{hearing: 1, inMonths: 1.5},
-        avgFirstHearing:{year: 1, months: 0, days: 0, stringRep: '1 year', totalValue: 12},
+    cornerLabel: 'Metrics' 
+}
 
-    }
+export const surveyConfigHeaders2 = {
+    veritcalHeaderKeys: {
+        valuePath: 'surveyData',
+        keys:{
+            efficiency:"Efficiency",
+            effectiveness:"Effectiveness",
+            predictability:"Predictability",
+            independence:"Independence",	
+            accessibility:"Accessibility",
+            total:"Total",
+            percent: '%'
+        }
+    },
+    horizontalHeaderKeys: {
+        valuePath: 'shortTitle',
+        keys:{
+            bombayHC:'bombayHC',
+            DRT:'DRT',
+            NCLT:'NCLT'
+        }
+    },
+    cornerLabel: 'Composite scores' 
 }
 
 
-export const courtInfoHeadersConfig = {
-    // basedData: "Average time for disposal from filing date",
-    averageDisposal: "Average time for disposal from filing date",
-    fiftyPercent: "50% of the cases take between",
-    averageHearing: "Average Number of hearings until disposal",
-    freqOfHearings:"Frequency of hearings ",
-    averageFirstHering: "Average number of days until first hearing from the date of filing"    
-}
-
-export const courtTypesConfig2 = {
-    bombayHC: {
-        shortTitle: 'Bombay HC',
-        courtTitle: 'Bombay HC',
-        data: {
-                // basedData: '"4,800 cases filed"',
-                averageDisposal: '2 years 2 months',
-                fiftyPercent: '1 year 11 months',
-                averageHearing: '3 hearings',
-                freqOfHearings: '1 hearing every 6 months',
-                averageFirstHering: '9 months'
-            },
-        },
-    DRT: {
-        shortTitle: 'DRT',
-        courtTitle: 'Debts Recovery Tribunal',
-        data: {
-                // basedData: '"4,800 cases filed"',
-                averageDisposal:'2 years 8 months',
-                fiftyPercent: '1 year 3 months',
-                averageHearing: '3 hearings',
-                freqOfHearings: '1 hearing every 6 months',
-                averageFirstHering: '1 year 6 months'
-            }
-        },
-    NCLT: {
-        shortTitle: 'NCLT',
-        courtTitle: 'National Company Law Tribunal',
-        data: {
-                // basedData: '"10,800 cases filed"',
-                averageDisposal: '1 year 8 months',
-                fiftyPercent: '1 year 6 months',
-                averageHearing:  '7 hearings',
-                freqOfHearings: '1 hearing every 1.5 months',
-                averageFirstHering:'1 year 12 days'
-            }
-        },
-    }
-   
 
 
 // export const courtTypesConfig = {
