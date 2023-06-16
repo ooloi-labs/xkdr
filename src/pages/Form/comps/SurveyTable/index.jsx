@@ -7,7 +7,7 @@ export const SurveyTable = () => {
     <div style={{ overflowX: 'scroll'}}>
             <StyledTable style={{borderCollapse: 'collapse'}}>
                 <StyledSurveyTableHead>
-                    <tr>
+                    <StyledTableRow>
                     <StyledTableHead style={{position: 'sticky', left: 0, zIndex: 10}}>
                         <SANS_3 bold>
                             Composite scores
@@ -20,7 +20,7 @@ export const SurveyTable = () => {
                             </SANS_3>
                         </StyledTableHead>
                     ))}
-                    </tr>
+                    </StyledTableRow>
                 </StyledSurveyTableHead>
                 <tbody>
                     {Object.keys(surveyConfig).map((key) => (

@@ -25,7 +25,7 @@ export const StyledTableHead = styled.th`
 `
 
 export const StyledTableData = styled.td`
-    border: 1px solid ${greyColor40};
+    border-right: 1px solid ${greyColor40};
     padding: 2rem;
     /* padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'}; */
     max-width: 32rem;
@@ -39,7 +39,7 @@ export const StyledTableRow = styled.tr`
 `
 
 export const StyledTableData2 = styled.td`
-  border: 1px solid ${greyColor40};
+  border-right: 1px solid ${greyColor40};
   padding: 2rem;
   background: white;
   /* padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'}; */
