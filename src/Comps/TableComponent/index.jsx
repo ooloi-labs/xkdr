@@ -34,7 +34,6 @@ export const TableComponent = ({ data, config, courtType }) => {
       });
     }
   
-    console.log({courtTotals: courtTotals})
     return (
       <>
         <StyledTable>

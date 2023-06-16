@@ -58,6 +58,9 @@ export const StyleUl = styled.ul`
 export const StyledTable = styled.table`
     margin-top: 2rem;
     border-collapse: collapse;
+    width: inherit;
+    overflow-x: scroll;
+    border: 1px solid ${greyColor40};
 `
  
 export const StyledTableHead = styled.th`
@@ -71,7 +74,7 @@ export const StyledTableHead = styled.th`
 `
 
 export const StyledTableRow = styled.tr`
-  
+  border-bottom: 1px solid ${greyColor40};
   &:nth-child(even) {
     background-color: ${greyColor5};
   }
@@ -83,4 +86,15 @@ export const StyledTableData = styled.td`
     padding: 2rem;
     /* padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'}; */
     max-width: 32rem;
+`
+
+export const StyledTableInsideColumn = styled.div`
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid ${greyColor40};
+    :last-of-type{
+      border: none;
+    }
+    :nth-of-type(odd){
+    }
 `

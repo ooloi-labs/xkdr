@@ -1,11 +1,26 @@
-import { Wrapper800, colors, SANS_3_4, SANS_4_5, PaddingBottom20, PaddingBottom40} from "oolib"
-import { StyledContainer, StyledPageContentsWrapper, StyledInfoBlock, StyledBoldSpan, StyleUl } from "./styled.index"
-import { caseDataTableConfig, reportsStatusTableConfig } from "./config"
+import { Wrapper800, colors, SANS_3_4, SANS_4_5, PaddingBottom20, PaddingBottom40, PaddingBottom10, PaddingBottom30, OKELink} from "oolib"
+import { StyledContainer, StyledPageContentsWrapper, StyledInfoBlock, StyledBoldSpan, StyleUl, StyledTable, StyledTableHead, StyledTableRow, StyledTableData, StyledTableInsideColumn } from "./styled.index"
+import { caseDataTableConfig, reportsStatusTableConfig, surveyMethodTable } from "./config"
 import { TableComponent } from '../../Comps/TableComponent'
 import { courtsData } from '../Form/config'
 
-export const DataInsights = () => {
+const renderTableCell = (cellData) => {
+  if (Array.isArray(cellData)) {
+    return cellData.map((item, index) => (
+      <StyledTableInsideColumn key={index} >
+      <SANS_3_4 >
+      {item}
+      </SANS_3_4>
+      </StyledTableInsideColumn>
+    ));
+  }
+  return <div style={{padding: '1rem'}}>
+  <SANS_3_4>{cellData}</SANS_3_4>
+  </div>
+};
 
+export const DataInsights = () => {
+  const verticalHeaders = Object.keys(surveyMethodTable);
   return (
     <StyledContainer>
       <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex', position: 'relative'}}>
@@ -82,6 +97,64 @@ export const DataInsights = () => {
             <PaddingBottom20/>      
 
             <SANS_3_4>(v) Frequency of hearings: We calculate the distance between each order date to arrive at the frequency at which hearings take place for any particular court. </SANS_3_4>
+            
+            <PaddingBottom40 />
+            <SANS_4_5 bold>Show Survey Method</SANS_4_5>
+            <SANS_3_4>
+            <PaddingBottom20 />
+            
+            <StyledBoldSpan>1. Who conducted the survey?</StyledBoldSpan>
+            The survey was conducted by XKDR Forum, a Mumbai-based non-profit research organization.
+            <PaddingBottom20 />
+            <StyledBoldSpan>2. Who did we survey?</StyledBoldSpan>
+            <br/>
+            We surveyed the people who frequently interact with these courts, namely, lawyers practising before the NCLT, the DRT and the Bom HC in connection with debt disputes; in house counsel of banks and NBFCs and decision makers in firms that invest in debt securities or help in debt resolution.
+
+            <PaddingBottom20 />
+            <StyledBoldSpan>3. How many people did we survey?</StyledBoldSpan>
+            <br/>
+            The results are based on a survey of 17 people.
+
+            <PaddingBottom20 />
+            <StyledBoldSpan>4. How did we conduct the survey?</StyledBoldSpan>
+            <br/>
+            We interviewed the survey respondents on the telephone.
+
+            <PaddingBottom10/>
+            <StyledBoldSpan>5. What kind of questions did you ask for measuring the five metrics?</StyledBoldSpan>
+            <br />
+
+            We narrated the same fictional debt default situation to all the survey respondents and asked them to assign ranks to the Bom HC, the NCLT, the DRT, ADR and Metropolitan Magistrate in the context of the fictional problem. 
+
+            <PaddingBottom20/>
+            They were asked to rank these for a on the following statements under each metric.
+            </SANS_3_4>
+            <StyledTable>
+              <tbody>
+              {verticalHeaders.map((header, index) => (
+              <StyledTableRow key={index}>
+                <StyledTableHead>
+                <SANS_3_4 bold>
+                {header}
+                </SANS_3_4>
+                </StyledTableHead>
+                {renderTableCell(surveyMethodTable[header])}
+              </StyledTableRow>
+              ))}
+              </tbody>
+            </StyledTable>
+
+            <PaddingBottom20/>
+            <SANS_3_4>
+            This methodology is based on {" "}
+            <OKELink to={'https://xkdr.org/paper/evaluating-contract-enforcement-by-courts-in-india-a-litigants-lens'}>
+            this paper
+            </OKELink>
+            {" "}
+             written by researchers at XKDR Forum.
+            <PaddingBottom30 />
+            If you need more information about this survey, please send an email with your queries to: outreach@xkdr.org
+            </SANS_3_4>
         </StyledPageContentsWrapper>
       </Wrapper800>
     </StyledContainer>

@@ -1,6 +1,8 @@
 import { toArray, SANS_5_6} from "oolib";
 import { courtsData } from "../../../Form/config";
 import { StyledBoldSpan } from './styled.index'
+import { useEffect } from "react";
+import { useRef } from "react";
 
 export const getCourtSentence = ({courtType, smallCase}) => {
 
@@ -29,3 +31,11 @@ export const getCourtSentence = ({courtType, smallCase}) => {
     }
     return '';
 };
+
+export const useRefScrollTo = () => {
+  const scrollToTop = useRef(null);
+  useEffect(() => {
+      scrollToTop.current && scrollToTop.current.scrollIntoView();
+  })
+  return scrollToTop
+}

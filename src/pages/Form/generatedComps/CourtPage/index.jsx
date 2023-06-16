@@ -1,29 +1,19 @@
 import {  PaddingBottom20, PaddingBottom40, SANS_3, SANS_3_4, SANS_5_6, toArray, TabBarStyle2, Tooltip, BarChart, PaddingBottom10} from "oolib"
 import { cardsTitle, courtDataTableHeadersConfig, surveyConfigHeaders2 } from "./config"
 import { courtsData } from "../../config";
-import {  getCourtSentence } from "./utils";
+import {  getCourtSentence, useRefScrollTo } from "./utils";
 import {  StyledNCLTBlock, StyledUl} from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
 import { TableComponent } from "../../../../Comps/TableComponent";
 import { SurveyTable } from '../../comps/SurveyTable'
 import { InfoCard2 } from "../../comps/InfoCard/InfoCard2";
-import { useEffect } from "react";
-import { useRef } from "react";
 
 const tabOptions = [
     { display: "Summary", value: "summary" },
     { display: "Data", value: "data" },
     { display: "People's Experience", value: "survey" },
   ];
-
-const useRefScrollTo = () => {
-    const scrollToTop = useRef(null);
-    useEffect(() => {
-        scrollToTop.current && scrollToTop.current.scrollIntoView();
-    })
-    return scrollToTop
-}
 
 export const CourtPage = ({courtType, answers = {}}) => {
 
