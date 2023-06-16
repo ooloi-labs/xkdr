@@ -76,3 +76,25 @@ export const StyledTabbarWrapper = styled.div`
     background: ${greyColor5};
     width: max-content;
 `
+
+export const StyledUl = styled.ul`
+    padding-left: 1px;
+  li {
+    margin-left: 3rem;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+  }
+
+`

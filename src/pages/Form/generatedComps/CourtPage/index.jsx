@@ -1,7 +1,7 @@
-import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_5_6, toArray, TabBarStyle2, Tooltip, BarChart, } from "oolib"
-import { cardsTitle, courtsData, courtDataTableHeadersConfig2, surveyConfigHeaders2 } from "./config"
+import {  PaddingBottom20, PaddingBottom40, SANS_3, SANS_3_4, SANS_5_6, toArray, TabBarStyle2, Tooltip, BarChart, } from "oolib"
+import { cardsTitle, courtsData, courtDataTableHeadersConfig, surveyConfigHeaders2 } from "./config"
 import {  getCourtSentence } from "./utils";
-import {  StyledNCLTBlock } from "./styled.index"
+import {  StyledNCLTBlock, StyledUl} from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
 import { TableComponent } from "../../../../Comps/TableComponent";
@@ -68,7 +68,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 />
             }
             {activeTab === "data" ?
-                <TableComponent data={courtsData} config={courtDataTableHeadersConfig2} courtType={courtType}/>
+                <TableComponent data={courtsData} config={courtDataTableHeadersConfig} courtType={courtType}/>
             : 
             activeTab === "summary" ? 
             <>
@@ -96,7 +96,19 @@ export const CourtPage = ({courtType, answers = {}}) => {
             ))}
             </>
             : activeTab === "survey" ?
-                <TableComponent config={surveyConfigHeaders2} data={courtsData}  courtType={courtType}/>
+                <>
+                    <TableComponent config={surveyConfigHeaders2} data={courtsData}  courtType={courtType}/>
+                    <PaddingBottom20/>
+                    <SANS_3_4 bold>How to read this Table?</SANS_3_4>
+                    <StyledUl>
+                        <li>
+                        <SANS_3>The maximum score for each metric is 1.<br/> Ex: The users gave a score of 0.81 out of 1 (or 81%) for the NCLT’s efficiency.</SANS_3>
+                        </li> 
+                        <li> 
+                        <SANS_3> The maximum total score for each court is 5. <br/>  Ex: The users gave a composite score of 3.59 out of 5 (or 71.2%)  to the NCLT.</SANS_3>
+                        </li>
+                    </StyledUl>
+                </>        
             : null
             } 
         </div>

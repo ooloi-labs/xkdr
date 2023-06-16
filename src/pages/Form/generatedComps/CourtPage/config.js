@@ -26,14 +26,6 @@ export const cardsTitle = {
 }
 
 export const courtDataTableHeadersConfig = {
-        averageDisposalTime: "Average duration of a case from filing",
-        numOfHearings: "Average number of hearings",
-        avgFirstHearing: "Average time from filing to first hearing",    
-        timeTaken: "Time taken from filing for 50% of the cases",
-        freqOfHearings:"Frequency of hearings ",
-}
-
-export const courtDataTableHeadersConfig2 = {
     veritcalHeaderKeys: {
         valuePath: 'data',
         keys:{

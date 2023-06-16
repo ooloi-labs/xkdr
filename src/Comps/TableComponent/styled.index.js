@@ -26,6 +26,7 @@ export const StyledTableData = styled.td`
     border-right: 1px solid ${greyColor40};
     /* padding: ${({numOfContainers}) => numOfContainers > 2 ? '2rem' : '3rem'}; */
     padding: 2rem;
+    width: 15rem;
     max-width: 32rem;
     /* height: 15rem; */
 `
