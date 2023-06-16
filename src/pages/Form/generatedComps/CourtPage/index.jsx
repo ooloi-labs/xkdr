@@ -68,7 +68,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 </>
             }
             {/* <SANS_3>We have information on the performance of some of these courts and tribunals in the following locations</SANS_3> */}
-            <PaddingBottom20/>  
+            {/* <PaddingBottom20/>   */}
             {toArray(courtType).length > 1 && 
             <>
                 <TabBarStyle2
