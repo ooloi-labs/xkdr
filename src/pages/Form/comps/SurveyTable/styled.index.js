@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from 'oolib'
 
-const { greyColor15, greyColor40, greyColor5 } = colors;
+const { greyColor40, greyColor5 } = colors;
 
 export const StyledSurveyTableHead = styled.thead`
 
@@ -21,6 +21,10 @@ export const StyledTableHead = styled.th`
     padding: 2rem;
     background: #FEF6F5;
     text-align: left;
+    cursor: pointer;
+    :hover{
+      background-color: #FBB7AD;
+    }
     /* height: 10rem; */
 `
 
