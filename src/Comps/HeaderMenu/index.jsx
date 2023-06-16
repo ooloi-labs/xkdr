@@ -29,7 +29,7 @@ export const HeaderMenu = () => {
         </StyledUl>
         <ButtonPrimary>
           <StyledNavLinkCTA to={'/previewCourtPage'}>
-            Dashboard
+            All Courts Data
           </StyledNavLinkCTA>
         </ButtonPrimary>
         </div>
