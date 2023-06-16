@@ -10,7 +10,6 @@ export const TableComponent = ({data, config, courtType}) => {
   // eslint-disable-next-line
   const { veritcalHeaderKeys, horizontalHeaderKeys, cornerLabel} = config
 
-
   return (
     <>
         <StyledTable>
@@ -47,7 +46,6 @@ export const TableComponent = ({data, config, courtType}) => {
                             {Object.keys(horizontalHeaderKeys.keys).map((courtName) => (
                                 <StyledTableData key={key} numOfContainers={numOfContainers}>
                                 <TitleComp color={colors.greyColor80} bold>
-                                    {/* {data[horizontalHeaderKeys.keys[courtName]][veritcalHeaderKeys.valuePath][key]} */}
                                     {generateTableCellText({text: data[horizontalHeaderKeys.keys[courtName]][veritcalHeaderKeys.valuePath][key], key: propertyKey})}
                                 </TitleComp>
                                 </StyledTableData>
