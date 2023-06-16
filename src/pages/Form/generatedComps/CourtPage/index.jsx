@@ -1,4 +1,4 @@
-import {  PaddingBottom20, PaddingBottom40, SANS_3, SANS_3_4, SANS_5_6, toArray, TabBarStyle2, Tooltip, BarChart, } from "oolib"
+import {  PaddingBottom20, PaddingBottom40, SANS_3, SANS_3_4, SANS_5_6, toArray, TabBarStyle2, Tooltip, BarChart, PaddingBottom10} from "oolib"
 import { cardsTitle, courtDataTableHeadersConfig, surveyConfigHeaders2 } from "./config"
 import { courtsData } from "../../config";
 import {  getCourtSentence } from "./utils";
@@ -114,7 +114,8 @@ export const CourtPage = ({courtType, answers = {}}) => {
                     <SurveyTable />
                     {/* <TableComponent config={surveyConfigHeaders2} data={courtsData}  courtType={courtType}/> */}
                     <PaddingBottom20/>
-                    <SANS_3_4 bold>How to read this Table?</SANS_3_4>
+                    <SANS_3_4 semibold>How to read this Table?</SANS_3_4>
+                    <PaddingBottom10/>
                     <StyledUl>
                         <li>
                         <SANS_3>The maximum score for each metric is 1.<br/> Ex: The users gave a score of 0.81 out of 1 (or 81%) for the NCLT’s efficiency.</SANS_3>

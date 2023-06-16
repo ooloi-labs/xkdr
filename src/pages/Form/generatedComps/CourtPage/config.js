@@ -7,6 +7,10 @@ export const cardsTitle = {
         icon: "HourGlassHigh",
         text:"Average duration of a case from filing" 
     },
+    timeTaken: {
+        icon: "HourGlassHorizontal",
+        text: "Time taken from filing for 50% of the cases"
+    },
     avgFirstHearing: {
         icon: "CalenderX",
         text:"Average time from filing to first hearing"
@@ -19,10 +23,7 @@ export const cardsTitle = {
         icon: "WaveTriangle",
         text: "Frequency of hearings",
     },
-    timeTaken: {
-        icon: "HourGlassHorizontal",
-        text: "Time taken from filing for 50% of the cases"
-    }
+    
 }
 
 export const courtDataTableHeadersConfig = {
@@ -30,9 +31,9 @@ export const courtDataTableHeadersConfig = {
         valuePath: 'data',
         keys:{
             averageDisposalTime: "Average duration of a case from filing",
-            numOfHearings: "Average number of hearings",
-            avgFirstHearing: "Average time from filing to first hearing",    
             timeTaken: "Time taken from filing for 50% of the cases",
+            avgFirstHearing: "Average time from filing to first hearing",    
+            numOfHearings: "Average number of hearings",
             freqOfHearings:"Frequency of hearings ",
         }
     },
