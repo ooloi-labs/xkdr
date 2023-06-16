@@ -8,8 +8,6 @@ import InfoCard from "../../comps/InfoCard/InfoCard";
 import { TableComponent } from "../../../../Comps/TableComponent";
 import { SurveyTable } from '../../comps/SurveyTable'
 import { InfoCard2 } from "../../comps/InfoCard/InfoCard2";
-import { useEffect } from "react";
-import { useRef } from "react";
 
 const tabOptions = [
     { display: "Summary", value: "summary" },

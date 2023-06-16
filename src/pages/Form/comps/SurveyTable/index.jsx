@@ -4,7 +4,7 @@ import { StyledSurveyTableHead, StyledTable, StyledTableData, StyledTableData2, 
 
 export const SurveyTable = () => {
   return (
-    <div style={{ overflowX: 'scroll'}}>
+    <div style={{ marginLeft: '-120px', width: '100%'}}>
             <StyledTable style={{borderCollapse: 'collapse'}}>
                 <StyledSurveyTableHead>
                     <StyledTableRow>

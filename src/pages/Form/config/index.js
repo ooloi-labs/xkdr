@@ -163,9 +163,10 @@ export const courtsData = {
       data: {
               // basedData: '"4,800 cases filed"',
               averageDisposalTime:26,
+              disposalTime: '2 years 2 months',
               timeTaken:23,
               numOfHearings:3,
-              freqOfHearings: {hearing: 1, inMonths: 6},
+              freqOfHearings: {hearing: 1, inMonths: 6, stringRep: '1 hearing per 6 months'},
               avgFirstHearing:{year: 0, months: 9, days: 0, stringRep: '9 months', totalValue: 9 },
           },
       surveyData: {
@@ -195,9 +196,10 @@ export const courtsData = {
       data: {
               // basedData: '"4,800 cases filed"',
               averageDisposalTime:32,
+              disposalTime: '2 years 8 months',
               timeTaken:15,
               numOfHearings:3,
-              freqOfHearings:{hearing: 1, inMonths: 6},
+              freqOfHearings:{hearing: 1, inMonths: 6, stringRep: '1 hearing per 6 months'},
               avgFirstHearing: {year: 1, months: 6, days: 0, stringRep: '1 year, 6 months', totalValue: 18},
           },
       surveyData: {
@@ -227,9 +229,10 @@ export const courtsData = {
       data: {
               // basedData: '"10,800 cases filed"',
               averageDisposalTime:20,
+              disposalTime: '1 year 8 months',
               timeTaken:18,
               numOfHearings:7,
-              freqOfHearings:{hearing: 1, inMonths: 1.5},
+              freqOfHearings:{hearing: 1, inMonths: 1.5, stringRep: '1 hearing per 1.5 months'},
               avgFirstHearing:{year: 1, months: 0, days: 0, stringRep: '1 year', totalValue: 12},
           },
       surveyData :{
