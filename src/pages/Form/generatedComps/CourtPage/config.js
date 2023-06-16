@@ -59,13 +59,13 @@ export const surveyConfigHeaders2 = {
     veritcalHeaderKeys: {
         valuePath: 'surveyData',
         keys:{
-            compositeScores:"Composite scores",
             efficiency:"Efficiency",
             effectiveness:"Effectiveness",
             predictability:"Predictability",
             independence:"Independence",	
             accessibility:"Accessibility",
-            total:"Total %",
+            total:"Total",
+            percent: '%'
         }
     },
     horizontalHeaderKeys: {
@@ -76,18 +76,7 @@ export const surveyConfigHeaders2 = {
             NCLT:'NCLT'
         }
     },
-    cornerLabel: '' 
-}
-
-
-export const surveyConfigHeaders = {
-    compositeScores:"Composite scores",
-    efficiency:"Efficiency",
-    effectiveness:"Effectiveness",
-    predictability:"Predictability",
-    independence:"Independence",	
-    accessibility:"Accessibility",
-    total:"Total %",
+    cornerLabel: 'Composite scores' 
 }
 
 export const courtsData = {
@@ -103,13 +92,13 @@ export const courtsData = {
                 avgFirstHearing:{year: 0, months: 9, days: 0, stringRep: '9 months', totalValue: 9 },
             },
         surveyData: {
-                compositeScores:0.65,
-                efficiency:0.71,
-                effectiveness:0.64,
-                predictability:0.83,
-                independence:0.76,	
-                accessibility:3.60,
-                total:71.91,
+                efficiency:0.65,
+                effectiveness:0.71,
+                predictability:0.64,
+                independence:0.83,
+                accessibility:0.76,	
+                total:3.60,
+                percent:71.91,
             },
         caseData: {
                 "2018":1335,
@@ -135,13 +124,13 @@ export const courtsData = {
                 avgFirstHearing: {year: 1, months: 6, days: 0, stringRep: '1 year, 6 months', totalValue: 18},
             },
         surveyData: {
-                compositeScores:0.54,
-                efficiency:0.57,
-                effectiveness:0.49,
-                predictability:0.51,
-                independence:0.54,	
-                accessibility:2.64,
-                total:52.90,
+                efficiency:0.54,
+                effectiveness:0.57,
+                predictability:0.49,
+                independence:0.51,
+                accessibility:0.54,	
+                total:2.64,
+                percent:52.90,
             },
         caseData: {
                 "2018":1411,
@@ -167,13 +156,13 @@ export const courtsData = {
                 avgFirstHearing:{year: 1, months: 0, days: 0, stringRep: '1 year', totalValue: 12},
             },
         surveyData :{
-                compositeScores:0.81,
-                efficiency:0.75,
-                effectiveness:0.72,
-                predictability:0.61,
-                independence:0.70,	
-                accessibility:3.59,
-                total:71.82,
+                efficiency:0.81,
+                effectiveness:0.75,
+                predictability:0.72,
+                independence:0.61,
+                accessibility:0.70,	
+                total:3.59,
+                percent:71.82,
             },
         caseData: {
                 "2018":919,

@@ -1,5 +1,5 @@
 import { generateTableCellText } from '../../pages/Form/generatedComps/CourtPage/utils';
-import { StyledTable, StyledTableData, StyledTableHead } from './styled.index'
+import { StyledTable, StyledTableData, StyledTableHead, StyledTableRow } from './styled.index'
 import { colors, SANS_3, SANS_4_5, toArray } from 'oolib';
 
 // eslint-disable-next-line
@@ -36,7 +36,7 @@ export const TableComponent = ({data, config, courtType}) => {
                 {Object.keys(veritcalHeaderKeys.keys).map((key) => {
                     const propertyKey = key;
                     return (
-                        <tr key={key}>
+                        <StyledTableRow key={key}>
 
                         <StyledTableData key={key} numOfContainers={numOfContainers}>
                             <TitleComp color={colors.greyColor80}>
@@ -53,7 +53,7 @@ export const TableComponent = ({data, config, courtType}) => {
                                 </StyledTableData>
                             ))}
 
-                        </tr>
+                        </StyledTableRow>
                     );
                     })}
                         

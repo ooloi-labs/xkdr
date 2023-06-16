@@ -28,6 +28,14 @@ export const StyledTableData = styled.td`
     /* height: 15rem; */
 `
 //
+
+export const StyledTableRow = styled.tr`
+  
+  &:nth-child(even) {
+    background-color: ${greyColor5};
+  }
+`
+
 export const StyledNCLTBlock = styled.div`
     display: flex;
     gap: 1rem;
