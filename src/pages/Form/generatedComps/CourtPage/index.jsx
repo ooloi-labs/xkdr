@@ -1,5 +1,6 @@
 import {  PaddingBottom20, PaddingBottom40, SANS_3, SANS_3_4, SANS_5_6, toArray, TabBarStyle2, Tooltip, BarChart, } from "oolib"
-import { cardsTitle, courtsData, courtDataTableHeadersConfig, surveyConfigHeaders2 } from "./config"
+import { cardsTitle, courtDataTableHeadersConfig, surveyConfigHeaders2 } from "./config"
+import { courtsData } from "../../config";
 import {  getCourtSentence } from "./utils";
 import {  StyledNCLTBlock, StyledUl} from "./styled.index"
 import { useState } from "react";

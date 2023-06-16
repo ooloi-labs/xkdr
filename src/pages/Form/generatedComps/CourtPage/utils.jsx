@@ -1,5 +1,5 @@
 import { toArray, SANS_5_6} from "oolib";
-import { courtsData } from "./config";
+import { courtsData } from "../../../Form/config";
 import { StyledBoldSpan } from './styled.index'
 
 export const getCourtSentence = (courtType) => {

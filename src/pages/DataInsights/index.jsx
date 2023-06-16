@@ -1,6 +1,9 @@
 import { Wrapper800, colors, SANS_3_4, SANS_4_5, PaddingBottom20, PaddingBottom40} from "oolib"
 import { StyledContainer, StyledPageContentsWrapper, StyledInfoBlock, StyledBoldSpan, StyleUl, StyledTable, StyledTableHead, StyledTableData, StyledTableRow} from "./styled.index"
-import { caseStatus, casesData } from "./config"
+import { caseDataTableConfig, caseStatus, casesData, reportsStatusTableConfig } from "./config"
+import { TableComponent } from '../../Comps/TableComponent'
+import { courtsData } from '../Form/config'
+
 export const DataInsights = () => {
   const years = Object.keys(casesData.BHC)
   const status = Object.keys(caseStatus.BHC)
@@ -29,35 +32,7 @@ export const DataInsights = () => {
             
             <StyledInfoBlock>
               <SANS_3_4 bold style={{justifySelf: 'center'}}>No. of cases used for the analysis</SANS_3_4>
-              <StyledTable>
-                    <thead>
-                      <tr>
-                        <StyledTableHead><SANS_3_4 bold>Filing year</SANS_3_4></StyledTableHead> 
-                        {Object.keys(casesData).map((key) => (
-                          <StyledTableHead key={key}><SANS_3_4 bold>{key}</SANS_3_4></StyledTableHead>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {years.map((year) => (
-                        <StyledTableRow key={year}>
-                          <StyledTableData><SANS_3_4>{year}</SANS_3_4></StyledTableData>
-                          {Object.keys(casesData).map((key) => (
-                            <StyledTableData key={key}><SANS_3_4>{casesData[key][year]}</SANS_3_4></StyledTableData>
-                          ))}
-                        </StyledTableRow>
-                      ))}
-                      <StyledTableRow>
-                        <StyledTableData><SANS_3_4 bold>Total</SANS_3_4></StyledTableData>
-                        {Object.keys(casesData).map((key) => (
-                          <StyledTableData key={key}>
-                            <SANS_3_4 bold>{calculateTotal(Object.values(casesData[key]))}</SANS_3_4>
-                          </StyledTableData>
-                        ))}
-                      </StyledTableRow>
-                    </tbody>
-              </StyledTable>
-
+                  <TableComponent config={caseDataTableConfig} data={courtsData} courtType={['bombayHC', 'DRT', 'NCLT']}/>
               <SANS_3_4 underline>
                   For each of these cases, we obtain information on - 
               </SANS_3_4>
@@ -87,34 +62,11 @@ export const DataInsights = () => {
             <PaddingBottom20 />
             <SANS_3_4>For disposed of cases, we calculate the time to disposal as the difference between filing date to disposal date. For pending cases, we calculate the age of pending cases as the difference between filing date to scraping date. 
             </SANS_3_4>
-            <StyledTable>
-                    <thead>
-                      <tr>
-                        <StyledTableHead><SANS_3_4 bold>Status</SANS_3_4></StyledTableHead> 
-                        {Object.keys(caseStatus).map((key) => (
-                          <StyledTableHead key={key}><SANS_3_4 semibold>{key}</SANS_3_4></StyledTableHead>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {status.map((st) => (
-                        <StyledTableRow key={st}>
-                          <StyledTableData><SANS_3_4>{st}</SANS_3_4></StyledTableData>
-                          {Object.keys(casesData).map((key) => (
-                            <StyledTableData key={key}><SANS_3_4>{caseStatus[key][st]}</SANS_3_4></StyledTableData>
-                          ))}
-                        </StyledTableRow>
-                      ))}
-                      <StyledTableRow>
-                        <StyledTableData><SANS_3_4 bold>Total</SANS_3_4></StyledTableData>
-                        {Object.keys(caseStatus).map((key) => (
-                          <StyledTableData key={key}>
-                            <SANS_3_4 bold>{calculateTotal(Object.values(caseStatus[key]))}</SANS_3_4>
-                          </StyledTableData>
-                        ))}
-                      </StyledTableRow>
-                    </tbody>
-              </StyledTable>              
+            
+            <PaddingBottom20 />              
+
+            <TableComponent config={reportsStatusTableConfig} data={courtsData} courtType={['bombayHC', 'DRT', 'NCLT']}/>
+
             <PaddingBottom20 />              
             
             <SANS_3_4>(i) Average duration of a case from filing: To arrive at this, we use: </SANS_3_4>
