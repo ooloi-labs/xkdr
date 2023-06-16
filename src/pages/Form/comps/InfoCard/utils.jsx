@@ -66,10 +66,10 @@ export const generateSentences = (heading, info) => {
 
         const quickestYears = Math.floor(quickestTime / 12);
         const quickestMonths = quickestTime % 12;
-
+        // The median time for disposal of cases at the DRT is the lowest, that is, 50% of the cases in DRT get disposed of within 1 year 3 months. The median time for disposal of cases at the BHC is the longest.
         summaryJSXSentence = (
           <SANS_3_4>
-            <StyledBoldSpan>{courtNames[quickestCourt].title}{' '}</StyledBoldSpan> takes the least amount of time for 50% of cases, averaging at <StyledBoldSpan>{quickestYears} year{quickestYears > 1 ? 's' : ''} {quickestMonths} month{quickestMonths > 1 ? 's' : ''}. {courtNames[longestCourt].shortTitle}</StyledBoldSpan> takes the longest.
+            The median time for disposal of cases at the <StyledBoldSpan>{courtNames[quickestCourt].title}{' '}</StyledBoldSpan> is the lowest, that is, 50% of the cases in <StyledBoldSpan>{courtNames[quickestCourt].shortTitle}{' '}</StyledBoldSpan> get disposed of within <StyledBoldSpan>{quickestYears} year{quickestYears > 1 ? 's' : ''} {quickestMonths} month{quickestMonths > 1 ? 's' : ''}. </StyledBoldSpan>The median time for disposal of cases at the <StyledBoldSpan>{courtNames[longestCourt].shortTitle}</StyledBoldSpan> is the longest.
           </SANS_3_4>
         )
     } else if (timeTakenSortedInfo.length === 1) {
@@ -133,16 +133,33 @@ export const generateSentences = (heading, info) => {
   
       case 'avgFirstHearing':
         // eslint-disable-next-line
-        const avgFirstHearingSortedInfo = info.sort((a, b) => a.value - b.value);
-  
+        const avgFirstHearingSortedInfo = info.sort((a, b) => {
+          if (a.value.year !== b.value.year) {
+            return a.value.year - b.value.year;
+          } else if (a.value.months !== b.value.months) {
+            return a.value.months - b.value.months;
+          } else {
+            return a.value.days - b.value.days;
+          }
+        });
         if (avgFirstHearingSortedInfo.length > 1) {
           const fastestFirstHearingCourt = avgFirstHearingSortedInfo[0].courtName;
+          const slowesHearingCourtName = avgFirstHearingSortedInfo[avgFirstHearingSortedInfo.length - 1].courtName
           const fastestFirstHearingYear = avgFirstHearingSortedInfo[0].value.year
-          const fastestFirstHearingDays = avgFirstHearingSortedInfo[0].value.days
+          // const fastestFirstHearingDays = avgFirstHearingSortedInfo[0].value.days
           const fastestFirstHearingMonths = avgFirstHearingSortedInfo[0].value.months
+          
+          const slowestFirstHearingYear = avgFirstHearingSortedInfo[avgFirstHearingSortedInfo.length -1].value.year
+          // const slowestFirstHearingDays = avgFirstHearingSortedInfo[avgFirstHearingSortedInfo.length -1].value.days
+          const slowestFirstHearingMonths = avgFirstHearingSortedInfo[avgFirstHearingSortedInfo.length -1].value.months
+
           summaryJSXSentence = (
             <SANS_3_4>
-              <StyledBoldSpan>{courtNames[fastestFirstHearingCourt].title}{' '}</StyledBoldSpan> has the fastest average of <StyledBoldSpan>{fastestFirstHearingYear ? fastestFirstHearingYear : ''} {fastestFirstHearingYear ? `year` : ''} {fastestFirstHearingMonths} {fastestFirstHearingMonths ? 'months' : ''} { (fastestFirstHearingMonths && fastestFirstHearingDays || fastestFirstHearingYear && fastestFirstHearingDays) ? 'and' : ''} {fastestFirstHearingDays ? fastestFirstHearingDays : ''} {fastestFirstHearingDays ? 'days' : ''}</StyledBoldSpan> until the first hearing from the date of filing.
+              <StyledBoldSpan>{courtNames[fastestFirstHearingCourt].title}</StyledBoldSpan> is the quickest to hold a first hearing. An average case at the{' '} <StyledBoldSpan>{courtNames[fastestFirstHearingCourt].shortTitle}</StyledBoldSpan> 
+               {' '}is heard for the first time within 
+               {' '}<StyledBoldSpan>{fastestFirstHearingYear ? fastestFirstHearingYear : ''} {fastestFirstHearingYear ? 'year' : ''}{fastestFirstHearingYear > 1 ? 's' : ''} {fastestFirstHearingMonths} month{fastestFirstHearingMonths ? 's' : ''}</StyledBoldSpan> from the date of its filing.
+               {' '}<StyledBoldSpan>{courtNames[slowesHearingCourtName].shortTitle}</StyledBoldSpan> takes the longest.
+               An average case at the {courtNames[slowesHearingCourtName].shortTitle} is heard for the first time within <StyledBoldSpan>{slowestFirstHearingYear ? slowestFirstHearingYear : ''} {slowestFirstHearingYear ? 'year' : ''}{slowestFirstHearingYear > 1 ? 's' : ''} {slowestFirstHearingMonths ? slowestFirstHearingMonths : ''} month{slowestFirstHearingMonths ? 's' : ''} </StyledBoldSpan> from the date of its filing. 
             </SANS_3_4>
           )
         } else if (avgFirstHearingSortedInfo.length === 1) {
@@ -160,7 +177,7 @@ export const generateSentences = (heading, info) => {
   
       default:
         break;
-    }
+      }
+      return summaryJSXSentence;
   
-    return summaryJSXSentence;
   };

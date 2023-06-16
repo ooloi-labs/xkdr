@@ -4,7 +4,7 @@ import { colors } from 'oolib'
 const { greyColor40, invertRed, lightRed, greyColor5 } = colors;
 
 export const StyledTable = styled.table`
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     border-collapse: collapse;
     width: inherit;
     overflow-x: scroll;

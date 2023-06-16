@@ -40,11 +40,11 @@ export const CourtPage = ({courtType, answers = {}}) => {
         <>
             <div >
             <SANS_5_6>
-                You can approach some high courts,<span style={{fontWeight: 'bold'}}>{getCourtSentence(courtType)}</span> 
+                You can approach<span style={{fontWeight: 'bold'}}>{getCourtSentence(courtType)}</span> 
             </SANS_5_6>
             <PaddingBottom20 />
                 <>
-                <SANS_3_4>If your dispute involves bounced cheque(s), then you could also approach the Metropolitan Magistrate courts.</SANS_3_4>
+                <SANS_3>If your dispute involves bounced cheque(s), then you could also approach the Metropolitan Magistrate courts.</SANS_3>
                 <PaddingBottom20/>
                 </>
             {toArray(courtType).includes('NCLT') &&
@@ -59,13 +59,16 @@ export const CourtPage = ({courtType, answers = {}}) => {
             <SANS_3>We have information on the performance of some of these courts and tribunals in the following locations</SANS_3>
             <PaddingBottom20/>  
             {toArray(courtType).length > 1 && 
+            <>
                 <TabBarStyle2
                     S
                     value={activeTab}
                     options={tabOptions}
                     onChange={(k, v) => setActiveTab(v)}
                     saveValueAsString
-                />
+                    />
+                <PaddingBottom20/>
+                    </>
             }
             {activeTab === "data" ?
                 <TableComponent data={courtsData} config={courtDataTableHeadersConfig} courtType={courtType}/>

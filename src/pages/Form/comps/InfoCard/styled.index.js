@@ -5,7 +5,7 @@ const { greyColor15 } = colors;
 
 export const StyledCardContainer = styled.div`
     width: 100%;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
     border-bottom:none;
     border-radius: 1rem;
 `

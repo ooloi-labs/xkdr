@@ -7,7 +7,7 @@ export const formConfig = {
     pageType: "questionPage",
     comp: "RadioList",
     props: {
-      label: "Are you a creditor or debtor",
+      label: "Are you a creditor or debtor ?",
       options: [
         {
           display: "Creditor (Bank/NBFC)",
@@ -30,7 +30,7 @@ export const formConfig = {
     comp: "RadioList",
     props: {
       label: [
-        "Our assumption is that someone has sued your or taken you to court because you allegedly owe them money.",
+        "Our assumption is that someone has sued you or taken you to court because you allegedly owe them money.",
         "Which forum have they taken you to court in?",
       ],
       options: [

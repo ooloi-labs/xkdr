@@ -8,7 +8,7 @@ export const getCourtSentence = (courtType) => {
     const courtCount = toArray(courtType).length;
     
     if (courtCount === 1) {
-      return `${courtsData[courtType[0]].courtTitle}`;
+      return ` the ${courtsData[courtType[0]].courtTitle}`;
     } else if (courtCount === 2) {
       return `the ${courtTitles[0]}, the ${courtTitles[1]} (${shortTitles[1]})`;
     } else if (courtCount === 3) {
