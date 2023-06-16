@@ -5,7 +5,7 @@ import { SANS_2, ButtonPrimary } from 'oolib'
  
 const links = [
   { path: '/about', value: 'About' },
-  { path: '/dataInsights', value: 'How this data was computed' },
+  { path: '/dataInsights', value: 'Methodology and Data' },
   // { path: '/previewCourtPage', value: 'Dashboard' },
 ];
 

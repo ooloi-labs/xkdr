@@ -2,7 +2,8 @@ import { toArray, SANS_5_6} from "oolib";
 import { courtsData } from "../../../Form/config";
 import { StyledBoldSpan } from './styled.index'
 
-export const getCourtSentence = (courtType) => {
+export const getCourtSentence = ({courtType, smallCase}) => {
+
     const courtTitles = toArray(courtType).map((court) => courtsData[court].courtTitle);
     const shortTitles = toArray(courtType).map((court) => courtsData[court].shortTitle);
 
@@ -10,7 +11,7 @@ export const getCourtSentence = (courtType) => {
     if (courtCount === 1) {
       return (
         <>
-           the <StyledBoldSpan>{courtsData[courtType[0]].courtTitle}</StyledBoldSpan>
+           {smallCase ? 'the' : 'The'} <StyledBoldSpan>{courtsData[courtType[0]].courtTitle}</StyledBoldSpan>
         </>
       )
     } else if (courtCount === 2) {
