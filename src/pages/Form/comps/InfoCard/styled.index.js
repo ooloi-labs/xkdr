@@ -43,5 +43,6 @@ export const StyledExpandedCardSection = styled.div`
 `
 
 export const StyledBoldSpan = styled.span`
-    font-weight: bold;
+    font-weight: 600;
+    /* font-weight: bold; */
 `

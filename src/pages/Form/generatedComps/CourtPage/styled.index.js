@@ -82,14 +82,14 @@ export const StyledUl = styled.ul`
   li {
     margin-left: 3rem;
     position: relative;
-    padding-left: 20px;
+    padding-left: 10px;
     margin-bottom: 10px;
 
     &:before {
       content: '';
       position: absolute;
       top: 10px;
-      left: 0;
+      left: -15px;
       width: 8px;
       height: 8px;
       border-radius: 50%;

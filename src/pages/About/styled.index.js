@@ -14,7 +14,7 @@ export const StyledPageContentsWrapper = styled.div`
   padding: 4rem 0rem 2rem 0rem; 
   display: flex; 
   flex-direction: column; 
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   width: 100%;
   min-height: 100vh;
   ${mediaQuery('md')}{

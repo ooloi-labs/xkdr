@@ -135,7 +135,8 @@ export const formConfig = {
                     }
                 }
             },
-        ]
+        ],
+      listType: "vertical",  
     }
   },
   // end pages
