@@ -29,12 +29,12 @@ export const TextDisplayComp = ({text, header, showContactForm, bottomText, link
                 <StyledInfo>{text}</StyledInfo>
                 </div>
                 <div>
-                <StyledInfo>{bottomText}</StyledInfo>
-                <SANS_3 semibold>
+                {/* <StyledInfo>{bottomText}</StyledInfo> */}
+                {/* <SANS_3 semibold>
                     <OKELink to={`${link?.url}`} color={'greyColor100'}>
                     {link?.linkText}
                     </OKELink>
-                </SANS_3>
+                </SANS_3> */}
                 </div>
             </StyledTextWrapper>
 

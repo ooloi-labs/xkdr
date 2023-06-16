@@ -16,7 +16,7 @@ const tabOptions = [
 export const CourtPage = ({courtType, answers = {}}) => {
 
     const [ activeTab, setActiveTab] = useState("summary")
-
+    const isAnswersEmpty = Object.keys(answers).length === 0
 
     const getCourtInfo = () => {
 
@@ -41,13 +41,15 @@ export const CourtPage = ({courtType, answers = {}}) => {
         <>
             <div >
             <SANS_5_6>
-                You can approach the<span style={{fontWeight: 'bold'}}> {getCourtSentence(courtType)}</span> 
+            {getCourtSentence(courtType)}
             </SANS_5_6>
             <PaddingBottom20 />
+            {(isAnswersEmpty || answers?.creditorOrDebtor?.value !== 'debtor') &&
                 <>
                 <SANS_3>If your dispute involves bounced cheque(s), then you could also approach the Metropolitan Magistrate courts.</SANS_3>
                 <PaddingBottom20/>
                 </>
+            }
             {toArray(courtType).includes('NCLT') &&
                 <>
                 <StyledNCLTBlock>
@@ -57,7 +59,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 <PaddingBottom20/>  
                 </>
             }
-            <SANS_3>We have information on the performance of some of these courts and tribunals in the following locations</SANS_3>
+            {/* <SANS_3>We have information on the performance of some of these courts and tribunals in the following locations</SANS_3> */}
             <PaddingBottom20/>  
             {toArray(courtType).length > 1 && 
             <>

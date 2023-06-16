@@ -85,7 +85,7 @@ export const formConfig = {
           linkTo: "thisWebsiteIrrelevantPage",
           linkToProps: { 
             header: 'Amount owed is below 20 Lakhs',
-            text: "for disputes/matters that pertain to amounts less than 20L you can approach lower civil courts.",
+            text: "for disputes/matters that pertain to amounts less than 20L you can approach Lower Civil Courts.",
             bottomText: "for more information you can see this link: ",
             link: {linkText: 'Project Nyayya', url: 'https://nyaaya.org/'}
           }

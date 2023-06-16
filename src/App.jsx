@@ -32,6 +32,7 @@ function App() {
               <Route path="/form" element={<Form />} />
               <Route path="/about" element={<About />} />
               <Route path="/dataInsights" element={<DataInsights />} />
+              <Route path="/*" element={<About />} />
               <Route path="/previewCourtPage" element={
                 <Container style={{background: colors.greyColor5}}>
                   <Wrapper800>

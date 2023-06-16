@@ -24,10 +24,10 @@ const Footer = () => {
           <SANS_0 uppercase bold color={greyColor50}>  In partnership with </SANS_0>  
         <div style={{display: 'flex', gap: '5rem', marginLeft: '0.5rem'}}>
           
-        <NavLink to="/about" style={{textDecoration: 'none', color: 'inherit'}} >
+        <NavLink to="/" style={{textDecoration: 'none', color: 'inherit'}} >
             <StyledLogo src={pucarLogo}></StyledLogo>
         </NavLink>
-        <NavLink to="/about" style={{textDecoration: 'none', color: 'inherit'}} >
+        <NavLink to="/" style={{textDecoration: 'none', color: 'inherit'}} >
             <StyledLogo src={ooloiLogo}></StyledLogo>
         </NavLink>
         </div>  

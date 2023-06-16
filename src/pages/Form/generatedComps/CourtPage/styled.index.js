@@ -98,3 +98,7 @@ export const StyledUl = styled.ul`
   }
 
 `
+
+export const StyledBoldSpan = styled.span`
+  font-weight: bold;
+`
