@@ -1,4 +1,4 @@
-import { Container, GlobalStyles, TypoClassesProvider, Wrapper800,colors  } from "oolib";
+import { Container, GlobalStyles, TypoClassesProvider, Wrapper1000, Wrapper1120, Wrapper800,colors  } from "oolib";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import "./App.css";
@@ -13,8 +13,8 @@ import Footer from "./Comps/Footer";
 const theme = {
   colors: {
     primaryColor100: "#F54C31",
-    primaryColor40: "#addbff",
-    primaryColor10: "#ebf6ff",
+    primaryColor40: "#fbb7ad",
+    primaryColor10: "#feedea",
     primaryColorText: "#F54C31"
   }
 }
@@ -22,7 +22,7 @@ const theme = {
 function App() {
   return (
     <div>
-      <ThemeProvider theme={{}}>
+      <ThemeProvider theme={theme}>
         <TypoClassesProvider>
           <GlobalStyles />
           <BrowserRouter>
