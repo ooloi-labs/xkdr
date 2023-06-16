@@ -1,7 +1,7 @@
 import { Container, colors, mediaQuery} from 'oolib'
 import styled from 'styled-components'
 
-const { primaryColor100, greyColor5, greyColor40} = colors
+const { greyColor5, greyColor40} = colors
 export const StyledContainer = styled(Container)`
   background-color: ${colors.white} ;
   min-height: 100vh;

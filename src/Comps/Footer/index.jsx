@@ -1,5 +1,5 @@
 import { StyledFooterContainer, StyledLogo, StyledSection } from "./Styled.index"
-import { SANS_0, SANS_2,colors, SANS_3_4, PaddingBottom40, PaddingBottom20,OKELink} from 'oolib'
+import { SANS_0,colors, SANS_3_4, PaddingBottom40, PaddingBottom20,OKELink} from 'oolib'
 import { NavLink } from 'react-router-dom'
 import xkdrLogo from '../../../public/xkdr-logo.svg'
 import ooloiLogo from '../../../public/Logo.svg'

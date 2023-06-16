@@ -41,7 +41,16 @@ export const CourtPage = ({courtType, answers = {}}) => {
     return (
         <>
             <div >
-            {getCourtSentence(courtType)}
+            <SANS_5_6> 
+            {(isAnswersEmpty || answers?.creditorOrDebtor?.value !== 'debtor')
+                    ? <>
+                        You can approch {getCourtSentence(courtType)}
+                        </>
+                    : <>
+                            {getCourtSentence(courtType)}
+                        </>
+            }
+            </SANS_5_6>
             <PaddingBottom20 />
             {(isAnswersEmpty || answers?.creditorOrDebtor?.value !== 'debtor') &&
                 <>
