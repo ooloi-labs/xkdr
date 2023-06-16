@@ -8,6 +8,7 @@ import { Form } from "./pages/Form";
 import { CourtPage } from "./pages/Form/generatedComps/CourtPage";
 import { HeaderMenu } from "./Comps/HeaderMenu";
 import { DataInsights } from "./pages/DataInsights";
+import Footer from "./Comps/Footer";
 
 const theme = {
   colors: {
@@ -41,6 +42,7 @@ function App() {
                 </Container>
               } />
             </Routes>
+            <Footer />
           </BrowserRouter>
         </TypoClassesProvider>
       </ThemeProvider>
