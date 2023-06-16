@@ -5,6 +5,7 @@ import {  StyledNCLTBlock, StyledUl} from "./styled.index"
 import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
 import { TableComponent } from "../../../../Comps/TableComponent";
+import { SurveyTable } from '../../comps/SurveyTable'
 
 const tabOptions = [
     { display: "Summary", value: "summary" },
@@ -100,7 +101,8 @@ export const CourtPage = ({courtType, answers = {}}) => {
             </>
             : activeTab === "survey" ?
                 <>
-                    <TableComponent config={surveyConfigHeaders2} data={courtsData}  courtType={courtType}/>
+                    <SurveyTable />
+                    {/* <TableComponent config={surveyConfigHeaders2} data={courtsData}  courtType={courtType}/> */}
                     <PaddingBottom20/>
                     <SANS_3_4 bold>How to read this Table?</SANS_3_4>
                     <StyledUl>

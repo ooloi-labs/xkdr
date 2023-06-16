@@ -9,7 +9,9 @@ export const SurveyTable = () => {
                 <StyledSurveyTableHead>
                     <tr>
                     <StyledTableHead style={{position: 'sticky', left: 0, zIndex: 10}}>
-
+                        <SANS_3 bold>
+                            Composite scores
+                        </SANS_3>
                     </StyledTableHead>
                     {Object.keys(surveyConfigHeaders).map((header) => (
                         <StyledTableHead key={header}>
@@ -23,9 +25,9 @@ export const SurveyTable = () => {
                 <tbody>
                     {Object.keys(surveyConfig).map((key) => (
                     <StyledTableRow key={key}>
-                        <StyledTableHead style={{position: 'sticky', left: 0}}>
+                        <StyledTableData style={{position: 'sticky', left: 0}}>
                             <SANS_3 bold>{key}</SANS_3>
-                        </StyledTableHead>
+                        </StyledTableData>
                         {Object.keys(surveyConfigHeaders).map((header) => ( 
                             <StyledTableData key={header}>
                                 {header === "total" ?
