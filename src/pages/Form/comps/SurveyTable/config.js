@@ -28,15 +28,15 @@ export const surveyConfig = {
         total:3.59,
         percent:71.82,
     },
-    // ADR:{
-    //     efficiency:0.73,
-    //     effectiveness:0.54,
-    //     predictability:0.73,
-    //     independence:0.73,
-    //     accessibility:0.79,	
-    //     total:3.52,
-    //     percent:70.39,
-    // },
+    ADR:{
+        efficiency:0.73,
+        effectiveness:0.54,
+        predictability:0.73,
+        independence:0.73,
+        accessibility:0.79,	
+        total:3.52,
+        percent:70.39,
+    },
     DRT:{
         efficiency:0.54,
         effectiveness:0.57,
@@ -47,13 +47,13 @@ export const surveyConfig = {
         percent:52.90,
     },
    
-    // MM:{
-    //     efficiency:0.53,
-    //     effectiveness:0.52,
-    //     predictability:0.58,
-    //     independence:0.55,
-    //     accessibility:0.54,	
-    //     total:2.71,
-    //     percent:54.22,
-    // }
+    MM:{
+        efficiency:0.53,
+        effectiveness:0.52,
+        predictability:0.58,
+        independence:0.55,
+        accessibility:0.54,	
+        total:2.71,
+        percent:54.22,
+    }
 }

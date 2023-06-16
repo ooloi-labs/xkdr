@@ -7,6 +7,9 @@ import { useState } from "react";
 import InfoCard from "../../comps/InfoCard/InfoCard";
 import { TableComponent } from "../../../../Comps/TableComponent";
 import { SurveyTable } from '../../comps/SurveyTable'
+import { InfoCard2 } from "../../comps/InfoCard/InfoCard2";
+import { useEffect } from "react";
+import { useRef } from "react";
 
 const tabOptions = [
     { display: "Summary", value: "summary" },
@@ -14,10 +17,20 @@ const tabOptions = [
     { display: "People's Experience", value: "survey" },
   ];
 
+const useRefScrollTo = () => {
+    const scrollToTop = useRef(null);
+    useEffect(() => {
+        scrollToTop.current && scrollToTop.current.scrollIntoView();
+    })
+    return scrollToTop
+}
+
 export const CourtPage = ({courtType, answers = {}}) => {
 
     const [ activeTab, setActiveTab] = useState("summary")
     const isAnswersEmpty = Object.keys(answers).length === 0
+
+    const refToTop = useRefScrollTo()
 
     const getCourtInfo = () => {
 
@@ -40,14 +53,14 @@ export const CourtPage = ({courtType, answers = {}}) => {
 
     return (
         <>
-            <div >
+            <div ref={refToTop}>
             <SANS_5_6> 
             {(isAnswersEmpty || answers?.creditorOrDebtor?.value !== 'debtor')
                     ? <>
-                        You can approch {getCourtSentence(courtType)}
+                        You can approach {getCourtSentence({courtType, smallCase: true})}
                         </>
                     : <>
-                            {getCourtSentence(courtType)}
+                            {getCourtSentence({courtType, smallCase: false})}
                         </>
             }
             </SANS_5_6>
@@ -108,6 +121,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
                         />
                 </InfoCard>
             ))}
+            <InfoCard2 setActiveTab={setActiveTab}/>
             </>
             : activeTab === "survey" ?
                 <>

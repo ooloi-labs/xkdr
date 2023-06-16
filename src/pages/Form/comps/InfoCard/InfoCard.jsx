@@ -3,6 +3,15 @@ import { SANS_3, Accordion, OKELink, PaddingBottom20, toArray} from 'oolib';
 import { StyledCardBodyWrapper, StyledCardContainer, StyledCardHeaderWrapper, StyledCardfFooterWrapper, StyledExpandedCardSection } from './styled.index'
 import { generateSentences } from './utils';
 import { CalenderX, HourGlassHigh, HourGlassHorizontal, WaveCurve, WaveTriangle } from '../../../../assets/icons/CustomIcons'
+import { useEffect } from 'react';
+
+const useRefScrollTo = () => {
+  const scrollToTop = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+      scrollToTop.current && scrollToTop.current.scrollIntoView();
+  })
+  return scrollToTop
+}
 
 const InfoCard = ({heading, info, children, courtType, cardsTitle}) => {
 
@@ -11,7 +20,7 @@ const InfoCard = ({heading, info, children, courtType, cardsTitle}) => {
   
   const [expandCard, setExapndCard] = useState(false)
   return (
-    <>
+    <div >
         <StyledCardContainer expandCard={expandCard}>
                     <StyledCardHeaderWrapper>
                                     <Icon/>
@@ -37,7 +46,7 @@ const InfoCard = ({heading, info, children, courtType, cardsTitle}) => {
                                     }
                     </StyledCardfFooterWrapper>                
         </StyledCardContainer>
-    </>
+    </div>
   )
 }
 

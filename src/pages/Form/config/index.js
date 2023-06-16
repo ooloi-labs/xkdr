@@ -80,7 +80,7 @@ export const formConfig = {
       label: "Assuming that you need help recovering a debt, What is the amount owed to you?",
       options: [
         {
-          display: "Less than Rupees 20 lac",
+          display: "Less than Rs. 20 lakhs",
           value: "lessThan20L",
           linkTo: "thisWebsiteIrrelevantPage",
           linkToProps: { 
@@ -91,7 +91,7 @@ export const formConfig = {
           }
         },
         { 
-          display: "Between Rupees 20 lac and Rs. 1 crore", 
+          display: "Between Rs. 20 lakhs and Rs. 1 crore", 
           value: "TwLToOneCr", 
           $decide: {
             decisionKey: 'creditorOrDebtor',
