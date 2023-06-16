@@ -102,13 +102,20 @@ export const CourtPage = ({courtType, answers = {}}) => {
                             : key === 'avgFirstHearing'
                                 ? 'value.totalValue'
                                 : 'value'
+
+            //                     averageDisposalTimeStringRep: '2 Y, 2 M',
+            //   timeTakenStringRep: '1 Y, 11 M',
                         }
                         categoryValuePath={'courtName'}
                         numberAxisLabel={cardsTitle[key].text}
                         highlight={'min'}
                         numLabelPath={key === 'avgFirstHearing'
                             ? 'value.stringRep'
-                            : undefined}
+                            // : key === 'averageDisposalTime'
+                            //     ? 'averageDisposalTimeStringRep'
+                            //     : key === 'timeTaken'
+                            //         ? 'timeTakenStringRep'
+                                    : undefined }
                         width={450}
                         height={100}
                         />

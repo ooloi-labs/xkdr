@@ -91,7 +91,7 @@ export const Form = () => {
       <Wrapper800 style={{ backgroundColor: colors.white, height: "100%", display: 'flex', position: 'relative'}}>
         <StyledPageContentsWrapper>
           <div>
-            <ProgressBar />
+            {/* <ProgressBar /> */}
             <PaddingBottom30 />
             {
                 formConfig[pageMemory.activePageId].pageType === 'endPage'
