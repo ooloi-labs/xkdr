@@ -158,7 +158,7 @@ export const formConfig = {
 export const courtsData = {
   bombayHC: {
       shortTitle: 'Bombay HC',
-      courtTitle: 'Bombay HC',
+      courtTitle: 'Bombay Hght Court',
       data: {
               // basedData: '"4,800 cases filed"',
               averageDisposalTime:26,

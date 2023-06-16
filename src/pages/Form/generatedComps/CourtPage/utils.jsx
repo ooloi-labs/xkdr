@@ -22,7 +22,7 @@ export const getCourtSentence = (courtType) => {
     } else if (courtCount === 3) {
       return (
         <>
-          the <StyledBoldSpan>{courtTitles[0]}</StyledBoldSpan> the <StyledBoldSpan>{courtTitles[1]}</StyledBoldSpan> (<StyledBoldSpan>{shortTitles[1]}</StyledBoldSpan>) or the {<StyledBoldSpan>{courtTitles[2]}</StyledBoldSpan>} (<StyledBoldSpan>{shortTitles[2]}</StyledBoldSpan>)
+          the <StyledBoldSpan>{courtTitles[0]}</StyledBoldSpan>, the <StyledBoldSpan>{courtTitles[1]}</StyledBoldSpan> (<StyledBoldSpan>{shortTitles[1]}</StyledBoldSpan>) or the {<StyledBoldSpan>{courtTitles[2]}</StyledBoldSpan>} (<StyledBoldSpan>{shortTitles[2]}</StyledBoldSpan>)
         </>
       ) 
     }
