@@ -22,7 +22,7 @@ const theme = {
 function App() {
   return (
     <div>
-      <ThemeProvider theme={{theme}}>
+      <ThemeProvider theme={{}}>
         <TypoClassesProvider>
           <GlobalStyles />
           <BrowserRouter>

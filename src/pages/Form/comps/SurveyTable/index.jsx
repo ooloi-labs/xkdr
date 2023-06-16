@@ -9,13 +9,13 @@ export const SurveyTable = () => {
                 <StyledSurveyTableHead>
                     <StyledTableRow>
                     <StyledTableHead style={{position: 'sticky', left: 0, zIndex: 10}}>
-                        <SANS_3 bold>
+                        <SANS_3 bold color={"#F54C31"}>
                             Composite scores
                         </SANS_3>
                     </StyledTableHead>
                     {Object.keys(surveyConfigHeaders).map((header) => (
                         <StyledTableHead key={header}>
-                            <SANS_3 bold>
+                            <SANS_3 bold color={"#F54C31"}>
                                 {surveyConfigHeaders[header]}
                             </SANS_3>
                         </StyledTableHead>
