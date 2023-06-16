@@ -1,5 +1,5 @@
 import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart, OKELink } from "oolib"
-import { cardsTitle, courtsData, courtDataTableHeadersConfig } from "./config"
+import { cardsTitle, courtsData, courtDataTableHeadersConfig, courtDataTableHeadersConfig2 } from "./config"
 import { generateTableCellText, getCourtSentence } from "./utils";
 import {  StyledNCLTBlock, StyledTableRow} from "./styled.index"
 import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
@@ -39,7 +39,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
     };
 
     const courtInfo = getCourtInfo();
-    // console.log({courtInfo, courtType})
+
     return (
         <>
             <div >
@@ -77,6 +77,8 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 />
             }
             {activeTab === "data" ?
+                <>
+                <TableComponent data={courtsData} config={courtDataTableHeadersConfig2} courtType={courtType}/>
                 <StyledTable>
                 <thead>
                     <tr>
@@ -116,6 +118,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
                             })}
                 </tbody>
             </StyledTable>
+            </>
             : 
             activeTab === "summary" ? 
             <>
@@ -146,7 +149,6 @@ export const CourtPage = ({courtType, answers = {}}) => {
                 <SurveyTable />
             : null
             } 
-            <TableComponent /> 
         </div>
         </>
 )

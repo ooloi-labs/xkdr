@@ -25,14 +25,59 @@ export const cardsTitle = {
     }
 }
 
-
 export const courtDataTableHeadersConfig = {
-    averageDisposalTime: "Average duration of a case from filing",
-    numOfHearings: "Average number of hearings",
-    avgFirstHearing: "Average time from filing to first hearing",    
-    timeTaken: "Time taken from filing for 50% of the cases",
-    freqOfHearings:"Frequency of hearings ",
+        averageDisposalTime: "Average duration of a case from filing",
+        numOfHearings: "Average number of hearings",
+        avgFirstHearing: "Average time from filing to first hearing",    
+        timeTaken: "Time taken from filing for 50% of the cases",
+        freqOfHearings:"Frequency of hearings ",
 }
+
+export const courtDataTableHeadersConfig2 = {
+    veritcalHeaderKeys: {
+        valuePath: 'data',
+        keys:{
+            averageDisposalTime: "Average duration of a case from filing",
+            numOfHearings: "Average number of hearings",
+            avgFirstHearing: "Average time from filing to first hearing",    
+            timeTaken: "Time taken from filing for 50% of the cases",
+            freqOfHearings:"Frequency of hearings ",
+        }
+    },
+    horizontalHeaderKeys: {
+        valuePath: 'courtTitle',
+        keys:{
+            bombayHC:'bombayHC',
+            DRT:'DRT',
+            NCLT:'NCLT'
+        }
+    },
+    cornerLabel: 'Metrics' 
+}
+
+export const surveyConfigHeaders2 = {
+    valuePath: 'data',
+    veritcalHeaderKeys: {
+        valuePath: 'data',
+        keys:{
+            averageDisposalTime: "Average duration of a case from filing",
+            numOfHearings: "Average number of hearings",
+            avgFirstHearing: "Average time from filing to first hearing",    
+            timeTaken: "Time taken from filing for 50% of the cases",
+            freqOfHearings:"Frequency of hearings ",
+        }
+    },
+    horizontalHeaderKeys: {
+        valuePath: 'courtTitle',
+        keys:{
+            bombayHC:'bombayHC',
+            DRT:'DRT',
+            NCLT:'NCLT'
+        }
+    },
+    cornerLabel: 'Metrics' 
+}
+
 
 export const surveyConfigHeaders = {
     compositeScores:"Composite scores",
@@ -50,12 +95,6 @@ export const courtsData = {
         courtTitle: 'Bombay HC',
         data: {
                 // basedData: '"4,800 cases filed"',
-                // averageDisposal: '2 years 2 months',
-                // fiftyPercent: '1 year 11 months',
-                // averageHearing: '3 hearings',
-                // freqOfHearings: '1 hearing every 6 months',
-                // averageFirstHering: '9 months'
-
                 averageDisposalTime:26,
                 timeTaken:23,
                 numOfHearings:3,
@@ -88,12 +127,6 @@ export const courtsData = {
         courtTitle: 'Debts Recovery Tribunal',
         data: {
                 // basedData: '"4,800 cases filed"',
-                // averageDisposal:'2 years 8 months',
-                // fiftyPercent: '1 year 3 months',
-                // averageHearing: '3 hearings',
-                // freqOfHearings: '1 hearing every 6 months',
-                // averageFirstHering: '1 year 6 months',
-
                 averageDisposalTime:32,
                 timeTaken:15,
                 numOfHearings:3,
@@ -126,12 +159,6 @@ export const courtsData = {
         courtTitle: 'National Company Law Tribunal',
         data: {
                 // basedData: '"10,800 cases filed"',
-                // averageDisposal: '1 year 8 months',
-                // fiftyPercent: '1 year 6 months',
-                // averageHearing:  '7 hearings',
-                // freqOfHearings: '1 hearing every 1.5 months',
-                // averageFirstHering:'1 year 12 days'
-
                 averageDisposalTime:20,
                 timeTaken:18,
                 numOfHearings:7,
