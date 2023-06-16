@@ -20,6 +20,7 @@ export const StyledTableHead = styled.th`
     top: 0;
     padding: 2rem;
     background: #FEF6F5;
+    text-align: left;
     /* height: 10rem; */
 `
 
