@@ -40,9 +40,7 @@ export const CourtPage = ({courtType, answers = {}}) => {
     return (
         <>
             <div >
-            <SANS_5_6>
             {getCourtSentence(courtType)}
-            </SANS_5_6>
             <PaddingBottom20 />
             {(isAnswersEmpty || answers?.creditorOrDebtor?.value !== 'debtor') &&
                 <>
