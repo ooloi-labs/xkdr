@@ -1,5 +1,5 @@
 import {  PaddingBottom20, SANS_3, SANS_3_4, SANS_4_5, SANS_5_6, colors, toArray, TabBarStyle2, Tooltip, BarChart, OKELink } from "oolib"
-import { cardsTitle, courtsData, courtDataTableHeadersConfig, courtDataTableHeadersConfig2 } from "./config"
+import { cardsTitle, courtsData, courtDataTableHeadersConfig, courtDataTableHeadersConfig2, surveyConfigHeaders2 } from "./config"
 import { generateTableCellText, getCourtSentence } from "./utils";
 import {  StyledNCLTBlock, StyledTableRow} from "./styled.index"
 import { StyledTable, StyledTableHead, StyledTableData} from "./styled.index"
@@ -49,11 +49,6 @@ export const CourtPage = ({courtType, answers = {}}) => {
             <PaddingBottom20 />
                 <>
                 <SANS_3_4>If your dispute involves bounced cheque(s), then you could also approach the Metropolitan Magistrate courts.</SANS_3_4>
-                {/* <SANS_3 semibold>
-                    <OKELink invertUnderline to={``}>
-                        Click here for more info
-                    </OKELink>
-                </SANS_3>  */}
                 <PaddingBottom20/>
                 </>
             {toArray(courtType).includes('NCLT') &&
@@ -146,7 +141,8 @@ export const CourtPage = ({courtType, answers = {}}) => {
             ))}
             </>
             : activeTab === "survey" ?
-                <SurveyTable />
+                // <SurveyTable />
+                <TableComponent config={surveyConfigHeaders2} data={courtsData}/>
             : null
             } 
         </div>

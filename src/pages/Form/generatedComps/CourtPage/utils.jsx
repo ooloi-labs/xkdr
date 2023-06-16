@@ -34,7 +34,7 @@ export const convertMonthsToYearString = (months) => {
   return result.trim();
 }
 
-export const generateTableCellText = ({text, key=undefined}) => {
+export const generateTableCellText = ({text, key}) => {
   if(key){
     switch(key){
         case 'averageDisposalTime':
@@ -52,9 +52,7 @@ export const generateTableCellText = ({text, key=undefined}) => {
         case 'avgFirstHearing':
             return text?.stringRep
         default:
-            return null    
+            return text    
     }
-  }else if(typeof text === 'string'){
-    return text
   }
 }  

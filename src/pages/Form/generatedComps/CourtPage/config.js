@@ -56,26 +56,27 @@ export const courtDataTableHeadersConfig2 = {
 }
 
 export const surveyConfigHeaders2 = {
-    valuePath: 'data',
     veritcalHeaderKeys: {
-        valuePath: 'data',
+        valuePath: 'surveyData',
         keys:{
-            averageDisposalTime: "Average duration of a case from filing",
-            numOfHearings: "Average number of hearings",
-            avgFirstHearing: "Average time from filing to first hearing",    
-            timeTaken: "Time taken from filing for 50% of the cases",
-            freqOfHearings:"Frequency of hearings ",
+            compositeScores:"Composite scores",
+            efficiency:"Efficiency",
+            effectiveness:"Effectiveness",
+            predictability:"Predictability",
+            independence:"Independence",	
+            accessibility:"Accessibility",
+            total:"Total %",
         }
     },
     horizontalHeaderKeys: {
-        valuePath: 'courtTitle',
+        valuePath: 'shortTitle',
         keys:{
             bombayHC:'bombayHC',
             DRT:'DRT',
             NCLT:'NCLT'
         }
     },
-    cornerLabel: 'Metrics' 
+    cornerLabel: '' 
 }
 
 
